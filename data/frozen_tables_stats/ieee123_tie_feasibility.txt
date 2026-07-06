@@ -1,0 +1,11 @@
+IEEE 123-node feeder tie feasibility summary
+source=line data.xls + switch data.xls
+line_edges=118
+closed_switches=6
+open_switches=5
+loop_forming_open_switches=2
+loop_forming_list=54-94; 151-300
+non_loop_forming_open_switches=3
+non_loop_forming_list=250-251; 450-451; 300-350
+boundary=In the current raw feeder123 package, only open switches whose endpoints are already connected create candidate topology loops for the exact-comparable library.
+boundary=Therefore the local IEEE 123-node raw asset does not yet provide a richer topology space than the present main-chain exact-comparable benchmarks without further switching-model construction.

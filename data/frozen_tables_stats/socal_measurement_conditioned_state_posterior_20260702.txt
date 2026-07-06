@@ -1,0 +1,37 @@
+SoCal measurement-conditioned topology-state posterior audit
+date=2026-07-02
+role=synchronized real-measurement posterior audit with forward-filled public topology-state labels
+not_claimed=utility-grade field posterior benchmark or independent ground-truth deployment
+device=cpu
+window_utc=2024-11-14T07:00:00 to 2024-11-14T07:30:42
+measurement_rows=1843
+feature_columns=mains_v frequency rms magnitude_harmonic_0 magnitude_harmonic_1 magnitude_harmonic_2
+unique_states=5
+state_counts
+state_id,count,signature
+0,540,cb_121:NO cb_123:NO cb_128:NC swmp_17-2:NO
+1,665,cb_121:NC cb_123:NO cb_128:NC swmp_17-2:NO
+2,16,cb_121:NC cb_123:NC cb_128:NC swmp_17-2:NO
+3,621,cb_121:NC cb_123:NC cb_128:NO swmp_17-2:NO
+4,1,cb_121:NC cb_123:NC cb_128:NO swmp_17-2:NC
+trainable_states=0 1 2 3
+excluded_states_due_to_low_support=4
+blocked_cv_folds=5
+seeds=42 123 456
+majority_baseline_acc=0.3610
+overall_blocked_cv_acc=0.7476
+overall_macro_f1=0.7196
+overall_ece=0.1904
+overall_brier=0.4512
+fold_metrics
+fold,train_n,test_n,ensemble_acc,macro_f1,ece,brier
+0,1472,370,0.5946,0.5733,0.3765,0.7739
+1,1474,368,0.8614,0.8867,0.1217,0.2637
+2,1474,368,0.8587,0.8923,0.0810,0.1943
+3,1474,368,0.8098,0.7429,0.1622,0.3608
+4,1474,368,0.6141,0.5602,0.3252,0.6618
+event_posterior_shift_120s
+device,event_utc,pre_state,post_state,pre_n,post_n,mean_pre_state_prob,mean_post_state_prob,post_state_prob_gain
+cb_121,2024-11-14T07:09:00,0,1,120,121,0.89093083,0.08350363,-0.020972893
+cb_123,2024-11-14T07:20:05,1,2,120,121,0.23044059,0.16809596,0.0904074
+cb_128,2024-11-14T07:20:21,2,3,120,121,0.20554084,0.65870094,0.09359467

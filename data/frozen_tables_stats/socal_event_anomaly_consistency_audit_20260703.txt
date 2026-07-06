@@ -1,0 +1,46 @@
+SoCal real-event anomaly and consistency audit
+date=2026-07-03
+role=stable-state posterior replay over the synchronized real window with event-level anomaly and consistency scoring
+not_claimed=field deployment; independent utility alarm labels
+window_utc=2024-11-14T07:00:00 to 2024-11-14T07:30:42
+measurement_rows=1843
+feature_dim=460
+stable_training_buffer_sec=60
+evaluation_half_window_sec=30
+stable_states=0 1 3
+stable_train_rows=1524
+candidate_rows=1783
+far_non_event_rows=1344
+event_score_baseline
+baseline_event_score_p95=0.388046
+baseline_event_score_p99=0.500343
+event_vs_far_non_event_auc=0.7941
+events_above_p95=0/3
+events_above_p99=0/3
+topology_event_score_baseline
+baseline_topology_event_score_p95=0.100305
+baseline_topology_event_score_p99=0.105212
+topology_event_vs_far_non_event_auc=1.0000
+topology_events_above_p95=3/3
+topology_events_above_p99=3/3
+event_rows
+device,event_utc,event_score,topology_event_score,posterior_tv,posterior_js,entropy_jump,residual_jump,measurement_shift_absz,score_percentile_vs_far_non_event,topology_score_percentile_vs_far_non_event
+cb_121,2024-11-14T07:09:00,0.321097,0.250067,0.078067,0.008577,0.172533,2.839787,1.668648,0.8981,1.0000
+cb_123,2024-11-14T07:20:05,0.171654,0.160113,0.056287,0.002031,-0.013031,1.863380,0.981526,0.5804,1.0000
+cb_128,2024-11-14T07:20:21,0.325172,0.270769,0.114955,0.008073,0.126969,0.621151,2.939522,0.9040,1.0000
+baseline_means
+event_score_far_non_event_mean=0.174460
+event_score_event_mean=0.272641
+topology_event_score_far_non_event_mean=0.029485
+topology_event_score_event_mean=0.226983
+posterior_tv_far_non_event_mean=0.000238
+posterior_tv_event_mean=0.083103
+posterior_js_far_non_event_mean=0.000051
+posterior_js_event_mean=0.006227
+entropy_jump_far_non_event_mean=-0.000204
+entropy_jump_event_mean=0.095490
+residual_jump_far_non_event_mean=1.437037
+residual_jump_event_mean=1.774773
+measurement_shift_absz_far_non_event_mean=3.452395
+measurement_shift_absz_event_mean=1.863232
+elapsed_sec=17.6

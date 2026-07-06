@@ -1,0 +1,32 @@
+{
+  "title": "Exact-comparable posterior contract for decision-ready distribution-network topology identification: code, figure source data, and result manifests",
+  "upload_type": "software",
+  "description": "Code, figure source data, frozen result manifests, and audit notes supporting a manuscript on exact-comparable posterior screening for distribution-network topology identification.",
+  "creators": [
+    {
+      "name": "Liu, Zixuan",
+      "affiliation": "Detroit Green Technology Institute, Hubei University of Technology"
+    },
+    {
+      "name": "Xiong, Wei",
+      "affiliation": "School of Electrical and Electronic Engineering, Hubei University of Technology; Department of Computer Science and Engineering, University of South Carolina"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "distribution network",
+    "topology identification",
+    "neural posterior estimation",
+    "Bayesian experimental design",
+    "missing telemetry",
+    "posterior calibration",
+    "power systems"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/niubisile-wq/exact-comparable-posterior-dnti",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

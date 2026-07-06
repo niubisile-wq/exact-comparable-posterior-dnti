@@ -1,0 +1,32 @@
+IEEE123 controlled three-phase redundant-measurement attack
+date=2026-07-02
+device=cuda
+n_bus=125
+n_topologies=38
+raw_topologies=38
+failed_power_flows=0
+role=raw-asset-derived controlled unbalanced exact-comparability benchmark
+not_claimed=utility field validation or NRE speedup
+exact_curve
+K,exact_top1
+30,0.7033
+45,0.7883
+60,0.8500
+75,0.8842
+attack_K=60
+final_samples=1200
+seed,exact_top1,nre_top1,gap,exact_agree,truth_top3,truth_top5,truth_top10,truth_top20,rerank3,rerank5,rerank10,rerank20,checkpoint
+42,0.8650,0.8483,0.0167,0.9108,1.0000,1.0000,1.0000,1.0000,0.8733,0.8733,0.8733,0.8733,nre_ieee123_3ph_K60_redundant_seed42_20260702.pt
+123,0.8650,0.8433,0.0217,0.8975,1.0000,1.0000,1.0000,1.0000,0.8683,0.8683,0.8683,0.8683,nre_ieee123_3ph_K60_redundant_seed123_20260702.pt
+456,0.8650,0.8458,0.0192,0.8442,1.0000,1.0000,1.0000,1.0000,0.8642,0.8642,0.8642,0.8642,nre_ieee123_3ph_K60_redundant_seed456_20260702.pt
+mean_exact_top1=0.8650
+mean_nre_top1=0.8458
+mean_exact_agree=0.8842
+mean_truth_in_top3=1.0000
+mean_truth_in_top5=1.0000
+mean_truth_in_top10=1.0000
+mean_truth_in_top20=1.0000
+mean_rerank3_top1=0.8686
+mean_rerank5_top1=0.8686
+mean_rerank10_top1=0.8686
+mean_rerank20_top1=0.8686

@@ -1,0 +1,25 @@
+SoCal measurement-conditioned event posterior trajectory audit
+date=2026-07-03
+role=real switch-event trajectory evidence over synchronized measurement posterior
+not_claimed=independent held-out benchmark; state_4 excluded due to single synchronized sample
+window_utc=2024-11-14T07:00:00 to 2024-11-14T07:30:42
+measurement_rows=1842
+feature_dim=460
+trainable_states=0 1 2 3
+ensemble_models_per_seed=3
+seeds=42 123
+event_window_metrics
+device,event_utc,pre_state,post_state,window_sec,pre_n,post_n,pre_true_state_mass,post_true_state_mass,pre_top1_match,post_top1_match
+cb_121,2024-11-14T07:09:00,0,1,30,30,31,0.9916,0.9862,1.0000,1.0000
+cb_121,2024-11-14T07:09:00,0,1,60,60,61,0.9955,0.9916,1.0000,1.0000
+cb_121,2024-11-14T07:09:00,0,1,180,180,181,0.9976,0.9966,1.0000,1.0000
+event_switch_delay_sec,cb_121,2024-11-14T07:09:00,0.000
+cb_123,2024-11-14T07:20:05,1,2,30,30,31,0.9927,0.5192,1.0000,0.5161
+cb_123,2024-11-14T07:20:05,1,2,60,60,61,0.9957,0.2638,1.0000,0.2623
+cb_123,2024-11-14T07:20:05,1,2,180,180,181,0.9981,0.0889,1.0000,0.0884
+event_switch_delay_sec,cb_123,2024-11-14T07:20:05,0.000
+cb_128,2024-11-14T07:20:21,2,3,30,30,31,0.5319,0.9863,0.5333,1.0000
+cb_128,2024-11-14T07:20:21,2,3,60,60,61,0.2660,0.9922,0.2667,1.0000
+cb_128,2024-11-14T07:20:21,2,3,180,180,181,0.0887,0.9968,0.0889,1.0000
+event_switch_delay_sec,cb_128,2024-11-14T07:20:21,0.000
+elapsed_sec=87.1

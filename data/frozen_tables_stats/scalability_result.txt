@@ -1,0 +1,5 @@
+Step 5 scalability summary
+system,n_bus,n_topologies,IP1_acc_mean,IPC_acc30_mean,NRE_ms_mean,Exact_ms_mean,Speedup_mean
+synthetic_300bus,300,200,0.4938,0.2687,0.004806,0.184350,40.2
+total_elapsed_sec=720.6
+Boundary: synthetic mid-scale fixed-deployment scalability evidence only; do not claim real utility full-scale validation.

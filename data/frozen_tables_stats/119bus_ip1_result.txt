@@ -1,0 +1,8 @@
+119-BUS IP1 Results: 107 topos, K=25, lf~U(0.8,1.2), 100k steps
+seed=42: EnumBF=0.528  NRE=0.424  gap=0.104  KL=0.3962
+seed=123: EnumBF=0.528  NRE=0.435  gap=0.093  KL=0.3907
+seed=456: EnumBF=0.528  NRE=0.407  gap=0.121  KL=0.4046
+seed=789: EnumBF=0.528  NRE=0.410  gap=0.118  KL=0.4097
+seed=2024: EnumBF=0.528  NRE=0.419  gap=0.109  KL=0.4267
+Mean gap=0.109+/-0.010  speedup=3762x
+Wilcoxon p=0.0312 *  n=5

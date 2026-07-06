@@ -1,0 +1,16 @@
+BOED 33-bus N_MC=500 (vs N_MC=100 reference)
+N_TEST=500  K_MAX=12
+K= 1: BOED=0.146  MVG=0.162  Random=0.110  Greedy=0.110  delta=-0.016
+K= 2: BOED=0.284  MVG=0.306  Random=0.192  Greedy=0.172  delta=-0.022
+K= 3: BOED=0.462  MVG=0.466  Random=0.268  Greedy=0.240  delta=-0.004
+K= 4: BOED=0.616  MVG=0.642  Random=0.294  Greedy=0.290  delta=-0.026
+K= 5: BOED=0.714  MVG=0.700  Random=0.334  Greedy=0.330  delta=+0.014
+K= 6: BOED=0.744  MVG=0.718  Random=0.414  Greedy=0.358  delta=+0.026
+K= 7: BOED=0.752  MVG=0.754  Random=0.418  Greedy=0.364  delta=-0.002
+K= 8: BOED=0.770  MVG=0.754  Random=0.424  Greedy=0.378  delta=+0.016
+K= 9: BOED=0.786  MVG=0.764  Random=0.442  Greedy=0.432  delta=+0.022
+K=10: BOED=0.810  MVG=0.780  Random=0.478  Greedy=0.456  delta=+0.030
+K=11: BOED=0.816  MVG=0.776  Random=0.484  Greedy=0.484  delta=+0.040
+K=12: BOED=0.820  MVG=0.794  Random=0.534  Greedy=0.512  delta=+0.026
+K=4: BOED=0.616 MVG=0.642 delta=-0.026
+K=7: BOED=0.752 MVG=0.754 delta=-0.002

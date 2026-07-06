@@ -1,0 +1,134 @@
+================================================================================
+Step5 Unified Ablation and Baseline Tables - Current Traceability Draft
+Updated: 2026-07-02
+Source: master_summary.txt and verified result files
+Boundary: this table fixes stale numbers, but it is not the final Q1-ready
+baseline table until GraphSAGE, 119-bus closure, robustness boundaries, and
+300-bus scalability are completed.
+================================================================================
+
+Table 1. IP1 posterior inference comparison
+--------------------------------------------------------------------------------
+Method                          33-bus top-1      69-bus top-1      Notes
+--------------------------------------------------------------------------------
+EnumBF / exact posterior         72.1% +/- 0.0%     40.2% +/- 0.0%   reference
+DNN-fixed-lf baseline            22.3% +/- 0.3%     19.5% +/- 0.3%   point estimate
+NRE-variable-lf (IP1)            68.2% +/- 0.8%     35.9% +/- 1.0%   posterior
+
+Speed:
+  33-bus NRE speedup: 1176x
+  69-bus NRE speedup: 3302x
+
+Notes:
+  - EnumBF means exact enumeration / exact posterior in the enumerable topology
+    space. Do not describe it as Xu-style AIS in the paper.
+  - NRE provides a posterior distribution, not only a top-1 class.
+
+================================================================================
+
+Table 2. IP-A sensor placement comparison: top-1 accuracy
+--------------------------------------------------------------------------------
+Strategy            33-bus K=4   33-bus K=7   69-bus K=4   69-bus K=7
+--------------------------------------------------------------------------------
+Random                 29.4%         41.8%         19.0%         24.0%
+GreedyLoop             29.0%         36.4%         15.5%         24.0%
+MVG                    64.2%         75.4%         42.0%         66.5%
+BOED / IP-A            61.6%         75.2%         44.5%         71.5%
+
+Notes:
+  - 33-bus: BOED is comparable to MVG; MVG is slightly better at K=4 and almost
+    tied at K=7.
+  - 69-bus: BOED leads MVG at K=4 and K=7.
+  - Current defensible claim: BOED is comparable to MVG on 33-bus and stronger
+    on the 69-bus case. Do not generalize this into a complexity trend until
+    119-bus and/or 300-bus evidence confirms it.
+
+Sources:
+  boed_33bus_nmc500_result.txt
+  boed_69bus_result.txt
+  step5_mvg_result.txt
+
+================================================================================
+
+Table 3. IP-C robustness to missing measurements
+--------------------------------------------------------------------------------
+Network / Method                  miss=0%        miss=10%        miss=30%
+--------------------------------------------------------------------------------
+33-bus naive NRE                  67.0%          40.1%           10.1%
+33-bus robust NRE / IP-C          68.7%          65.3% +/-0.6%   61.3% +/-0.5%
+33-bus delta                      +1.7pp         +25.2pp         +51.2pp
+
+69-bus naive NRE                  36.3%          20.8%            7.3%
+69-bus robust NRE / IP-C          36.0% +/-1.5%  32.7% +/-0.9%   30.6% +/-0.6%
+69-bus delta                      -0.3pp         +11.9pp         +23.3pp
+
+Notes:
+  - 69-bus values are updated from the previous stale n=3 table.
+  - Use n=5 values from ipc_69bus_5seed_result.txt.
+
+Sources:
+  ipc_33bus_n8_result.txt
+  ipc_69bus_5seed_result.txt
+  ipc_69bus_n8_result.txt
+
+================================================================================
+
+Table 4. IP4 identifiability at K=8
+--------------------------------------------------------------------------------
+Network                         H(K=8)       top-1(K=8)       K_lower
+--------------------------------------------------------------------------------
+33-bus (32 topologies)           1.184          52.7%             2
+69-bus (60 topologies)           2.105          27.0%             2
+119-bus (100 topologies)         2.610          30.2%             4
+
+Source:
+  ip4_hk_result_v5.txt
+
+================================================================================
+
+Table 5. Wilcoxon tests and BH-FDR correction
+--------------------------------------------------------------------------------
+Comparison                                      Delta mean       p_raw     n
+--------------------------------------------------------------------------------
+IP1-33bus: EnumBF > NRE gap                     +3.9pp +/-0.8pp  0.0312   5
+IP1-69bus: EnumBF > NRE gap                     +4.3pp +/-1.0pp  0.0312   5
+IP-C-33bus: robust > naive @ miss=10%           +25.2pp          0.0312   5
+IP-C-33bus: robust > naive @ miss=30%           +51.2pp          0.0312   5
+IP-C-69bus: robust > naive @ miss=10%           +11.9pp          0.0312   5
+IP-C-69bus: robust > naive @ miss=30%           +23.3pp          0.0312   5
+
+Multiple-comparison correction:
+  BH-FDR q=0.05: 6/6 supported under planned directional comparisons
+  Holm-Bonferroni: 0/6 supported; no family-wise significance claim
+
+Paper wording:
+  Report raw p, effect size, and BH-FDR. State that Holm/Bonferroni does not
+  reject any comparison at family-wise alpha=0.05 with n=5, because the minimum
+  one-sided Wilcoxon p-value is 1/2^5 = 0.03125.
+
+Sources:
+  step4_wilcoxon_result.txt
+  bhfdr_result.txt
+
+================================================================================
+
+Table 6. Preliminary three-phase extension
+--------------------------------------------------------------------------------
+System                         EnumBF       NRE mean gap        Speedup
+--------------------------------------------------------------------------------
+10-bus / 9 topologies / K=6     38.4%        6.4pp +/-2.4pp      413998x
+
+Source:
+  step6_3ph_result.txt
+
+Boundary:
+  Use as a preliminary extension only. Do not claim full-scale unbalanced feeder
+  validation.
+
+================================================================================
+
+Known missing baseline:
+  GraphSAGE is not completed yet. It is Step 2 in the new execution plan and
+  must be added before submission.
+
+================================================================================

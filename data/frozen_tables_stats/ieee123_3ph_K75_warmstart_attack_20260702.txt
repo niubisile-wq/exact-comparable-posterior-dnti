@@ -1,0 +1,35 @@
+IEEE123 controlled three-phase K75 warm-start redundant-measurement attack
+date=2026-07-02
+device=cpu
+n_bus=125
+n_topologies=38
+raw_topologies=38
+failed_power_flows=0
+role=raw-asset-derived controlled unbalanced exact-comparability benchmark
+method=K60_checkpoint_warmstart_then_K75_finetune
+not_claimed=utility field validation or NRE speedup
+exact_curve
+K,exact_top1
+30,0.7084
+45,0.7844
+60,0.8560
+75,0.8992
+attack_K=75
+validation_samples=900
+final_samples=1500
+seed,warmstart,best_step,exact_top1,nre_top1,gap,exact_agree,truth_top3,truth_top5,truth_top10,truth_top20,rerank3,rerank5,rerank10,rerank20,train_sec,checkpoint
+42,nre_ieee123_3ph_K60_redundant_seed42_20260702.pt,5000,0.8967,0.8613,0.0353,0.8927,1.0000,1.0000,1.0000,1.0000,0.8987,0.8987,0.8987,0.8987,295.8,nre_ieee123_3ph_K75_warmstart_seed42_20260702.pt
+123,nre_ieee123_3ph_K60_redundant_seed123_20260702.pt,3000,0.8967,0.8493,0.0473,0.8667,1.0000,1.0000,1.0000,1.0000,0.8880,0.8880,0.8880,0.8880,279.5,nre_ieee123_3ph_K75_warmstart_seed123_20260702.pt
+456,nre_ieee123_3ph_K60_redundant_seed456_20260702.pt,2000,0.8967,0.8513,0.0453,0.8480,1.0000,1.0000,1.0000,1.0000,0.8867,0.8867,0.8867,0.8867,290.5,nre_ieee123_3ph_K75_warmstart_seed456_20260702.pt
+mean_exact_top1=0.8967
+mean_nre_top1=0.8540
+mean_exact_agree=0.8691
+mean_truth_in_top3=1.0000
+mean_truth_in_top5=1.0000
+mean_truth_in_top10=1.0000
+mean_truth_in_top20=1.0000
+mean_rerank3_top1=0.8911
+mean_rerank5_top1=0.8911
+mean_rerank10_top1=0.8911
+mean_rerank20_top1=0.8911
+elapsed_sec=888.3

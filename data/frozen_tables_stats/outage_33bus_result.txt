@@ -1,0 +1,18 @@
+Step 3 outage-induced missing experiment: 33-bus IP-C
+seeds=[42, 123, 456, 789, 2024, 500, 1000, 1500]
+n_eval=2000, K=20, sigma=0.009
+Scenario definition: randomly choose one predefined feeder branch and drop all installed sensors on its downstream island.
+This is structured measurement loss, not feeder-fault diagnosis or topology-change localization.
+scenario_hits=line_15_16:328,line_2_19:347,line_30_31:321,line_3_23:320,line_6_26:337,line_9_10:347
+seed,rob,naive,delta,mean_missing,max_missing
+42,0.6360,0.3235,0.3125,3.16,9
+123,0.6310,0.3235,0.3075,3.16,9
+456,0.6315,0.3235,0.3080,3.16,9
+789,0.6270,0.3235,0.3035,3.16,9
+2024,0.6280,0.3235,0.3045,3.16,9
+500,0.6300,0.3235,0.3065,3.16,9
+1000,0.6260,0.3235,0.3025,3.16,9
+1500,0.6280,0.3235,0.3045,3.16,9
+summary,0.6297,0.3235,0.3062,delta_min=0.3025,all_delta_positive=True,mean_missing=3.16,max_missing=9
+gate_outage_direction_supports_ipc=True
+Boundary: claim only unified handling of outage-induced missing measurements.

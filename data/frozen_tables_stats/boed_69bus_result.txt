@@ -1,0 +1,55 @@
+========================================================================
+IP-A AIS-BOED 69-bus RESULTS (Variable Load lf~U(0.8,1.2))
+N_TEST=200, N_MC=100, N_LF_C=11, K_MAX=12, time=1438s
+========================================================================
+
+Top-1 Accuracy:
+   K    BOED_AIS      Random    GreedyLoop
+------------------------------------------
+   1       0.105       0.120         0.100
+   2       0.195       0.135         0.130
+   3       0.335       0.155         0.130
+   4       0.445       0.190         0.155
+   5       0.540       0.180         0.230
+   6       0.655       0.205         0.240
+   7       0.715       0.240         0.240
+   8       0.730       0.255         0.235
+   9       0.755       0.255         0.250
+  10       0.775       0.275         0.270
+  11       0.780       0.280         0.310
+  12       0.780       0.290         0.325
+
+Posterior Entropy H(K) [lower=more informative]:
+   K    BOED_AIS      Random    GreedyLoop
+------------------------------------------
+   1       3.183       3.501         3.586
+   2       2.634       3.190         3.292
+   3       2.078       2.998         3.171
+   4       1.626       2.873         2.813
+   5       1.196       2.688         2.450
+   6       0.939       2.535         2.350
+   7       0.782       2.409         2.350
+   8       0.693       2.314         2.286
+   9       0.616       2.237         2.120
+  10       0.581       2.119         2.034
+  11       0.548       2.080         1.905
+  12       0.534       1.991         1.876
+
+BOED sensor savings:
+  20% acc: BOED@K=3  Random@K=6  Greedy@K=5  → saves 3 sensors
+  30% acc: BOED@K=3  Random@never  Greedy@K=11
+  40% acc: BOED@K=4  Random@never  Greedy@never
+
+Gate: BOED_AIS > Random at K=4 and K=7?
+  K=4: BOED=0.445 vs Random=0.190 → PASS
+  K=7: BOED=0.715 vs Random=0.240 → PASS
+  Overall: PASS
+
+Most frequently selected nodes (BOED):
+  Step 1: node26(80), node64(41), node25(21)
+  Step 2: node57(22), node26(17), node45(15)
+  Step 3: node45(23), node26(16), node44(12)
+  Step 4: node45(17), node1(10), node49(10)
+  Step 5: node1(16), node64(12), node45(10)
+  Step 6: node2(16), node49(10), node64(9)
+========================================================================

@@ -1,0 +1,94 @@
+Risk closure matrix
+Date: 2026-07-02 (updated after three-phase suite and SoCal measurement-library additions)
+
+Scope
+  This matrix separates:
+    1. risks closed by direct positive evidence,
+    2. risks closed by bounded negative evidence or feasibility audit,
+    3. risks still blocked only by missing external data or user metadata.
+
+Closed by direct evidence
+  - Scale / benchmark maturity
+    Evidence: 33/69/119-bus main chain, synthetic 300-bus scalability,
+    reconfig_fullscale_stress_result.txt, reconfig_exactpilot_result.txt,
+    ieee123_native_pilot_result.txt.
+    Status: CLOSED for current manuscript claim scope.
+
+  - Three-phase extension evidence
+    Evidence: step6_3ph_result.txt, threephase_13bus_fixed_result.txt,
+    threephase_37bus_fixed_result.txt, threephase_suite_summary_20260702.txt.
+    Status: CLOSED for reviewer-facing extension evidence.
+
+  - GNN / modern ML baseline
+    Evidence: GraphSAGE baseline in main tables, manuscript Table B,
+    baseline_extension_table_20260702.txt.
+    Status: CLOSED.
+
+  - Posterior reliability / calibration
+    Evidence: posterior_calibration_result.txt, Fig. 6, Table E,
+    posterior_multimodal_case.txt.
+    Status: CLOSED.
+
+  - Missing-measurement robustness
+    Evidence: ipc_33bus_n8_result.txt, ipc_69bus_n8_result.txt,
+    outage_33bus_result.txt, noise_sensitivity_33bus_result.txt.
+    Status: CLOSED within stated boundary.
+
+  - Statistical defensibility
+    Evidence: stats_final.txt with six planned n=8 Wilcoxon tests and
+    BH-FDR/Holm/Bonferroni closure.
+    Status: CLOSED.
+
+  - Traceability / reproducibility
+    Evidence: main_tables_final.txt, stats_final.txt,
+    figure_freeze_manifest.txt, supplementary_materials_manifest.txt,
+    compiled manuscript and supplement package.
+    Status: CLOSED.
+
+  - Overclaim control
+    Evidence: manuscript text, manuscript_full_q1q7_audit.txt,
+    q1_final_closure_audit_20260702.txt.
+    Status: CLOSED.
+
+  - Real-network contact
+    Evidence: socal28_qualitative_validation.txt,
+    socal28_topology_event_library.txt,
+    socal_topology_state_addendum_20260702.txt.
+    Status: CLOSED for the claim "real-network topology and event compatibility".
+
+  - Real measurement-ingest contact
+    Evidence: socal_measurement_ingest_summary.txt,
+    socal_measurement_regime_library.txt,
+    socal_benchmark_index.txt.
+    Status: CLOSED for the claim "public measurement-ingest and structured measurement-library compatibility".
+
+Closed by bounded feasibility / negative evidence
+  - IEEE 123-node as a richer native unbalanced benchmark
+    Evidence: ieee123_tie_feasibility.txt.
+    Result: local raw feeder123 package has 5 normally open switches but only
+    2 loop-forming open ties in the present graph.
+    Status: CLOSED as a justified non-adoption for the current manuscript.
+
+Still open only because of external inputs
+  - Measurement-integrated SoCal posterior benchmark
+    Missing input: a synchronized public or authenticated topology-measurement
+    overlap window.
+    Local proof of block: socal_public_window_alignment_20260702.txt,
+    socal_benchmark_index.txt.
+    Status: EXTERNAL DATA BLOCKER.
+
+  - Final TSG portal readiness
+    Missing input: real author list, affiliations, corresponding-author
+    contact, funding/no-funding statement, conflicts/declarations, data/code
+    availability statement, originality statement, prior preprint/conference
+    relationship.
+    Local proof of block: venue_tsg_metadata_portal_checklist.txt.
+    Status: USER METADATA BLOCKER.
+
+Bottom line
+  For the scientific manuscript package itself, all risks that can be resolved
+  from the current workspace have now been either:
+    - closed by direct evidence, or
+    - closed by an explicit feasibility/negative-evidence audit.
+  The remaining blockers are external synchronized real-data availability and
+  user-supplied submission metadata.

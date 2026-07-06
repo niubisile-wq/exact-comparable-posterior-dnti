@@ -1,0 +1,9 @@
+Device=cuda
+Benchmark=37bus n_bus=37 K=18 raw_topos=56 kept_topos=56 failed_pf=0
+seed=42 exact=0.5125 nre=0.0150 gap=0.4975 kl=2.7913 enum_ms=131.259 nre_ms=1.462 speedup=89.8x train_sec=120.6
+seed=123 exact=0.5125 nre=0.0200 gap=0.4925 kl=2.7912 enum_ms=131.259 nre_ms=1.194 speedup=109.9x train_sec=121.4
+seed=456 exact=0.5125 nre=0.0200 gap=0.4925 kl=2.7917 enum_ms=131.259 nre_ms=1.691 speedup=77.6x train_sec=121.6
+mean_exact=0.5125 mean_nre=0.0183 mean_gap=0.4942 mean_kl=2.7914 mean_speedup=92.4x
+Boundary
+- Synthetic unbalanced three-phase 37-bus benchmark extending the earlier 10-bus pilot.
+- Strengthens reviewer-facing three-phase evidence but does not replace a utility-grade field feeder benchmark.

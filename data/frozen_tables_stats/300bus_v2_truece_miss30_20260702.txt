@@ -1,0 +1,33 @@
+300-bus IP-C 30% missing v2 true-label fixed-missing fine-tuning
+date=2026-07-02
+status=isolated_v2_does_not_overwrite_original_checkpoints
+device=cuda
+train_samples=160000
+validation_samples=5000
+final_test_samples=8000
+loss=CE(true_topology) on fixed 30% missing distribution
+final_same_draw_exact_MAP_top1=0.4294
+seed,v2_final_true_acc,v2_final_map_agree,best_epoch,best_val_true,best_val_map_agree,checkpoint
+42,0.2705,0.3266,11,0.2720,0.3306,nre_300bus_ipc_miss30_v2_truece_seed42_20260702.pt
+123,0.2656,0.3201,4,0.2748,0.3356,nre_300bus_ipc_miss30_v2_truece_seed123_20260702.pt
+456,0.2704,0.3262,10,0.2714,0.3276,nre_300bus_ipc_miss30_v2_truece_seed456_20260702.pt
+old_probability_ensemble_final_true_acc=0.2815
+old_probability_ensemble_final_map_agree=0.3504
+old_probability_ensemble_truth_in_top20=0.9804
+old_probability_ensemble_map_in_top20=0.9905
+old_probability_ensemble_rerank20_true_acc=0.4281
+v2_probability_ensemble_final_true_acc=0.2931
+v2_probability_ensemble_final_map_agree=0.3654
+v2_probability_ensemble_truth_in_top20=0.9819
+v2_probability_ensemble_map_in_top20=0.9930
+v2_probability_ensemble_rerank20_true_acc=0.4276
+validation_selected_lambda_old=0.18
+validation_selected_mix_val_true_acc=0.3000
+validation_selected_mix_val_map_agree=0.3732
+validation_selected_mix_final_true_acc=0.2905
+validation_selected_mix_final_map_agree=0.3650
+validation_selected_mix_truth_in_top20=0.9824
+validation_selected_mix_map_in_top20=0.9934
+validation_selected_mix_rerank20_true_acc=0.4278
+delta_mix_vs_old_final=0.0090
+elapsed_sec=98.5

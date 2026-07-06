@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the archived release DOI after Zenodo assignment."
+title: "Exact-comparable posterior contract for decision-ready distribution-network topology identification: code, figure source data, and result manifests"
+authors:
+  - family-names: Liu
+    given-names: Zixuan
+    affiliation: "Detroit Green Technology Institute, Hubei University of Technology"
+  - family-names: Xiong
+    given-names: Wei
+    affiliation: "School of Electrical and Electronic Engineering, Hubei University of Technology; Department of Computer Science and Engineering, University of South Carolina"
+year: 2026
+type: software
+repository-code: "https://github.com/niubisile-wq/exact-comparable-posterior-dnti"
+license: MIT

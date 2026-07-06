@@ -1,0 +1,47 @@
+Step 4 posterior calibration result: 33-bus IP1
+Reference posterior: exact enumeration over topology library with Gaussian voltage likelihood.
+N_VAL=1200, N_TEST=2400, K=20, sigma=0.009
+selected_temperature_by_validation_KL=1.0500
+
+temperature_search_validation_KL
+T,KL(reference||NRE_T)
+0.3500,0.261177
+0.4000,0.203043
+0.4500,0.161011
+0.5000,0.129987
+0.5500,0.106765
+0.6000,0.089240
+0.6500,0.075972
+0.7000,0.065951
+0.7500,0.058449
+0.8000,0.052931
+0.8500,0.048994
+0.9000,0.046332
+0.9500,0.044708
+1.0000,0.043940
+1.0500,0.043881
+1.1000,0.044416
+1.1500,0.045454
+1.2000,0.046921
+1.2500,0.048757
+1.3000,0.050915
+1.3500,0.053358
+1.4000,0.056053
+1.4500,0.058979
+1.5000,0.062115
+1.6000,0.068965
+1.8000,0.084769
+2.0000,0.103273
+2.2000,0.124584
+2.4000,0.148898
+2.6000,0.176370
+2.8000,0.207050
+3.0000,0.240859
+
+test_metrics
+method,top1,NLL,Brier,KL_ref_to_model,ECE,coverage90,avg_credset90,entropy
+Reference,0.6987,0.7247,0.3515,0.000000,0.0111,0.9738,2.69,0.7133
+Raw_NRE,0.6837,0.7599,0.3654,0.045357,0.0198,0.9746,2.80,0.7514
+Calibrated_NRE,0.6837,0.7598,0.3654,0.045329,0.0181,0.9762,2.84,0.7645
+
+Boundary: report calibrated NRE as conservative/exact-comparable, not perfectly calibrated.

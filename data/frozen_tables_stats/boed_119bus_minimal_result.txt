@@ -1,0 +1,62 @@
+================================================================================
+119-bus minimal IP-A sensor placement result
+N_TOPOS=107, N_BUS=119, N_TEST=120, N_MC=40, N_LF_C=11
+Scope: minimum Step-1 closure result at K=4 and K=7; full curve remains future work.
+================================================================================
+
+Random selected nodes K<=7: [5, 91, 57, 86, 29, 118, 64]
+  K=4: acc=0.133, H=3.392
+  K=7: acc=0.200, H=3.060
+
+MVG selected nodes K<=7: [77, 76, 75, 85, 84, 83, 33]
+  K=4: acc=0.225, H=3.378
+  K=7: acc=0.325, H=2.782
+
+Fisher selected nodes K<=7: [32, 77, 85, 103, 20, 118, 37]
+  K=4: acc=0.292, H=3.017
+  K=7: acc=0.358, H=2.433
+
+BOED selected nodes K<=7: [45, 85, 59, 98, 17, 118, 25]
+  K=4: acc=0.192, H=2.568
+  K=7: acc=0.275, H=1.932
+
+AdaptiveMVG selected nodes vary by test case.
+  K=4: acc=0.300, H=2.498
+  K=7: acc=0.567, H=1.333
+
+AdaptiveFisher selected nodes vary by test case.
+  K=4: acc=0.308, H=2.539
+  K=7: acc=0.583, H=1.527
+
+AdaptiveBOED selected nodes vary by test case.
+  K=4: acc=0.392, H=1.991
+  K=7: acc=0.700, H=0.967
+
+Summary table
+Method       K=4 acc   K=7 acc   K=4 H     K=7 H
+----------------------------------------------------------
+Random        0.133     0.200     3.392     3.060
+MVG           0.225     0.325     3.378     2.782
+Fisher        0.292     0.358     3.017     2.433
+BOED          0.192     0.275     2.568     1.932
+AdaptiveMVG    0.300     0.567     2.498     1.333
+AdaptiveFisher    0.308     0.583     2.539     1.527
+AdaptiveBOED    0.392     0.700     1.991     0.967
+
+Gates
+  BOED > Random at K=4: PASS
+  BOED > Random at K=7: PASS
+  BOED vs Fisher at K=7: delta=-0.083
+  BOED vs MVG at K=7: delta=-0.050
+  AdaptiveBOED > Random at K=4: PASS
+  AdaptiveBOED > Random at K=7: PASS
+  AdaptiveBOED vs AdaptiveMVG at K=7: delta=+0.133
+  AdaptiveBOED vs AdaptiveFisher at K=7: delta=+0.117
+  AdaptiveBOED vs Fisher at K=7: delta=+0.342
+  AdaptiveBOED vs MVG at K=7: delta=+0.375
+
+Boundary
+  This result only closes the 119-bus minimum IP-A evidence for Step 1.
+  Do not use it to claim full BOED scalability; Step 5 still requires 300-bus.
+Runtime: 238.5s
+================================================================================

@@ -1,0 +1,40 @@
+300-bus selective low-confidence exact-rerank curve
+date=2026-07-02
+role=operational fallback audit; no training; no checkpoint writes
+device=cpu
+eval_samples_per_K=10000
+policy=rank samples by ensemble max posterior confidence; apply top-20 exact rerank only to lowest-confidence fraction
+K=280
+K=280
+observed_after_missing=196
+same_draw_exact_map_top1=0.5570
+direct_true_acc=0.3128
+direct_map_agree=0.3502
+truth_in_top20=0.9909
+full_rerank20_true_acc=0.5550
+full_rerank20_map_agree=0.9933
+call_rate,called,true_acc,map_agree,called_truth_top20,avg_conf_called,avg_conf_not_called
+0.00,0,0.3128,0.3502,nan,nan,0.300459
+0.10,1000,0.3300,0.4376,0.9630,0.082956,0.324626
+0.20,2000,0.3468,0.5201,0.9705,0.100349,0.350486
+0.30,3000,0.3656,0.5989,0.9760,0.118009,0.378652
+0.50,5000,0.4175,0.7463,0.9836,0.151693,0.449224
+0.75,7500,0.4970,0.9029,0.9884,0.205540,0.585217
+1.00,10000,0.5550,0.9933,0.9909,0.300459,nan
+K=299
+K=299
+observed_after_missing=210
+same_draw_exact_map_top1=0.5732
+direct_true_acc=0.3177
+direct_map_agree=0.3519
+truth_in_top20=0.9930
+full_rerank20_true_acc=0.5714
+full_rerank20_map_agree=0.9946
+call_rate,called,true_acc,map_agree,called_truth_top20,avg_conf_called,avg_conf_not_called
+0.00,0,0.3177,0.3519,nan,nan,0.299843
+0.10,1000,0.3352,0.4381,0.9740,0.083879,0.323840
+0.20,2000,0.3503,0.5207,0.9775,0.101772,0.349361
+0.30,3000,0.3706,0.5994,0.9820,0.120158,0.376852
+0.50,5000,0.4229,0.7449,0.9882,0.154951,0.444736
+0.75,7500,0.5130,0.9039,0.9909,0.208109,0.575046
+1.00,10000,0.5714,0.9946,0.9930,0.299843,nan

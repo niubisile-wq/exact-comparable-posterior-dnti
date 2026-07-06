@@ -1,0 +1,23 @@
+IEEE123 controlled three-phase benchmark result
+device=cuda
+n_bus=125
+loop_ties=54-94; 151-300
+raw_topologies=38
+kept_topologies=38
+failed_power_flows=0
+K=30
+lf_grid=[0.8999999761581421, 1.0, 1.100000023841858]
+sigma=0.0035
+seed,exact_top1,nre_top1,gap,kl_ref_nre,nre_ms,exact_ms,speedup,train_sec
+42,0.6880,0.6220,0.0660,0.1048,0.008068,0.000080,0.0,196.7
+123,0.7120,0.6440,0.0680,0.1292,0.005864,0.000086,0.0,171.5
+456,0.7340,0.6700,0.0640,0.1182,0.006989,0.000092,0.0,176.1
+mean_exact_top1=0.7113
+mean_nre_top1=0.6453
+mean_gap=0.0660
+mean_kl=0.1174
+mean_speedup=0.0
+Boundary
+- This is a controlled IEEE123 raw-asset-derived unbalanced three-phase benchmark using the natural loop-forming tie set.
+- It materially strengthens the large three-phase story beyond the 10/13/37-bus synthetic suite.
+- It remains a controlled raw-asset benchmark rather than a full utility-grade field feeder validation.

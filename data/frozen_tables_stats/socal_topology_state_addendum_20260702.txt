@@ -1,0 +1,16 @@
+SoCal topology-state library addendum (2026-07-02)
+
+Source
+- Local script: <LOCAL_WORKSPACE>\dn_socal28_topology_event_library.py
+- Local result: <LOCAL_WORKSPACE>\socal28_topology_event_library.txt
+
+New evidence beyond the earlier state-count summary
+- The public topology sample contains 14 switching devices, 16 chronological snapshots, 11 unique joint topology states, and 15 state-transition steps.
+- The longest observed dwell state lasts 6881.87 hours and has NC=9 / NO=5.
+- The next two longest dwell states last 3930.03 hours and 265.05 hours.
+- The most active devices in the public sample are cb_123-tbus and cb_128-tbus, each with 6 observed flips.
+- Multiple transition edges involve only 2 changed devices, indicating that the public sample supports a compact event-state graph rather than a single static topology snapshot.
+
+Boundary
+- These are still topology-only public events without synchronized public measurement overlap.
+- The addendum strengthens the real-network topology-state narrative, not the measurement-integrated posterior benchmark claim.

@@ -1,0 +1,250 @@
+================================================================================
+Step 8 writing and narrative freeze
+Generated: 2026-07-02
+Status: artifacts generated; advisor review pending.
+================================================================================
+
+Purpose
+--------------------------------------------------------------------------------
+This file freezes the paper narrative before formal manuscript writing. It is not
+a final submitted manuscript. Abstract and Conclusion must not be finalized until
+Step 8 receives advisor PASS.
+
+Authoritative frozen sources
+--------------------------------------------------------------------------------
+Primary numeric source:
+  main_tables_final.txt
+  stats_final.txt
+  master_summary_final.txt
+
+Primary figure source:
+  figure_freeze_manifest.txt
+  supplementary_materials_manifest.txt
+
+Main figures:
+  Fig. 1  fig1_identifiability.png
+  Fig. 2  fig2_ip1_accuracy_speed.png
+  Fig. 3  fig3_robustness.png
+  Fig. 4  fig4_boed_sensor_placement.png
+  Fig. 5  fig5_scalability.png
+  Fig. 6  fig6_posterior_quality.png
+
+Supplementary figures/tables:
+  S1  fig_noise_sensitivity.png
+  S2  fig_reliability_diagram.png
+  S3  fig_posterior_case.png
+  ST1 stats_final.txt
+  ST2 main_tables_final.txt
+
+Paper positioning
+--------------------------------------------------------------------------------
+Target posture:
+  IEEE TSG first, IEEE TPS only if the final writing makes the power-system
+  modeling contribution strong enough.
+
+Core message:
+  The paper proposes an exact-comparable learned posterior framework for
+  distribution-network topology identification. The value is not only top-1
+  classification, but amortized posterior inference, uncertainty-aware sensor
+  placement, missing-measurement robustness, and calibrated/multimodal posterior
+  evidence.
+
+Do not position the paper as:
+  A complete real-utility full-scale topology-identification solution.
+  A fault/outage diagnosis paper.
+  A generic GNN classification paper.
+  A paper claiming BOED universally dominates MVG or Fisher-OED.
+
+Frozen contribution statements
+--------------------------------------------------------------------------------
+Contribution 1: Exact-comparable amortized posterior inference.
+  Claim:
+    A neural posterior approximation can track exact-enumeration posterior
+    references while reducing online inference cost.
+  Evidence:
+    Fig. 2, Fig. 6, Table A, Table E.
+  Frozen numbers:
+    33-bus: NRE top-1 68.58%, exact 72.10%, speedup 1176x.
+    69-bus: NRE top-1 36.05%, exact 40.20%, speedup 3302x.
+    119-bus: NRE top-1 41.90%, exact 52.80%, speedup 3762x.
+    Posterior quality on 33-bus: calibrated NRE top-1 68.37%, KL(reference||NRE)
+    0.045329, ECE 0.0181, 90% credible-set coverage 97.62%.
+  Boundary:
+    Do not claim NRE always matches exact accuracy. The 119-bus approximation
+    gap is material and must be disclosed.
+
+Contribution 2: Robust posterior inference under missing measurements.
+  Claim:
+    The IP-C training/evaluation protocol improves robustness under missing
+    measurements and outage-induced measurement loss.
+  Evidence:
+    Fig. 3, Table C, ST1, S1.
+  Frozen numbers:
+    33-bus @10% missing: robust 65.18%, naive 40.10%, delta +25.08pp.
+    33-bus @30% missing: robust 61.01%, naive 10.10%, delta +50.91pp.
+    69-bus @10% missing: robust 33.02%, naive 20.80%, delta +12.22pp.
+    69-bus @30% missing: robust 30.56%, naive 7.30%, delta +23.26pp.
+    Outage-induced missing, 33-bus: robust 62.97%, naive 32.35%, delta +30.62pp.
+  Boundary:
+    This is missing-measurement and outage-induced missing handling, not full
+    outage/fault diagnosis or topology-change localization.
+
+Contribution 3: Posterior-aware sensor placement.
+  Claim:
+    Posterior uncertainty can be used for sensor-placement decisions; BOED is
+    competitive on 33-bus, stronger on the current 69-bus case, and adaptive
+    BOED is strong under fair adaptive 119-bus comparisons.
+  Evidence:
+    Fig. 4, Table D.
+  Frozen numbers:
+    33-bus K=7: BOED 75.20%, MVG 75.40%, Random 41.80%.
+    69-bus K=7: BOED 71.50%, MVG 66.50%, Random 24.00%.
+    119-bus K=7 adaptive: AdaptiveBOED 70.00%, AdaptiveFisher 58.30%,
+    AdaptiveMVG 56.70%.
+  Boundary:
+    Do not state or imply universal BOED dominance. State the observed
+    case-specific pattern and the static/adaptive comparison boundary.
+
+Contribution 4: Identifiability, statistics, baselines, and scalability gates.
+  Claim:
+    The evidence chain is statistically checked, compared with a strong GNN
+    point-estimate baseline, and extended to a synthetic 300-bus mid-scale
+    stress case.
+  Evidence:
+    Fig. 1, Fig. 2, Fig. 5, Table B, Table F, ST1.
+  Frozen numbers:
+    Primary six planned Wilcoxon tests use n=8 33/69-bus files.
+    BH-FDR: 6/6 PASS. Holm: 6/6 PASS. Bonferroni: 6/6 PASS.
+    GraphSAGE: 33-bus 68.13% vs NRE 68.58%; 69-bus 29.27% vs NRE 36.05%.
+    Synthetic 300-bus: IP1 NRE 49.38%, exact 53.60%, NRE inference 0.004806 ms,
+    exact 0.184350 ms, speedup 40.2x.
+    Synthetic 300-bus IP-C 30% missing: NRE 26.87%, exact 42.60%.
+  Boundary:
+    300-bus is synthetic fixed-deployment mid-scale scalability evidence, not
+    real utility full-scale validation. The 300-bus IP-C result is a stress
+    boundary, not a strong robustness claim.
+
+Frozen section structure
+--------------------------------------------------------------------------------
+1. Introduction
+  1.1 Motivation: topology identification needs uncertainty, not only a class.
+  1.2 Gap in prior Bayesian/AIS-style work: expensive online inference, limited
+      missing-data handling, weak statistical/baseline checks.
+  1.3 Gap in point-estimate classifiers/GNNs: no exact-comparable posterior and
+      limited uncertainty-aware decision support.
+  1.4 Four contributions only:
+      posterior approximation; missing-measurement robustness; posterior-aware
+      sensor placement; statistically frozen scalability/baseline evidence.
+
+2. Problem formulation
+  Must define:
+    Topology candidate set T.
+    Measurement model and voltage observations.
+    Exact posterior / EnumBF reference over enumerable topology libraries.
+    Learned posterior approximation q_theta(t | y).
+    Top-1 accuracy as a summary, not the only objective.
+  Must not define:
+    AIS as the exact reference used in this study.
+    Real utility full-scale validation as part of the problem scope.
+
+3. Methodology
+  3.1 NRE learned posterior approximation.
+  3.2 IP-C missing-measurement robust training/evaluation.
+  3.3 IP-A posterior-aware sensor placement / BOED.
+  3.4 Identifiability analysis via H(K) and topology-space entropy.
+  3.5 Statistical protocol: paired seeds, one-sided planned Wilcoxon tests,
+      BH-FDR/Holm/Bonferroni.
+
+4. Experiments
+  4.1 Test systems and topology libraries.
+  4.2 IP1 posterior inference and GraphSAGE baseline.
+  4.3 IP-C missing-rate/outage/noise robustness.
+  4.4 IP-A BOED / OED placement.
+  4.5 Synthetic 300-bus scalability.
+  4.6 Posterior calibration and multimodal case.
+
+5. Discussion and limitations
+  Must explicitly include:
+    Validation mainly uses balanced simulation systems with enumerable topology
+    libraries and exact posterior references.
+    Synthetic 300-bus is a mid-scale stress case, not utility full-scale proof.
+    300-bus missing-measurement robustness shows a degradation boundary.
+    Outage experiment is outage-induced missing measurements only.
+    Three-phase unbalanced validation is preliminary extension evidence only.
+    Nonuniform topology priors and real feeder data are future work.
+    BOED evidence is case-specific; no universal dominance claim.
+
+6. Conclusion
+  To be finalized only after advisor PASS for Step 8.
+  Allowed conclusion scope:
+    posterior approximation, online speedup, missing-measurement robustness,
+    posterior-aware sensor placement, exact-comparable calibration evidence.
+  Disallowed conclusion scope:
+    solved real large-scale topology identification; solved outage diagnosis;
+    BOED always best; perfect calibration.
+
+Abstract guardrails, not final abstract
+--------------------------------------------------------------------------------
+Abstract must be written last.
+
+Allowed abstract numbers:
+  1176x, 3302x, 3762x speedups for 33/69/119-bus IP1.
+  40.2x speedup for synthetic 300-bus.
+  33-bus @30% missing +50.91pp robust-vs-naive gain.
+  69-bus @30% missing +23.26pp robust-vs-naive gain.
+  GraphSAGE comparison only as baseline context: tied on 33-bus, lower on 69-bus.
+  Posterior calibration: KL 0.045329, ECE 0.0181, coverage90 97.62%.
+
+Forbidden abstract wording:
+  "solves distribution-network topology identification"
+  "utility-scale validation"
+  "outage diagnosis"
+  "BOED consistently outperforms all alternatives"
+  "perfectly calibrated posterior"
+  "AIS reference" when referring to the exact posterior/EnumBF reference
+
+Claim-to-evidence matrix
+--------------------------------------------------------------------------------
+Claim                                             Main evidence       Frozen source
+Exact-comparable posterior inference              Fig.2, Fig.6        Table A, Table E
+Online amortized speedup                           Fig.2, Fig.5        Table A, Table F
+Missing-measurement robustness                     Fig.3               Table C, ST1
+Outage-induced missing handling                    Fig.3               outage_33bus_result.txt
+Posterior-aware sensor placement                   Fig.4               Table D
+Identifiability improves with sensors              Fig.1               ip4_hk_result_v5.txt, ip4_300bus_result.txt
+GraphSAGE baseline addressed                       Table B / Fig.2     baseline_unified_table.txt, Table B
+Synthetic 300-bus scalability                      Fig.5               Table F
+Posterior calibration and multimodality            Fig.6               Table E, posterior_multimodal_case.txt
+
+Final wording constraints
+--------------------------------------------------------------------------------
+Use:
+  exact enumeration / EnumBF reference
+  learned posterior approximation
+  synthetic 300-bus fixed-deployment mid-scale scalability
+  outage-induced missing measurements
+  conservative/exact-comparable calibration
+
+Do not use:
+  Xu-style AIS as the reference for our exact posterior results
+  real utility full-scale validation
+  fault diagnosis / outage localization
+  universally dominant BOED
+  perfect calibration
+  pure classifier as the paper's main contribution
+
+Forbidden-claim audit
+--------------------------------------------------------------------------------
+Sensitive phrases such as outage diagnosis, utility-scale validation, AIS
+reference, universally dominant BOED, and perfect calibration may appear only in
+negative guardrails, boundary statements, or reviewer-facing limitation text.
+They are not allowed as affirmative paper claims, abstract claims, conclusion
+claims, contribution labels, figure captions, or table captions.
+
+Step 8 pass criteria for advisor
+--------------------------------------------------------------------------------
+  Every contribution maps to frozen figures/tables.
+  Every limitation is stated explicitly.
+  Abstract numbers are traceable to master_summary_final.txt/main_tables_final.txt.
+  Section order follows the evidence chain, not script chronology.
+  No forbidden claim appears in the frozen narrative.

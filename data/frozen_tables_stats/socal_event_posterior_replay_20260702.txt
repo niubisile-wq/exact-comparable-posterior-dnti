@@ -1,0 +1,33 @@
+SoCal synchronized event-conditioned posterior replay
+date=2026-07-02
+role=exact posterior replay over real event-derived topology-state sequence; not real-measurement posterior label benchmark
+window_utc=2024-11-14T07:00:00 to 2024-11-14T07:30:42
+devices=cb_121 cb_123 cb_128 swmp_17-2
+event_count=4
+unique_topology_states=5
+sequence_length=5
+reachable_union_buses=85
+observed_buses_K=40
+load_regimes=0.9 1.0 1.1
+events
+idx,device,event_utc,state,pre_state,post_state
+0,cb_121,2024-11-14T07:09:00,NC,0,1
+1,cb_123,2024-11-14T07:20:05,NC,1,2
+2,cb_128,2024-11-14T07:20:21,NO,2,3
+3,swmp_17-2,2024-11-14T07:30:42,NC,3,4
+state_metrics
+state_idx,label,posterior_top1,mean_true_mass,mean_entropy,mean_top2_gap,state_signature
+0,initial,1.0000,1.0000,-0.0000,1.0000,cb_121:NO cb_123:NO cb_128:NC swmp_17-2:NO
+1,cb_121,1.0000,1.0000,-0.0000,1.0000,cb_121:NC cb_123:NO cb_128:NC swmp_17-2:NO
+2,cb_123,1.0000,1.0000,-0.0000,1.0000,cb_121:NC cb_123:NC cb_128:NC swmp_17-2:NO
+3,cb_128,1.0000,1.0000,-0.0000,1.0000,cb_121:NC cb_123:NC cb_128:NO swmp_17-2:NO
+4,swmp_17-2,1.0000,1.0000,-0.0000,1.0000,cb_121:NC cb_123:NC cb_128:NO swmp_17-2:NC
+transition_metrics
+event_idx,device,pre_state,post_state,pre_acc,post_acc,pre_mass,post_mass,post_entropy
+0,cb_121,0,1,1.0000,1.0000,1.0000,1.0000,-0.0000
+1,cb_123,1,2,1.0000,1.0000,1.0000,1.0000,-0.0000
+2,cb_128,2,3,1.0000,1.0000,1.0000,1.0000,-0.0000
+3,swmp_17-2,3,4,1.0000,1.0000,1.0000,1.0000,-0.0000
+mean_state_top1=1.0000
+min_state_top1=1.0000
+mean_true_posterior_mass=1.0000

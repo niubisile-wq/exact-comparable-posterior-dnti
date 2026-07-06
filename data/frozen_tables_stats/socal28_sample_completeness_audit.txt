@@ -1,0 +1,11 @@
+SoCal 28-bus sample completeness audit
+shared_sample_folder=sample_dataset
+remote_folders=magnitudes, phasors, topology, waveforms
+local_folders=topology
+remote_magnitudes=files:269 size_bytes:679711859
+remote_phasors=files:220 size_bytes:1937058521
+remote_topology=files:18 size_bytes:254002
+remote_waveforms=files:348 size_bytes:10966383
+missing_local_folders=magnitudes, phasors, waveforms
+boundary=The public shared sample includes measurement folders, but the current workspace sample only contains topology.
+boundary=The SoCal measurement risk is therefore narrowed from data unavailability to incomplete local sample acquisition.

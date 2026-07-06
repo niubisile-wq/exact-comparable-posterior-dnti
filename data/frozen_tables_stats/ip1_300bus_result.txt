@@ -1,0 +1,12 @@
+Step 5 300-bus IP1 NRE
+n_topologies=200
+K=150
+sigma=0.0015
+sensor_policy=fixed uniform feeder coverage
+training=exact-posterior distillation + 0.10 hard-label CE
+seed,acc,train_sec,nre_ms,exact_acc_500,exact_ms,exact_agree,kl_ref_nre,speedup
+42,0.4947,35.8,0.005852,0.5360,0.137809,0.6700,0.1314,23.6
+123,0.4880,35.2,0.004178,0.5360,0.199209,0.6520,0.1169,47.7
+456,0.4987,35.5,0.004387,0.5360,0.216032,0.6760,0.1139,49.2
+mean_acc=0.4938
+std_acc=0.0044

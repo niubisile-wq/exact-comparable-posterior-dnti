@@ -1,0 +1,23 @@
+119-bus IP1 v2 exact-MAP distillation retraining
+date=2026-07-02
+status=isolated_v2_does_not_overwrite_original_checkpoints
+device=cuda
+train_samples=120000
+validation_samples=3000
+test_samples=5000
+input=original raw voltage + mask + load feature
+loss=CE(exact_MAP)+0.20*CE(true_topology)
+same_draw_exact_MAP_top1=0.5300
+seed,before_true_acc,after_true_acc,before_map_agree,after_map_agree,best_epoch,best_val_true,best_val_map_agree,checkpoint
+42,0.4310,0.4366,0.5236,0.6126,8,0.4440,0.6097,nre_119bus_ip1_v2_mapdistill_seed42_20260702.pt
+123,0.4384,0.4412,0.5312,0.6148,8,0.4483,0.6123,nre_119bus_ip1_v2_mapdistill_seed123_20260702.pt
+456,0.4244,0.4330,0.5176,0.6004,6,0.4457,0.6057,nre_119bus_ip1_v2_mapdistill_seed456_20260702.pt
+789,0.4332,0.4354,0.5220,0.6020,8,0.4400,0.5963,nre_119bus_ip1_v2_mapdistill_seed789_20260702.pt
+2024,0.4288,0.4358,0.5050,0.6018,8,0.4403,0.5957,nre_119bus_ip1_v2_mapdistill_seed2024_20260702.pt
+before_seed_mean_true_acc=0.4312
+after_seed_mean_true_acc=0.4364
+after_seed_std_true_acc=0.0027
+after_probability_ensemble_true_acc=0.4442
+after_probability_ensemble_map_agree=0.6286
+delta_seed_mean_true_acc=0.0052
+elapsed_sec=40.3

@@ -1,0 +1,21 @@
+SoCal measurement-ingest addendum (2026-07-02)
+
+Source
+- Local script: <LOCAL_WORKSPACE>\dn_socal_measurement_ingest_summary.py
+- Local result: <LOCAL_WORKSPACE>\socal_measurement_ingest_summary.txt
+
+Key ingest facts
+- The local preview ingest now covers both a dense magnitude stream and a longer phasor stream.
+- egauge_9-Mains_Power.csv contains 86401 rows over exactly 24.000 hours with a strict 1-second cadence.
+- egauge_9-S3.csv contains 49963 rows over 167.997 hours with mean cadence 12.105 seconds and harmonic-feature columns that can feed a structured ingest layer.
+- t_phasor.csv contains 49974 rows over 167.997 hours with a discrete 10/20/30-second timebase pattern.
+- The 24-hour magnitude window lies fully inside the phasor preview window.
+
+Value-range facts
+- magnitude stream v ranges from 284.936 to 332.280 with mean 303.609.
+- phasor stream frequency ranges from 59.948444 to 60.052847 with mean 60.000501.
+- phasor stream rms ranges from 359.846473 to 455.220569 with mean 406.225008.
+
+Boundary
+- This addendum strengthens the measurement-ingest track only.
+- It still does not remove the 7.49-hour gap to the public topology timeline.

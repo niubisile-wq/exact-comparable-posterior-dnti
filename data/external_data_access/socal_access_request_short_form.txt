@@ -1,0 +1,29 @@
+SoCal access request short form
+Date: 2026-07-02
+
+Fill these items before submitting the official access ticket:
+
+1. GitHub username:
+
+2. Full name:
+
+3. Affiliation:
+
+4. Email:
+
+5. Intended research use (recommended short version):
+   I am using the SoCal 28-bus dataset for academic research on
+   distribution-network topology identification, topology-state extraction,
+   and synchronized topology-measurement benchmarking.
+
+6. Why full access is needed (recommended short version):
+   The public sample is sufficient for workflow development, topology-state
+   extraction, and measurement-ingest validation, but it does not provide a
+   synchronized public topology + measurement overlap window for a real-data
+   posterior benchmark.
+
+7. Requested time range (recommended):
+   September 2024 to September 2025
+
+8. Data types requested:
+   magnitude, phasor, waveform, network/parameter

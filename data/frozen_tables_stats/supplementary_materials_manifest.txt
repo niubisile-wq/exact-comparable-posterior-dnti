@@ -1,0 +1,170 @@
+Step 7 supplementary-material manifest
+Generated: 2026-07-02 07:30:36
+Status: synchronized with main figure freeze; supplementary_material.tex and
+supplementary_material.pdf now provide the submission-package supplement.
+
+Supplementary figures
+  S1: fig_noise_sensitivity.png
+      source: noise_sensitivity_33bus_result.txt
+      role: voltage-noise sensitivity under 30% missing measurements.
+  S2: fig_reliability_diagram.png
+      source: posterior_reliability_bins.csv
+      role: detailed reliability diagram supporting main Fig. 6.
+  S3: fig_posterior_case.png
+      source: posterior_multimodal_case.txt
+      role: detailed multimodal posterior case supporting main Fig. 6.
+
+Supplementary tables
+  ST1: stats_final.txt
+      role: full Wilcoxon/BH-FDR/Holm/Bonferroni details, including supplemental 119-bus IP-C tests.
+  ST2: main_tables_final.txt
+      role: frozen numeric source for main tables and figure panels.
+  ST3: step6_3ph_result.txt
+      role: preliminary three-phase extension evidence with exact-vs-NRE gap and speedup.
+  ST4: socal28_qualitative_validation.txt
+      role: qualitative real-dataset compatibility evidence from the local SoCal digital-twin sample.
+  ST5: socal28_topology_event_library.txt
+      role: extracted joint topology-state summary from the local SoCal sample status files.
+  ST6: ieee123_tie_feasibility.txt
+      role: raw IEEE 123-node switch audit explaining why the local asset is not yet a richer exact-comparable unbalanced benchmark.
+  ST7: socal28_sample_completeness_audit.txt
+      role: public-vs-local sample audit showing that SoCal measurement folders exist in the shared sample but are not present in the current workspace copy.
+  ST8: baseline_extension_table_20260702.txt
+      role: expanded IP1 baseline table adding fixed-load-factor DNN evidence and clarifying the enumerable AIS-style Bayesian upper bound relative to exact enumeration.
+  ST9: socal28_measurement_preview_acquisition_20260702.txt
+      role: browser-mediated local acquisition audit for public SoCal magnitude and phasor measurement samples.
+  ST10: socal_public_window_alignment_20260702.txt
+      role: public-sample time-window alignment audit updated with time-zone-corrected synchronized overlap evidence.
+  ST11: reconfig_dataset_inventory.txt
+      role: local inventory of larger balanced reconfiguration benchmarks up to 417 buses, supporting a stronger full-scale stress-test asset story.
+  ST12: reconfig_fullscale_stress_result.txt
+      role: runnable balanced full-scale stress results on 119/202/417-bus reconfiguration assets across three load levels.
+  ST13: reconfig_exactpilot_result.txt
+      role: exact-comparable learned-posterior pilot results on balanced 202-bus and 417-bus reconfiguration assets.
+  ST14: ieee123_native_pilot_result.txt
+      role: native raw-asset-derived IEEE 123 balanced surrogate pilot preserving only the natural loop-forming ties 54-94 and 151-300.
+  ST15: threephase_37bus_fixed_result.txt
+      role: larger synthetic unbalanced three-phase fixed-deployment benchmark extending the earlier 10-bus pilot to 37 buses and 56 feasible topologies.
+  ST16: threephase_13bus_fixed_result.txt
+      role: intermediate synthetic unbalanced three-phase fixed-deployment benchmark showing near-exact posterior tracking on a highly ambiguous 13-bus topology library.
+  ST17: threephase_suite_summary_20260702.txt
+      role: consolidated summary of the 10/13/37-bus synthetic three-phase evidence chain for reviewer-facing narrative use.
+  ST18: socal_topology_state_addendum_20260702.txt
+      role: addendum summarizing real-network topology-state dwell times, transition structure, and device flip frequency for the public SoCal sample.
+  ST19: socal_benchmark_index.txt
+      role: benchmark-style index of the public SoCal sample separating topology-state, preview-measurement-ingest, and time-zone-corrected synchronized-window tracks.
+  ST20: socal_benchmark_index_addendum_20260702.txt
+      role: audit note explaining the benchmark-index interpretation and the exact current public ingest coverage.
+  ST21: socal_measurement_ingest_summary.txt
+      role: structured summary of local public preview measurement ingestion, including cadence, duration, value ranges, and cross-track overlap within the measurement side.
+  ST22: socal_measurement_ingest_addendum_20260702.txt
+      role: audit note highlighting the concrete ingest properties of the local magnitude and phasor preview files.
+  ST23: socal_measurement_regime_library.txt
+      role: measurement-only regime library extracted from the 24-hour overlap between local magnitude and phasor preview streams.
+  ST24: socal_measurement_regime_addendum_20260702.txt
+      role: audit note explaining the regime-library interpretation and the main cluster statistics.
+  ST25: ieee123_3ph_controlled_result.txt
+      role: raw-asset-derived IEEE 123 controlled unbalanced three-phase benchmark extending the synthetic 10/13/37-bus suite to a larger feeder with exact-comparable posterior results.
+  ST26: socal_replay_benchmark_result.txt
+      role: compact quantitative actual-network replay benchmark built from the public SoCal topology states and switching timelines.
+  ST27: socal_timezone_corrected_overlap_20260702.txt
+      role: corrected audit showing a conservative 30m42s synchronized public topology-measurement overlap after interpreting topology timestamps as SoCal local time and measurements as UTC.
+
+Boundary
+  Supplementary materials do not add new claims beyond the frozen Step 6/7 evidence.
+
+Submission files
+  supplementary_material.tex
+  supplementary_material.pdf
+
+ST28 large_system_candidate_rerank_20260702.txt: Frozen large-system NRE candidate-screening and exact-reranking audit for 119-bus IP1 and 300-bus IP-C 30% missing boundary cases. Source script: 02_code/dn_large_system_candidate_rerank_20260702.py.
+
+AUD1 q1_residual_counterattack_synthesis_20260706.md: compact reviewer-facing synthesis for the residual CA6-CA9 evidence.
+AUD2 reviewer_attack_point_coverage_map_20260706.md: audit map from reviewer attack points to local evidence.
+AUD3 ieee123_dropout_robustness_synthesis_20260706.md: IEEE123 and full-scale dropout robustness synthesis.
+AUD4 counterattack_robustness_synthesis_20260706.md: bootstrap CI and noise-multiplier robustness synthesis.
+AUD5 ais_baseline_quality_20260706.md: AIS baseline rerun and 76-bus boundary check.
+AUD6 ais_smc_baseline_quality_20260705.md: exact-vs-AIS/SMC comparison baseline.
+
+ST29 large_system_method_upgrade_20260702.txt: Frozen-checkpoint large-system method-upgrade audit. Reports validation-selected checkpoint, probability/logit ensemble, validation-weighted ensemble, uniform-prior correction, and confidence-gated exact rerank@20 for 119-bus IP1 and 300-bus IP-C 30% missing. Source script: 02_code/large_system_method_upgrade_20260702.py.
+
+ST30 large_system_sensor_policy_search_20260702.txt: Diversity-constrained sensor-policy search for 119-bus IP1 and 300-bus IP-C 30% missing. Uses exact-reference validation for policy selection and fresh final-test reporting. Positive adopted result: 119-bus searched fixed-25 policy. Negative boundary: 300-bus searched policy does not improve exact-information bound. Source script: 02_code/dn_large_system_sensor_policy_search_20260702.py.
+
+ST31 119bus_sensor_policy_v2_train_20260702.txt: Sensor-specific v2 NRE training for the retained 119-bus searched 25-sensor policy. Reports old ensemble, v2 ensemble, validation-selected mix, top-20 coverage, and exact rerank on a fresh final-test draw. Source script: 02_code/dn_119bus_sensor_policy_v2_train_20260702.py.
+
+ST32 300bus_redundant_sensing_attack_20260702.txt: 300-bus 30% missing redundant-sensing recovery at K=220. Shows exact-reference recovery and NRE top-20 rerank recovery without overwriting original checkpoints. Source script: 02_code/dn_300bus_redundant_sensing_attack_20260702.py.
+
+ST33 300bus_redundant_sensing_K280_attack_20260702.txt: 300-bus 30% missing redundant-sensing recovery at K=280. K=280 launcher source: 02_code/dn_300bus_redundant_sensing_K280_launcher_20260702.py; base training source: 02_code/dn_300bus_redundant_sensing_attack_20260702.py.
+
+ST34 ieee123_3ph_redundant_attack_20260702.txt: IEEE123 controlled three-phase redundant-measurement recovery audit. Same raw-asset-derived feeder and 38-topology library; reports exact curve K=30/45/60/75, K=60 three-seed NRE, and top-k candidate coverage. Source script: 02_code/dn_ieee123_3ph_redundant_attack_20260702.py.
+
+ST35 ieee123_3ph_K45_attack_20260702.txt: IEEE123 controlled three-phase moderate-redundancy K=45 recovery audit. Same raw-asset-derived feeder and 38-topology library; reports three-seed NRE, exact reference, top-k candidate coverage, and rerank. Source script: 02_code/dn_ieee123_3ph_redundant_attack_20260702.py with K_ATTACK=45.
+
+ST36 boed_decision_value_counterattack_audit_20260702.txt: Derived BOED decision-value audit. Reframes BOED from universal-dominance heuristic to posterior-as-sensing-decision-object, summarizing 33-bus competitiveness, 69-bus sensor savings/entropy reduction, and 119-bus adaptive BOED gains.
+ST37 | 2026-07-02 | q1_benchmark_counterattack_matrix_20260702.txt | Benchmark-by-benchmark Q1 counterattack matrix against TSG/TPWRS/TPWRD topology-identification papers.
+ST38 | 2026-07-02 | q1_full_counterattack_plan_20260702.txt | Full experimental and manuscript counterattack plan for Q1 submission hardening.
+ST39 | 2026-07-02 | q1_submission_attack_text_20260702.txt | Cover-letter, introduction, conclusion, and reviewer-response attack text for Q1 submission framing.
+ST40 | 2026-07-02 | ieee123_3ph_K75_warmstart_attack_20260702.txt | New IEEE123 controlled three-phase K=75 warm-start redundant-measurement experiment: exact 89.67%, NRE 85.40%, top-3/top-5/top-20 coverage 100%, rerank@3 89.11%.
+ST41 | 2026-07-02 | 300bus_redundant_sensing_K299_warmstart_attack_20260702.txt | New 300-bus severe-missing near-full redundant-sensing K=299 experiment: exact 57.15%, v2 ensemble 33.12%, top-20 truth coverage 99.28%, rerank@20 56.97%.
+ST42 | 2026-07-02 | socal_event_measurement_shift_20260702.txt | New SoCal synchronized event-window measurement shift audit over four real switching events and 1843 merged measurement rows.
+ST43 | 2026-07-02 | 119bus_sensor_budget_selection_20260702.txt | New 119-bus exact-reference sensor-budget selection comparing old25, lin35/40, and hybrid35/40 policies; best K40 exact validation 64.80%.
+ST44 | 2026-07-02 | 119bus_K40_sensor_budget_attack_20260702.txt | New 119-bus K40 sensor-budget v2 training: final exact 64.58%, v2 ensemble 57.20%, top-20 truth coverage 99.34%, rerank@20 64.61%.
+ST45 | 2026-07-02 | 300bus_selective_rerank_curve_20260702.txt | New 300-bus selective low-confidence exact-rerank curve for K280 and K299 severe-missing deployments.
+ST46 | 2026-07-02 | socal_event_posterior_replay_20260702.txt | New SoCal synchronized event-conditioned posterior replay over four real switching events and five topology states.
+ST47 | 2026-07-02 | socal_measurement_conditioned_state_posterior_20260702.txt | New SoCal synchronized real-measurement topology-state posterior audit: 1843 rows, 5 states, 4 trainable states, blocked-CV acc 74.76% vs majority 36.10%.
+ST48 | 2026-07-02 | 119bus_K40_checkpoint_namespace_audit_20260702.txt | Audit and repair for K40 checkpoint namespace collision; explicit K40 checkpoint names created and result references updated.
+ST49 | 2026-07-02 | 119bus_highK_sensor_budget_selection_20260702.txt | New 119-bus high-K sensor-budget selection: K25 58.18%, K40 64.64%, K50 69.94%, selected K60 exact validation 73.58%.
+ST50 | 2026-07-02 | 119bus_K60_sensor_budget_attack_20260702.txt | New 119-bus K60 sensor-policy v2 training: final exact 74.50%, v2 ensemble 62.96%, top-20 truth coverage 99.74%, rerank@20 74.43%.
+ST51 | 2026-07-02 | topology_conditioned_residual_audit_20260702.txt | New topology-conditioned measurement residual audit for 119 K60 and 300 K299, showing top-20 rerank residuals nearly match exact MAP residuals.
+ST52 | 2026-07-02 | socal_measurement_conditioned_enhanced_posterior_20260702.txt | Enhanced SoCal real-measurement posterior audit with 72 online rolling/difference features: blocked-CV acc 79.15%, macro-F1 75.35%, Brier 0.3832.
+ST53 | 2026-07-02 | 300bus_confidence_stratified_policy_20260702.txt | 300-bus high-confidence direct/low-confidence rerank operating policy; K299 top 10% direct acc 82.00%, combined policy 55.88%.
+ST54 | 2026-07-02 | experimental_counterattack_dashboard_20260702.txt | Consolidated numeric dashboard of new experimental counterattack results across large systems, three-phase, SoCal, residual rerank, and BOED.
+ST55 | 2026-07-02 | posterior_calibration_audit_20260702.txt | Posterior calibration audit for 119 K60 and 300 K299 counterattack models; post-hoc calibration reduces KL/ECE without retraining.
+ST56 | 2026-07-02 | counterattack_bootstrap_ci_20260702.txt | Bootstrap CI audit for 119 K60, 300 K299, IEEE123 K75, and SoCal enhanced posterior; recomputed per-sample predictions with 1200 bootstrap replicates.
+ST57 | 2026-07-02 | boed_adaptive_bootstrap_ci_20260702.txt | 119-bus AdaptiveBOED bootstrap CI audit vs AdaptiveMVG and AdaptiveFisher; K7 gains +13.33pp and +11.67pp with positive 95% CIs.
+ST58 | 2026-07-02 | 69bus_boed_bootstrap_ci_20260702.txt | 69-bus BOED sensor-efficiency bootstrap CI audit vs Random and AdaptiveMVG; K7 BOED-Random gain +44pp with positive CI.
+ST59 | 2026-07-02 | reconfig_fullscale_attack_20260702.txt | Full-scale balanced reconfiguration attack: 202-bus K160 NRE 90.94%, rerank@20 91.72%; 417/418-bus K220 NRE 79.33%, rerank@20 82.00%, with bootstrap CIs.
+ST60 | 2026-07-02 | counterattack_noise_robustness_20260702.txt | No-retraining noise-multiplier robustness audit for 119 K60, 300 K299, IEEE123 K75, 202 K160, and 417 K220.
+ST61 | 2026-07-02 | counterattack_sensor_dropout_20260702.txt | No-retraining random sensor-dropout robustness audit for 119 K60, IEEE123 K75, 202 K160, and 417 K220; exact/rerank fallback remains useful but direct NRE degrades under untrained random dropout.
+ST62 | 2026-07-02 | 119bus_K60_dropout_robust_train_20260702.txt | 119-bus K60 dropout-robust NRE training repairs direct random sensor-dropout weakness; 20% dropout direct improves 35.86% to 54.92%, 40% improves 14.98% to 50.34%.
+ST63 | 2026-07-02 | ieee123_K75_dropout_robust_train_20260702.txt | IEEE123 K75 dropout-robust three-phase NRE training; 10/20/40% dropout direct improves to 79.58%/77.00%/63.25% with 100% top-20 coverage.
+ST64 | 2026-07-02 | reconfig_fullscale_dropout_robust_20260702.txt | Full-scale 202/417 dropout-robust NRE retraining: 202-bus direct improves by +10.73/+19.88/+19.96pp at 10/20/40% dropout; 417-bus improves by +5.31/+9.62/+16.12pp, with positive 95% bootstrap CIs and no overwrite of fixed checkpoints.
+ST65 | 2026-07-02 | 300bus_K299_mapteacher_attack_20260702.txt | 300-bus K299 MAP-teacher/posterior-distillation attack: modest direct gain +0.58pp with CI crossing zero, positive map-agreement gain +1.36pp, KL improves 0.6973 to 0.6877; diagnostic evidence that severe 30% missing direct weakness is not solved by simple teacher-loss retuning.
+ST66 | 2026-07-02 | 300bus_K299_missingrate_robust_20260702.txt | 300-bus K299 missing-rate-robust training across 0/10/20/30/40% missing: direct gains +9.09pp at 0%, +4.55pp at 10%, +1.23pp at 40%, plus improved KL/top-k stability; 30% severe missing remains information-limited.
+ST67 | 2026-07-03 | socal_measurement_tree_ensemble_posterior_20260703.txt | SoCal synchronized real-measurement tree-ensemble posterior upgrade: blocked-CV accuracy improves from 79.15% to 86.64%, macro-F1 from 75.35% to 78.14%, Brier from 0.3832 to 0.2026, no timestamp feature, same synchronized public window and blocked CV.
+ST68 | 2026-07-03 | ieee123_3ph_composite_stress_20260703.txt | IEEE123 controlled three-phase composite stress audit: frozen K75 fixed/dropout-robust models under simultaneous random sensor dropout and noise inflation; robust model keeps top20=100% and rerank near exact under 10/20/40% dropout and 1-2x noise, including 20% dropout+2x noise direct 70.72%, rerank@20 79.28% vs exact 79.22%.
+ST69 | 2026-07-03 | boed_119bus_budget_curve_20260703.txt | 119-bus AdaptiveBOED multi-budget decision-value curve over K=3/4/5/6/7/8/10: BOED accuracy AUC 54.60% vs MVG 41.75%, Fisher 38.89%, Random 11.90%; BOED-MVG AUC gain +12.86pp CI [6.82,18.73], BOED-Fisher +15.71pp CI [9.21,22.54], entropy AUC reductions positive vs all baselines.
+ST70 | 2026-07-03 | q1_final_experimental_counterattack_matrix_20260703.txt | Final Q1 experimental counterattack matrix summarizing ST64-ST69 wins, partial repairs, and residual boundaries.
+ST71 | 2026-07-03 | q1_submission_experiment_adoption_plan_20260703.txt | Submission adoption plan mapping strengthened experiments to main text, supplement, claims to make, and claims to avoid.
+ST72 | 2026-07-03 | q1_main_text_result_table_candidates_20260703.txt | Main-text-ready result table candidates summarizing ST64-ST69 with exact/reference, posterior, candidate/rerank, and claim columns.
+ST73 | 2026-07-03 | q1_reviewer_response_evidence_bank_20260703.txt | Reviewer challenge-response evidence bank for synchronized real data, three-phase evidence, full-scale robustness, BOED value, and 300-bus severe-boundary questions.
+ST74 | 2026-07-03 | q1_final_evidence_index_20260703.txt | Final index of core result files, reproducibility code, main-text candidates, supplementary boundary evidence, and unsafe claims.
+ST75 | 2026-07-03 | q1_cover_letter_experiment_highlights_20260703.txt | Cover-letter-ready Q1 contribution framing emphasizing exact-comparable posterior inference, synchronized SoCal posterior, IEEE123 composite stress, full-scale dropout robustness, and BOED decision value.
+ST76 | 2026-07-03 | q1_editor_reviewer_experiment_brief_20260703.txt | Editor/reviewer quick evidence brief summarizing the strengthened experimental chain and guardrails.
+ST77 | 2026-07-03 | q1_final_overclaim_guardrails_20260703.txt | Final overclaim guardrails for private deployment, large unbalanced scale, universal BOED dominance, and 300-bus severe direct accuracy.
+ST78 | 2026-07-03 | q1_pre_submission_consistency_checklist_20260703.txt | Pre-submission consistency checklist for matching manuscript, supplement, cover letter, dashboard, and frozen ST64-ST69 numeric claims.
+ST79 | 2026-07-03 | q1_main_figure_table_upgrade_plan_20260703.txt | Recommended main figure/table upgrade plan to present BOED budget curve, SoCal posterior, composite robustness, and boundary cases compactly.
+ST80 | 2026-07-03 | q1_final_go_nogo_risk_judgement_20260703.txt | Final Q1 go/no-go risk judgement after experimental counterattack, including remaining external-validity and framing risks.
+ST81 | 2026-07-03 | q1_claim_to_evidence_traceability_map_20260703.txt | Claim-to-evidence traceability map connecting manuscript claims to frozen result files, code files, and guardrails.
+ST82 | 2026-07-03 | q1_author_final_execution_roadmap_20260703.txt | Final author execution roadmap for manuscript consolidation, figure/table updates, LaTeX cleanup, package checks, and risk posture.
+ST83 | 2026-07-03 | Q1_SUBMISSION_PACKAGE_README_20260703.txt | Root-level README summarizing package structure, strongest result files, submission thesis, unsafe claims, and immediate next action.
+ST84 | 2026-07-03 | socal_posterior_ablation_leakage_audit_20260703.txt | SoCal real-data credibility audit: fusion raw vs temporal, magnitude-only vs phasor-only vs fusion, and naive within-state forward split; confirms strong synchronized signal but exposes boundary contamination in the naive chronological protocol.
+ST85 | 2026-07-03 | socal_event_posterior_trajectory_20260703.txt | SoCal full-window measurement-conditioned event posterior trajectory replay showing immediate or near-immediate posterior state movement for real switching events and ambiguity around the compressed cb_123 to cb_128 pair.
+ST86 | 2026-07-03 | socal_event_gap_forward_audit_20260703.txt | SoCal event-gap-aware forward audit: stable-state held-out forward generalization rises to 84.85% with 60-second event buffers over states 0/1/3, replacing the misleading 52.60% naive forward split with a more deployment-faithful real-data protocol.
+ST87 | 2026-07-03 | q1_socal_stage1_advisor_eval_round2_20260703.txt | Round-2 advisor evaluation for the SoCal stage concluding passed_for_stage_advance after separating stable-state forward generalization from compressed transition ambiguity.
+ST88 | 2026-07-03 | ieee123_3ph_phase_ambiguity_audit_20260703.txt | IEEE123 three-phase phase-topology ambiguity audit: global and local phase permutations show that local phase-label errors are largely survivable, while severe global permutation raises uncertainty and preserves top20/rerank behavior close to the exact posterior.
+ST89 | 2026-07-03 | q1_threephase_phase_ambiguity_advisor_eval_20260703.txt | Advisor evaluation for the first three-phase ambiguity attack concluding that the ambiguity weakness is substantially repaired but the full three-phase stage still requires one more scale/severity attack.
+ST90 | 2026-07-03 | ieee123_3ph_unbalance_severity_audit_20260703.txt | IEEE123 three-phase unbalance-severity audit: observation-level amplification of phase asymmetry shows moderate severity remains strong and severe regimes retain uncertainty-aware top20/rerank alignment, especially under dropout with posterior reranking.
+ST91 | 2026-07-03 | q1_threephase_stage_advisor_eval_round2_20260703.txt | Round-2 advisor evaluation for the full three-phase stage concluding passed_for_stage_advance after composite stress, phase ambiguity, and unbalance-severity evidence are all in place.
+ST92 | 2026-07-03 | posterior_weighted_residual_consistency_20260703.txt | Posterior-weighted residual consistency audit: for 119-bus and 300-bus cases, posterior uncertainty identifies samples with the largest residual-reduction benefit from top20 reranking, strengthening the topology-state operating-value story.
+ST93 | 2026-07-03 | q1_state_consistency_advisor_eval_round1_20260703.txt | First advisor evaluation for the state-consistency stage concluding that the residual-consistency substage is strengthened, but a real-event state-consistency indicator is still needed before stage advancement.
+ST94 | 2026-07-03 | socal_event_anomaly_consistency_audit_20260703.txt | SoCal real-event anomaly and consistency audit: a stable-state posterior replay over the synchronized real window yields a topology-shift-centric event score with AUC 1.0000 versus far non-events and 3/3 trainable real events above the 99th baseline percentile.
+ST95 | 2026-07-03 | q1_state_consistency_stage_advisor_eval_round2_20260703.txt | Round-2 advisor evaluation for the full state/event consistency stage concluding passed_for_stage_advance after adding a real synchronized event-salience indicator to the residual-consistency evidence chain.
+ST96 | 2026-07-03 | 300bus_credible_set_policy_20260703.txt | 300-bus credible-set policy audit: under severe 30% missing, 90-99% posterior mass sets achieve calibrated truth coverage with mean candidate counts far below 20 while credible-set rerank nearly matches full rerank20 accuracy.
+ST97 | 2026-07-03 | q1_300bus_operating_policy_advisor_eval_round1_20260703.txt | Advisor evaluation for the 300-bus severe-missing operating-policy stage concluding passed_for_stage_advance after selective rerank, confidence stratification, and credible-set calibration form a coherent deployment story.
+ST98 | 2026-07-03 | boed_119bus_dropout_stress_20260703.txt | 119-bus BOED dropout-stress audit: after 20-40% post-selection sensor loss, AdaptiveBOED still yields the strongest accuracy AUC across K=5/7/10 and keeps a clear advantage over MVG, Fisher, and Random.
+ST99 | 2026-07-03 | q1_boed_stage_advisor_eval_round1_20260703.txt | Advisor evaluation for the BOED stage concluding passed_for_stage_advance after combining the clean multi-budget curve with dropout-stress robustness.
+ST100 | 2026-07-03 | q1_global_benchmark_reassessment_20260703.txt | Global post-counterattack reassessment against representative Q1 benchmark lines, concluding the paper is now Q1-competitive with remaining risk concentrated in broad field-scale external validity and theory preference.
+ST101 | 2026-07-03 | q1_global_advisor_reassessment_20260703.txt | Global advisor reassessment concluding that the paper is not yet fully passed at the overall level and recommending one final public-data breadth attack on the longer SoCal preview.
+ST102 | 2026-07-03 | socal_long_preview_breadth_audit_20260703.txt | First 24-hour SoCal public-preview breadth audit showing that the labeled event window has some enrichment but is not globally dominant against all unlabeled regime shifts.
+ST103 | 2026-07-03 | socal_long_preview_event_rank_sweep_20260703.txt | 24-hour SoCal local-peak rank sweep over multiple short-window settings: the 07:20 labeled event pair is sharply recovered in the best setting, but the earlier cb_121 event is not robustly isolated against background regime shifts.

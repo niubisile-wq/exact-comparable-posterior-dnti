@@ -1,0 +1,37 @@
+119-bus IP1 searched sensor-policy v2 training
+date=2026-07-02
+status=isolated_sensor_policy_v2_does_not_overwrite_original_checkpoints
+device=cuda
+sensors=5 8 11 19 23 27 34 36 44 49 51 57 62 67 74 76 84 88 93 95 102 106 109 111 118
+train_samples=120000
+validation_samples=4000
+final_test_samples=6000
+loss=CE(true_topology)+0.20*CE(exact_MAP)
+final_same_draw_exact_MAP_top1=0.5960
+seed,v2_final_true_acc,v2_final_map_agree,best_epoch,best_val_true,best_val_map_agree,checkpoint
+42,0.5330,0.7225,10,0.5255,0.7422,nre_119bus_ip1_sensor_v2_seed42_20260702.pt
+123,0.5217,0.7092,5,0.5245,0.7232,nre_119bus_ip1_sensor_v2_seed123_20260702.pt
+456,0.5273,0.7162,9,0.5185,0.7320,nre_119bus_ip1_sensor_v2_seed456_20260702.pt
+789,0.5280,0.7248,9,0.5242,0.7348,nre_119bus_ip1_sensor_v2_seed789_20260702.pt
+2024,0.5308,0.7138,9,0.5212,0.7255,nre_119bus_ip1_sensor_v2_seed2024_20260702.pt
+old_probability_ensemble_final_true_acc=0.5087
+old_probability_ensemble_final_map_agree=0.6087
+old_probability_ensemble_truth_in_top20=0.9813
+old_probability_ensemble_map_in_top20=0.9913
+old_probability_ensemble_rerank20_true_acc=0.5923
+v2_probability_ensemble_final_true_acc=0.5345
+v2_probability_ensemble_final_map_agree=0.7317
+v2_probability_ensemble_truth_in_top20=0.9882
+v2_probability_ensemble_map_in_top20=0.9973
+v2_probability_ensemble_rerank20_true_acc=0.5947
+validation_selected_lambda_old=0.27
+validation_selected_mix_val_true_acc=0.5290
+validation_selected_mix_val_map_agree=0.7448
+validation_selected_mix_final_true_acc=0.5292
+validation_selected_mix_final_map_agree=0.7290
+validation_selected_mix_truth_in_top20=0.9870
+validation_selected_mix_map_in_top20=0.9967
+validation_selected_mix_rerank20_true_acc=0.5942
+delta_v2_vs_old_final=0.0258
+delta_mix_vs_old_final=0.0205
+elapsed_sec=85.1

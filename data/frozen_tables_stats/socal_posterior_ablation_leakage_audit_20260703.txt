@@ -1,0 +1,24 @@
+SoCal synchronized posterior ablation and leakage audit
+date=2026-07-03
+role=real synchronized posterior credibility upgrade via feature-family ablation and stricter time-split audit
+not_claimed=utility deployment; independent field label audit; timestamp feature usage
+window_utc=2024-11-14T07:00:00 to 2024-11-14T07:30:42
+measurement_rows=1842
+trainable_states=0 1 2 3
+excluded_states_due_to_low_support=4
+forward_train_ratio=0.75
+protocol_metrics
+protocol,base_family,temporal_bank,split_mode,feature_dim,test_n,acc,acc_ci95_lo,acc_ci95_hi,macro_f1,ece,brier
+fusion_raw_blocked,mains_v+frequency+rms+magnitude_harmonic_0+magnitude_harmonic_1+magnitude_harmonic_2,0,blocked_cv,6,1842,0.7025,0.6824,0.7237,0.6465,0.1604,0.4327
+fusion_temporal_blocked,mains_v+frequency+rms+magnitude_harmonic_0+magnitude_harmonic_1+magnitude_harmonic_2,1,blocked_cv,460,1842,0.8664,0.8518,0.8811,0.7814,0.0605,0.2026
+magnitude_temporal_blocked,mains_v,1,blocked_cv,76,1842,0.7329,0.7128,0.7530,0.6551,0.1289,0.3411
+phasor_temporal_blocked,frequency+rms+magnitude_harmonic_0+magnitude_harmonic_1+magnitude_harmonic_2,1,blocked_cv,380,1842,0.8686,0.8540,0.8833,0.7899,0.0532,0.2176
+fusion_temporal_forward,mains_v+frequency+rms+magnitude_harmonic_0+magnitude_harmonic_1+magnitude_harmonic_2,1,forward_split,460,462,0.5931,0.5476,0.6385,0.4771,0.2289,0.4737
+magnitude_temporal_forward,mains_v,1,forward_split,76,462,0.4199,0.3745,0.4654,0.3098,0.3416,0.6984
+phasor_temporal_forward,frequency+rms+magnitude_harmonic_0+magnitude_harmonic_1+magnitude_harmonic_2,1,forward_split,380,462,0.7489,0.7100,0.7900,0.6591,0.1356,0.4055
+headline_deltas
+fusion_temporal_vs_fusion_raw_acc_gain=0.1640
+fusion_temporal_vs_magnitude_temporal_acc_gain=0.1336
+fusion_temporal_vs_phasor_temporal_acc_gain=-0.0022
+fusion_blocked_vs_fusion_forward_acc_gap=0.2734
+elapsed_sec=1933.1

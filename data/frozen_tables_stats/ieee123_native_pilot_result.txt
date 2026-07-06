@@ -1,0 +1,22 @@
+IEEE123 native asset-derived pilot result
+device=cuda
+n_bus=125
+loop_ties=54-94; 151-300
+raw_topologies=38
+kept_topologies=38
+failed_power_flows=0
+K=45
+lf_grid=[0.8999999761581421, 1.0, 1.100000023841858]
+sigma=0.0025
+seed,exact_top1,nre_top1,gap,kl_ref_nre,nre_ms,exact_ms,speedup,train_sec
+42,0.7738,0.7312,0.0425,0.1236,0.003145,0.057568,18.3,2.8
+123,0.7913,0.7625,0.0288,0.1102,0.002876,0.064866,22.6,2.3
+456,0.7488,0.7000,0.0488,0.1188,0.002785,0.057093,20.5,2.5
+mean_exact_top1=0.7712
+mean_nre_top1=0.7312
+mean_gap=0.0400
+mean_speedup=20.5
+Boundary
+- This is a native IEEE 123 raw-asset-derived balanced surrogate benchmark.
+- It preserves the natural loop-forming tie set (54-94, 151-300) rather than inventing extra switching states.
+- It strengthens the asset-derived 123-bus story but does not replace a true unbalanced three-phase benchmark.

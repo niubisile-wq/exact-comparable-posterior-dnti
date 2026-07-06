@@ -1,0 +1,23 @@
+119-bus K60 dropout-robust NRE training
+date=2026-07-02
+role=direct-NRE repair for random sensor dropout; exact/rerank evaluated on retained measurements
+device=cpu
+sensors=1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47 49 51 53 55 57 59 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118
+drop_train=0.0 0.1 0.2 0.4
+train_samples=120000
+validation_samples=4500
+seed,best_epoch,val_direct,val_top20,val_rerank,train_sec,checkpoint
+42,8,0.5553,0.9876,0.6822,47.8,nre_119bus_ip1_K60_dropout_robust_seed42_20260702.pt
+123,4,0.5616,0.9867,0.6818,44.4,nre_119bus_ip1_K60_dropout_robust_seed123_20260702.pt
+456,6,0.5536,0.9869,0.6831,40.4,nre_119bus_ip1_K60_dropout_robust_seed456_20260702.pt
+dropout_eval
+drop_rate,retained_K,model,exact_map_top1,direct_top1,map_agree,truth_top20,map_top20,rerank20,rerank20_map_agree
+0.00,60,fixed_K60,0.7514,0.6386,0.7572,0.9972,0.9994,0.7508,0.9994
+0.00,60,dropout_robust,0.7514,0.6198,0.7312,0.9966,0.9974,0.7508,0.9974
+0.10,54,fixed_K60,0.7294,0.5462,0.6186,0.9796,0.9908,0.7268,0.9908
+0.10,54,dropout_robust,0.7294,0.5978,0.7024,0.9938,0.9974,0.7286,0.9974
+0.20,48,fixed_K60,0.6766,0.3586,0.3958,0.8962,0.9172,0.6568,0.9172
+0.20,48,dropout_robust,0.6766,0.5492,0.6636,0.9906,0.9974,0.6748,0.9974
+0.40,36,fixed_K60,0.6232,0.1498,0.1956,0.5940,0.6012,0.4566,0.6012
+0.40,36,dropout_robust,0.6232,0.5034,0.6148,0.9748,0.9918,0.6214,0.9918
+elapsed_sec=148.6

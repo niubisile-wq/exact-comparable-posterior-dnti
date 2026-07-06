@@ -1,0 +1,23 @@
+Counterattack bootstrap confidence interval audit
+date=2026-07-02
+role=bootstrap CI over recomputed per-sample predictions for new counterattack experiments
+bootstrap_replicates=1200
+case,metric,n,mean,ci95_low,ci95_high
+119bus_K60,direct_top1,9000,0.642111,0.632556,0.651333
+119bus_K60,exact_map_top1,9000,0.753667,0.744667,0.762339
+119bus_K60,truth_in_top20,9000,0.998333,0.997444,0.999111
+119bus_K60,rerank20_top1,9000,0.753333,0.744111,0.762667
+119bus_K60,direct_minus_old25_nre_pp,9000,0.107611,0.097497,0.117611
+300bus_K299,direct_top1,10000,0.314100,0.305600,0.324100
+300bus_K299,exact_map_top1,10000,0.566800,0.557000,0.576700
+300bus_K299,truth_in_top20,10000,0.991700,0.989800,0.993202
+300bus_K299,rerank20_top1,10000,0.564400,0.554897,0.574000
+300bus_K299,highconf10_direct_top1,1000,0.791000,0.764000,0.816000
+300bus_K299,highconf10_direct_lowconf_rerank_top1,10000,0.552400,0.542998,0.563200
+ieee123_K75,direct_top1,1500,0.855333,0.837983,0.872667
+ieee123_K75,exact_top1,1500,0.892000,0.876667,0.908000
+ieee123_K75,truth_in_top3,1500,1.000000,1.000000,1.000000
+ieee123_K75,rerank3_top1,1500,0.893333,0.878000,0.908000
+socal_enhanced,blocked_cv_top1,1842,0.791531,0.773073,0.810546
+socal_enhanced,majority_baseline_top1,1842,0.293160,0.272530,0.314332
+socal_enhanced,gain_over_majority_pp,1842,0.498371,0.473398,0.523344

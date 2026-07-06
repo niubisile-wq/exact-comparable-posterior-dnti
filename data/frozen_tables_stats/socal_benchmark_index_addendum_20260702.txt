@@ -1,0 +1,29 @@
+SoCal benchmark-index addendum (2026-07-02)
+
+Source
+- Local script: <LOCAL_WORKSPACE>\dn_socal_benchmark_index.py
+- Local result: <LOCAL_WORKSPACE>\socal_benchmark_index.txt
+
+What this adds
+- Converts the public SoCal sample from a loose set of files into a benchmark-index view.
+- Separates the available evidence into three tracks:
+  1. topology_state_graph,
+  2. preview_measurement_ingest,
+  3. synchronized_posterior_benchmark (currently blocked by public time-window gap).
+
+Frozen facts
+- netfile_changes rows = 1
+- parameter_changes rows = 16
+- topology status files = 14
+- topology status rows = 48
+- topology snapshots = 16
+- preview files currently ingested locally = 3
+- egauge_9-Mains_Power rows = 86401
+- egauge_9-S3 rows = 49963
+- t_phasor rows = 49974
+- public gap between topology and earliest measurement sample = 7.49 hours
+- synchronized overlap available = false
+
+Boundary
+- This strengthens the real-data ingest/indexing story.
+- It still does not create a synchronized public posterior benchmark.

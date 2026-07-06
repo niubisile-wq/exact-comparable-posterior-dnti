@@ -1,0 +1,24 @@
+================================================================================================
+Unified baseline table after Step 2 GraphSAGE audit
+Device: cuda
+Protocol: K=20 random sensors, variable load, sigma=0.009, 5 seeds.
+------------------------------------------------------------------------------------------------
+Network  Method      top-1 mean/std       latency ms/sample   posterior output
+------------------------------------------------------------------------------------------------
+33bus    GraphSAGE  0.6813+/-0.0080       0.0056+/-0.0010        no, shared feeder graph
+33bus    NRE        0.6820 ref          not remeasured      yes, learned posterior
+33bus    EnumBF     0.7210 ref         not remeasured      yes, exact enumeration
+
+69bus    GraphSAGE  0.2927+/-0.0093       0.0092+/-0.0025        no, shared feeder graph
+69bus    NRE        0.3590 ref          not remeasured      yes, learned posterior
+69bus    EnumBF     0.4020 ref         not remeasured      yes, exact enumeration
+
+Q1-standard interpretation:
+- GraphSAGE is now present as a strong shared-graph GNN point-estimate
+  baseline for 33/69-bus under the same observation protocol.
+- 33-bus GraphSAGE is essentially tied with NRE in top-1 accuracy; do not claim a
+  top-1-only NRE win there.
+- 69-bus GraphSAGE is materially below NRE and EnumBF under the same K=20 protocol.
+- The defensible NRE contribution is exact-comparable posterior inference for
+  uncertainty-aware decisions, not merely classification accuracy.
+================================================================================================

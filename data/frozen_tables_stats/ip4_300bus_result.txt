@@ -1,0 +1,13 @@
+Step 5 300-bus IP4 H(K)
+n_topologies=200
+sigma=0.0015
+sensor_policy=fixed uniform feeder coverage
+K,H_mean,H_std
+40,2.4881,0.8466
+80,1.7232,0.8698
+120,1.4424,0.8620
+150,1.2634,0.8684
+180,1.1965,0.8746
+220,1.0645,0.8538
+monotone_nonincreasing=True
+Boundary: synthetic 300-bus fixed-deployment identifiability stress test, not a real utility feeder.

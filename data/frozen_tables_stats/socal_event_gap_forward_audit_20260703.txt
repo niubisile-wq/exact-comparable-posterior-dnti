@@ -1,0 +1,34 @@
+SoCal event-gap-aware forward audit
+date=2026-07-03
+role=stable-state forward generalization plus transition tracking under synchronized real measurements
+not_claimed=full window forward benchmark; state_2 treated as transient if removed by support rule
+window_utc=2024-11-14T07:00:00 to 2024-11-14T07:30:42
+feature_dim=460
+forward_train_ratio=0.75
+stable_forward_metrics
+buffer_sec,stable_rows,states,train_n,test_n,acc,acc_ci95_lo,acc_ci95_hi,macro_f1,majority
+10,1784,0 1 3,1337,447,0.5682,0.5235,0.6107,0.5345,0.3602
+15,1764,0 1 3,1321,443,0.5959,0.5485,0.6411,0.5690,0.3589
+30,1704,0 1 3,1277,427,0.7190,0.6745,0.7611,0.7142,0.3536
+60,1584,0 1 3,1188,396,0.8485,0.8131,0.8838,0.8466,0.3535
+best_stable_forward
+buffer_sec=60
+stable_rows=1584
+states=0 1 3
+acc=0.8485
+acc_ci95=0.8131,0.8838
+macro_f1=0.8466
+majority=0.3535
+transition_metrics
+device,event_utc,pre_state,post_state,window_sec,pre_n,post_n,pre_true_state_mass,post_true_state_mass,pre_top1_match,post_top1_match
+cb_121,2024-11-14T07:09:00,0,1,30,30,31,0.6046,0.3990,1.0000,0.0000
+cb_121,2024-11-14T07:09:00,0,1,60,60,61,0.5900,0.5599,1.0000,0.4754
+cb_121,2024-11-14T07:09:00,0,1,180,180,181,0.5680,0.8513,0.8333,0.8232
+compressed_pair_transition
+pair=cb_123_to_cb_128
+bridge_n=17
+pre_state1_mass=0.4495
+bridge_mean_entropy=0.6756
+bridge_max_entropy=0.7177
+post_state3_mass=0.6434
+elapsed_sec=9.6

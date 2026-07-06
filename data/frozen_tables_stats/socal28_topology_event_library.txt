@@ -1,0 +1,34 @@
+SoCal 28-bus topology event library summary
+status_device_count=14
+timeline_snapshots=16
+unique_joint_topology_states=11
+state_transition_steps=15
+first_snapshot=2023-08-01T00:00:00.000000
+last_snapshot=2024-11-13T23:30:42.000000
+top_state_1=count:3 first:2023-08-01T00:00:00.000000 last:2023-12-07T11:14:50.000000 NC:7 NO:7 UNK:0
+top_state_2=count:3 first:2023-09-17T11:02:10.000000 last:2023-11-26T09:26:30.000000 NC:7 NO:7 UNK:0
+top_state_3=count:2 first:2024-02-01T00:00:00.000000 last:2024-11-13T23:30:42.000000 NC:9 NO:5 UNK:0
+top_state_4=count:1 first:2023-09-17T14:04:17.000000 last:2023-09-17T14:04:17.000000 NC:7 NO:7 UNK:0
+top_state_5=count:1 first:2023-11-26T09:27:10.000000 last:2023-11-26T09:27:10.000000 NC:7 NO:7 UNK:0
+longest_state_dwells_hours
+dwell_1=hours:6881.87 NC:9 NO:5
+dwell_2=hours:3930.03 NC:7 NO:7
+dwell_3=hours:265.05 NC:7 NO:7
+dwell_4=hours:216.76 NC:7 NO:7
+dwell_5=hours:5.28 NC:7 NO:7
+top_transition_edges
+transition_1=count:2 changed_devices:2 prev_NC:7 curr_NC:7
+transition_2=count:1 changed_devices:2 prev_NC:7 curr_NC:7
+transition_3=count:1 changed_devices:2 prev_NC:7 curr_NC:7
+transition_4=count:1 changed_devices:2 prev_NC:7 curr_NC:7
+transition_5=count:1 changed_devices:6 prev_NC:7 curr_NC:7
+device_flip_frequency
+flip_1=device:cb_123-tbus changes:6 rows:7
+flip_2=device:cb_128-tbus changes:6 rows:7
+flip_3=device:cb_146-tbus changes:2 rows:3
+flip_4=device:cb_147-tbus changes:2 rows:3
+flip_5=device:cb_134-tbus changes:2 rows:3
+flip_6=device:cb_135-tbus changes:2 rows:3
+flip_7=device:cb_137-tbus changes:2 rows:3
+flip_8=device:cb_138-tbus changes:2 rows:3
+boundary=This library is derived only from the local topology status sample and is not yet paired with synchronized measurement streams.

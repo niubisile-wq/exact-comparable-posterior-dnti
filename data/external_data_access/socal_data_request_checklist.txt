@@ -1,0 +1,32 @@
+SoCal data request checklist
+Date: 2026-07-02
+
+Before request
+- Create or confirm a GitHub account.
+- Record the exact username.
+- Decide the affiliation and contact email to use.
+
+During request
+- Submit the official access ticket referenced by the repository README.
+- Ask for allowlist access for the full dataset at https://socal28bus.caltech.edu/
+- Request access to:
+  - network / parameter
+  - magnitude
+  - phasor
+  - waveform
+- Recommend requesting the highest-coverage window:
+  September 2024 to September 2025
+
+After approval
+- Use the repository client / notebook examples to authenticate and download data.
+- Preserve the authentication file securely.
+- Download a synchronized window containing:
+  - topology / parameter timeline
+  - magnitude measurements
+  - phasor measurements
+- Then continue the real-data posterior benchmark locally.
+
+What success looks like
+- A local synchronized real-data window exists.
+- We can map measurement timestamps to topology states.
+- The current last scientific blocker for the manuscript is removed.

@@ -1,0 +1,74 @@
+Q1 main-text result table candidates
+Date: 2026-07-03
+
+Table A. Strengthened evidence chain for posterior topology inference
+Column suggestion:
+Benchmark | Setting | Exact/reference | NRE/posterior result | Candidate/rerank result | Main claim | Source
+
+Rows for main text
+1. SoCal synchronized real data
+- Benchmark: SoCal public synchronized topology/measurement sample.
+- Setting: 1843 real measurement rows, 2024-11-14T07:00:00 to 2024-11-14T07:30:42 UTC, four trainable topology states, blocked CV, no timestamp feature.
+- Baseline/reference: majority baseline 36.10%.
+- Posterior result: tree-ensemble posterior accuracy 86.64%, 95% CI [85.18, 88.11], macro-F1 78.14%, Brier 0.2026.
+- Main claim: synchronized real-measurement-conditioned topology-state posterior inference.
+- Source: ST67 socal_measurement_tree_ensemble_posterior_20260703.txt.
+
+2. IEEE123 controlled three-phase composite stress
+- Benchmark: raw-asset-derived IEEE123 controlled unbalanced exact-comparable benchmark.
+- Setting: K75 deployment, simultaneous 20% sensor dropout and 2x measurement noise.
+- Exact/reference: exact top-1 79.22%.
+- Posterior result: dropout-robust direct 70.72%; top20 100%.
+- Candidate/rerank result: rerank@20 79.28%, matching exact reference.
+- Main claim: robust three-phase posterior candidate/rerank under simultaneous missing/noisy telemetry.
+- Source: ST68 ieee123_3ph_composite_stress_20260703.txt.
+
+3. IEEE123 controlled three-phase severe composite stress
+- Benchmark: same IEEE123 controlled unbalanced benchmark.
+- Setting: K75 deployment, simultaneous 40% sensor dropout and 2x measurement noise.
+- Exact/reference: exact top-1 73.61%.
+- Posterior result: dropout-robust direct 61.00%; top20 100%.
+- Candidate/rerank result: rerank@20 72.83%.
+- Main claim: high-recall posterior candidate set remains reliable even in severe three-phase telemetry degradation.
+- Source: ST68 ieee123_3ph_composite_stress_20260703.txt.
+
+4. 202-bus full-scale balanced stress
+- Benchmark: SystemData_202 balanced full-scale reconfiguration stress benchmark.
+- Setting: K160 deployment, 40% random sensor dropout.
+- Exact/reference: exact top-1 85.27%.
+- Fixed model result: direct 16.38%, top20 52.85%, rerank@20 51.81%.
+- Robust model result: direct 36.35%, top20 91.04%, rerank@20 81.73%.
+- Main claim: dropout-robust deployment model repairs full-scale telemetry-loss degradation.
+- Source: ST64 reconfig_fullscale_dropout_robust_20260702.txt.
+
+5. 417-bus full-scale balanced stress
+- Benchmark: SystemData_417/418 balanced full-scale reconfiguration stress benchmark.
+- Setting: K220 deployment, 40% random sensor dropout.
+- Exact/reference: exact top-1 75.81%.
+- Fixed model result: direct 21.54%, top20 53.38%, rerank@20 50.27%.
+- Robust model result: direct 37.65%, top20 80.69%, rerank@20 69.38%.
+- Main claim: full-scale robustness generalizes beyond one feeder size.
+- Source: ST64 reconfig_fullscale_dropout_robust_20260702.txt.
+
+6. 119-bus BOED budget curve
+- Benchmark: 119-bus adaptive sensing decision benchmark.
+- Setting: K=3/4/5/6/7/8/10 adaptive budgets.
+- Baselines: Random, AdaptiveMVG, AdaptiveFisher.
+- Posterior decision result: BOED accuracy AUC 54.60% vs MVG 41.75%, Fisher 38.89%, Random 11.90%.
+- Significant gains: BOED-MVG +12.86pp CI [6.82,18.73]; BOED-Fisher +15.71pp CI [9.21,22.54].
+- Main claim: posterior is useful as a sensing decision object, not only as an inference output.
+- Source: ST69 boed_119bus_budget_curve_20260703.txt.
+
+7. 300-bus severe missing boundary
+- Benchmark: 300-bus K299 severe missing benchmark.
+- Setting: 30% missing, retained K=210.
+- Exact/reference: exact MAP top-1 56.88%.
+- Direct NRE result: fixed 30.89%, missing-rate robust 30.94%, no meaningful direct gain.
+- Candidate/rerank result: top20 99.35%, rerank@20 56.75% to 56.78%, matching exact MAP level.
+- Main claim: severe missing case is an information-limited boundary; use candidate screening and exact/posterior reranking, not direct-only deployment.
+- Source: ST66 300bus_K299_missingrate_robust_20260702.txt.
+
+Recommended main-text table ordering
+- Put SoCal first or last depending on narrative: first for real-world anchor, last for evidence-chain climax.
+- Put 300-bus boundary row in robustness table, not as a headline win.
+- Put BOED in a separate decision-value table/figure if page limit allows.

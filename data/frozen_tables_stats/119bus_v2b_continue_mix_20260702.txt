@@ -1,0 +1,26 @@
+119-bus IP1 v2b continuation and validation-selected ensemble mix
+date=2026-07-02
+status=isolated_v2b_does_not_overwrite_original_checkpoints
+device=cuda
+train_samples=160000
+validation_samples=4000
+final_test_samples=6000
+loss=continued CE(exact_MAP)+0.10*CE(true_topology)
+final_same_draw_exact_MAP_top1=0.5278
+seed,v2b_final_true_acc,v2b_final_map_agree,best_epoch,best_val_true,best_val_map_agree,checkpoint
+42,0.4310,0.5982,6,0.4440,0.6035,nre_119bus_ip1_v2b_continue_mix_seed42_20260702.pt
+123,0.4347,0.6043,13,0.4487,0.6170,nre_119bus_ip1_v2b_continue_mix_seed123_20260702.pt
+456,0.4328,0.6113,14,0.4492,0.6160,nre_119bus_ip1_v2b_continue_mix_seed456_20260702.pt
+789,0.4300,0.6105,13,0.4530,0.6150,nre_119bus_ip1_v2b_continue_mix_seed789_20260702.pt
+2024,0.4363,0.5990,10,0.4435,0.6050,nre_119bus_ip1_v2b_continue_mix_seed2024_20260702.pt
+old_probability_ensemble_final_true_acc=0.4457
+old_probability_ensemble_final_map_agree=0.5517
+v2b_probability_ensemble_final_true_acc=0.4442
+v2b_probability_ensemble_final_map_agree=0.6302
+validation_selected_lambda_old=0.91
+validation_selected_mix_val_true_acc=0.4627
+validation_selected_mix_val_map_agree=0.6245
+validation_selected_mix_final_true_acc=0.4472
+validation_selected_mix_final_map_agree=0.6207
+delta_mix_vs_old_final=0.0015
+elapsed_sec=109.4

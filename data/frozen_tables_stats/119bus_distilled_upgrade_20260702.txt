@@ -1,0 +1,17 @@
+119-bus IP1 direct-NRE distilled upgrade pilot
+date=2026-07-02
+status=pilot_single_seed_not_multiseed_replacement
+device=cuda
+train_samples=60000
+test_samples=3000
+input=normalized observed voltage (V-1)/sigma + mask + load feature
+loss=KL(exact posterior||NRE)+0.60*CE(true topology)
+exact_top1=0.5310
+nre_top1=0.3033
+nre_exact_agree=0.3270
+kl_ref_nre=0.9741
+nre_ms=0.004552
+comparison_old_119bus_ip1_mean_nre=0.4190
+comparison_method_upgrade_logit_ensemble_test_nre=0.4560
+checkpoint=nre_119bus_ip1_distilled_norm_seed42_20260702.pt
+elapsed_sec=22.5

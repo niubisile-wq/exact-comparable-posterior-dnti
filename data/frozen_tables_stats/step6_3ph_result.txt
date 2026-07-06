@@ -1,0 +1,5 @@
+Step6 3-phase Results: 9 topos, 10-bus, K=6
+seed=42: EnumBF=0.384 NRE=0.350 gap=0.034 KL=0.0793 speedup=437149x
+seed=123: EnumBF=0.384 NRE=0.320 gap=0.064 KL=0.1247 speedup=459934x
+seed=456: EnumBF=0.384 NRE=0.290 gap=0.094 KL=0.1720 speedup=344911x
+Mean gap=0.064+/-0.024  speedup=413998x

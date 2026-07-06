@@ -1,0 +1,43 @@
+Three-phase benchmark suite summary (2026-07-02)
+
+Benchmarks
+1. 10-bus directional extension
+- source: step6_3ph_result.txt
+- n_topologies = 9
+- deployment = K=6 fixed observed buses
+- mean exact top-1 = 0.3840
+- mean NRE top-1 = 0.3200
+- mean gap = 0.0640
+- mean speedup = 413998x
+- role: initial directional extension showing that the NRE posterior framework carries over to an unbalanced three-phase toy feeder.
+
+2. 13-bus fixed-deployment bridge benchmark
+- source: threephase_13bus_fixed_result.txt
+- n_topologies = 17
+- deployment = K=8 fixed observed buses
+- mean exact top-1 = 0.1160
+- mean NRE top-1 = 0.1173
+- mean gap = -0.0013
+- mean KL(ref||NRE) = 0.0055
+- mean speedup = 45.9x
+- role: intermediate bridge benchmark showing near-exact posterior tracking on a highly ambiguous three-phase topology library.
+
+3. 37-bus fixed-deployment stronger benchmark
+- source: threephase_37bus_fixed_result.txt
+- n_topologies = 56
+- deployment = K=24 fixed observed buses
+- mean exact top-1 = 0.5780
+- mean NRE top-1 = 0.5087
+- mean gap = 0.0693
+- mean KL(ref||NRE) = 0.1681
+- mean speedup = 85.6x
+- role: stronger reviewer-facing three-phase benchmark beyond toy scale.
+
+Interpretation
+- The 10-bus and 37-bus benchmarks both show nontrivial exact-vs-NRE gaps of roughly 6-7 percentage points while preserving clear online speedup.
+- The 13-bus benchmark is unusually ambiguous in top-1 terms, but the learned posterior tracks the exact posterior essentially exactly, indicating that the low absolute top-1 is driven by posterior ambiguity rather than obvious approximation failure.
+- Taken together, the package now contains a small three-phase suite rather than a single toy extension.
+
+Boundary
+- All three benchmarks remain synthetic and are not a substitute for a utility-grade real-feeder three-phase benchmark.
+- The suite materially reduces the prior reviewer attack that the paper had only a toy three-phase check.

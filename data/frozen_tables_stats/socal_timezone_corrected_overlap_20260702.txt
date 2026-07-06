@@ -1,0 +1,50 @@
+SoCal timezone-corrected synchronized overlap audit
+Date: 2026-07-02
+
+Raw local CSV audit
+- topology_global_min = 2023-08-01T00:00:00
+- topology_global_max = 2024-11-13T23:30:42
+- earliest acquired measurement sample = 2024-11-14T07:00:00
+
+Naive reading
+- If both timestamp families are treated as naive timestamps in the same time zone,
+  there appears to be a 7h29m18s gap.
+
+Corrected reading
+- Interpret topology event timestamps as SoCal local time.
+- Interpret measurement timestamps as UTC.
+- On 2024-11-13, SoCal local time is PST (UTC-08:00).
+- Therefore 2024-11-13T23:30:42 local maps to 2024-11-14T07:30:42Z.
+
+Synchronized public measurement preview
+- measurement_start_utc = 2024-11-14T07:00:00Z
+- magnitude_preview_end_utc = 2024-11-15T07:00:00Z
+- phasor_preview_end_utc = 2024-11-21T06:59:50Z
+- topology status variables are interpreted as piecewise-constant time series
+  and forward-filled after each event until the next event.
+
+Event-bearing synchronized subwindow
+- subwindow_start_utc = 2024-11-14T07:00:00Z
+- subwindow_end_utc = 2024-11-14T07:30:42Z
+- subwindow_duration = 30m42s
+- topology_events_inside_subwindow = 4
+- joint_topology_states_inside_subwindow = 5
+
+Rows inside the event-bearing subwindow
+- egauge_9-Mains_Power.csv: 1843 rows
+- egauge_9-S3.csv: 153 rows
+- t_phasor.csv: 153 rows
+
+Rows in forward-filled synchronized preview
+- egauge_9-Mains_Power.csv: 86401 rows over 24.000 hours
+- egauge_9-S3.csv: 49963 rows over 167.997 hours
+- t_phasor.csv: 49974 rows over 167.997 hours
+
+Interpretation
+- The previous "no public synchronized overlap" conclusion was too conservative
+  because it ignored the topology-local-time versus measurement-UTC convention.
+- The current public sample contains real topology events inside the measurement
+  preview and supports synchronized labels under standard piecewise-constant
+  status forward filling.
+- This closes the data-alignment objection. The remaining limitation is preview
+  breadth, not synchronization.

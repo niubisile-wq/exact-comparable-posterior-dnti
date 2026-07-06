@@ -1,0 +1,26 @@
+SoCal measurement-regime addendum (2026-07-02)
+
+Source
+- Local script: <LOCAL_WORKSPACE>\dn_socal_measurement_regime_library.py
+- Local result: <LOCAL_WORKSPACE>\socal_measurement_regime_library.txt
+
+What this adds
+- Converts the 24-hour overlap between the local magnitude preview and the local phasor preview into a measurement-only regime library.
+- Demonstrates that the public preview measurements support structured regime segmentation even without topology synchronization.
+
+Frozen facts
+- merged_rows = 6621
+- merge_duration_hours = 23.997
+- feature_dim = 6
+- regimes extracted = 4
+- regime_transition_steps = 1937
+
+Regime means
+- cluster_0: v=295.141, f=60.002768, rms=391.369
+- cluster_1: v=305.454, f=60.003373, rms=406.950
+- cluster_2: v=312.983, f=59.989534, rms=418.561
+- cluster_3: v=296.340, f=59.979581, rms=393.152
+
+Boundary
+- This is still a measurement-only library over the preview overlap window.
+- It does not imply synchronized alignment with the public topology-event timeline.

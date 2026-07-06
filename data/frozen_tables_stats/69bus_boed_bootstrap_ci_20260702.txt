@@ -1,0 +1,29 @@
+69-bus BOED sensor-efficiency bootstrap audit
+date=2026-07-02
+role=focused per-sample BOED/MVG/Random comparison with bootstrap CI
+N_TEST=100
+N_MC=30
+N_LF_C=11
+bootstrap_replicates=1200
+metric,method_or_delta,K,mean,ci95_low,ci95_high
+accuracy,Random,4,0.240000,0.160000,0.330000
+accuracy,AdaptiveMVG,4,0.400000,0.310000,0.500000
+accuracy,AdaptiveBOED,4,0.440000,0.350000,0.540000
+entropy,Random,4,2.801544,2.602723,2.985757
+entropy,AdaptiveMVG,4,1.819050,1.582300,2.048612
+entropy,AdaptiveBOED,4,1.738236,1.512928,1.969085
+accuracy_delta_BOED_minus_Random,AdaptiveBOED-Random,4,0.200000,0.080000,0.290000
+entropy_reduction_BOED_vs_Random,Random-AdaptiveBOED,4,1.063308,0.857833,1.248054
+accuracy_delta_BOED_minus_AdaptiveMVG,AdaptiveBOED-AdaptiveMVG,4,0.040000,-0.060000,0.130000
+entropy_reduction_BOED_vs_AdaptiveMVG,AdaptiveMVG-AdaptiveBOED,4,0.080813,-0.096604,0.265512
+accuracy,Random,7,0.240000,0.160000,0.330000
+accuracy,AdaptiveMVG,7,0.660000,0.560000,0.750000
+accuracy,AdaptiveBOED,7,0.680000,0.580000,0.770000
+entropy,Random,7,2.415135,2.213661,2.599285
+entropy,AdaptiveMVG,7,0.973495,0.777690,1.164799
+entropy,AdaptiveBOED,7,0.893044,0.699431,1.098334
+accuracy_delta_BOED_minus_Random,AdaptiveBOED-Random,7,0.440000,0.329750,0.550000
+entropy_reduction_BOED_vs_Random,Random-AdaptiveBOED,7,1.522091,1.317533,1.723869
+accuracy_delta_BOED_minus_AdaptiveMVG,AdaptiveBOED-AdaptiveMVG,7,0.020000,-0.060000,0.100000
+entropy_reduction_BOED_vs_AdaptiveMVG,AdaptiveMVG-AdaptiveBOED,7,0.080450,-0.026399,0.189858
+elapsed_sec=60.6

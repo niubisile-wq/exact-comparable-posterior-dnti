@@ -1,0 +1,48 @@
+Full-scale reconfiguration dropout-robust NRE training
+date=2026-07-02
+role=experimental repair for random sensor dropout on balanced full-scale 202/417 stress benchmarks
+comparison=frozen fixed K160/K220 full-scale checkpoints vs dropout-robust warm-start models
+not_claimed=three-phase utility deployment or private field validation
+device=cpu
+drop_train=0.0 0.1 0.2 0.4
+system=SystemData_202
+n_bus=202
+n_topologies=214
+attack_K=160
+train_samples=36000
+validation_samples=1800
+test_samples_per_dropout=2600
+seed,best_epoch,val_exact,val_direct,val_top20,val_rerank20,val_kl,train_sec,checkpoint
+202,6,0.8906,0.5972,0.9506,0.8589,1.2788,11.0,nre_reconfig_SystemData_202_K160_dropout_robust_seed202_20260702.pt
+1202,6,0.8906,0.6006,0.9506,0.8550,1.2757,10.3,nre_reconfig_SystemData_202_K160_dropout_robust_seed1202_20260702.pt
+dropout_eval
+drop_rate,retained_K,model,exact_top1,direct_top1,exact_agree,kl,truth_top5,truth_top10,truth_top20,rerank5,rerank10,rerank20,direct_gain_ci,top20_gain_ci,rerank20_gain_ci
+0.00,160,fixed,0.9031,0.8896,0.9088,0.0824,0.9569,0.9835,0.9988,0.9042,0.9038,0.9042,,,
+0.00,160,dropout_robust,0.9031,0.8858,0.8931,0.2462,0.9535,0.9842,0.9988,0.9031,0.9058,0.9046,-0.0038[-0.0108,0.0023],0.0000[-0.0012,0.0012],0.0004[-0.0015,0.0023]
+0.10,144,fixed,0.9019,0.5915,0.5888,2.1419,0.8150,0.8585,0.8935,0.8004,0.8354,0.8585,,,
+0.10,144,dropout_robust,0.9019,0.6988,0.6985,0.8589,0.8954,0.9246,0.9681,0.8669,0.8773,0.8862,0.1073[0.0912,0.1231],0.0746[0.0638,0.0850],0.0277[0.0185,0.0365]
+0.20,128,fixed,0.8935,0.3669,0.3677,3.3133,0.6146,0.6935,0.7565,0.6112,0.6865,0.7446,,,
+0.20,128,dropout_robust,0.8935,0.5658,0.5642,1.3745,0.8442,0.8915,0.9450,0.8165,0.8462,0.8662,0.1988[0.1811,0.2169],0.1885[0.1715,0.2050],0.1215[0.1081,0.1362]
+0.40,96,fixed,0.8527,0.1638,0.1662,4.2041,0.3488,0.4315,0.5285,0.3458,0.4262,0.5181,,,
+0.40,96,dropout_robust,0.8527,0.3635,0.3638,2.2965,0.7073,0.8242,0.9104,0.6812,0.7731,0.8173,0.1996[0.1819,0.2162],0.3819[0.3619,0.4019],0.2992[0.2804,0.3173]
+system=SystemData_417
+n_bus=418
+n_topologies=220
+attack_K=220
+train_samples=34000
+validation_samples=1800
+test_samples_per_dropout=2600
+seed,best_epoch,val_exact,val_direct,val_top20,val_rerank20,val_kl,train_sec,checkpoint
+417,6,0.7883,0.5361,0.8622,0.7450,1.2007,13.1,nre_reconfig_SystemData_417_K220_dropout_robust_seed417_20260702.pt
+1417,6,0.7883,0.5400,0.8756,0.7522,1.1874,13.3,nre_reconfig_SystemData_417_K220_dropout_robust_seed1417_20260702.pt
+dropout_eval
+drop_rate,retained_K,model,exact_top1,direct_top1,exact_agree,kl,truth_top5,truth_top10,truth_top20,rerank5,rerank10,rerank20,direct_gain_ci,top20_gain_ci,rerank20_gain_ci
+0.00,220,fixed,0.8208,0.7812,0.8212,0.1912,0.8904,0.9177,0.9642,0.8173,0.8188,0.8192,,,
+0.00,220,dropout_robust,0.8208,0.7700,0.8073,0.3555,0.8904,0.9162,0.9615,0.8154,0.8181,0.8185,-0.0112[-0.0212,-0.0023],-0.0027[-0.0096,0.0038],-0.0008[-0.0038,0.0023]
+0.10,198,fixed,0.8104,0.5185,0.5173,2.0793,0.6931,0.7396,0.7785,0.6615,0.7000,0.7327,,,
+0.10,198,dropout_robust,0.8104,0.5715,0.5769,1.0246,0.8000,0.8400,0.8931,0.7535,0.7731,0.7823,0.0531[0.0415,0.0662],0.1146[0.1019,0.1269],0.0496[0.0392,0.0600]
+0.20,176,fixed,0.7973,0.3892,0.3904,2.8478,0.5942,0.6485,0.6800,0.5662,0.6131,0.6396,,,
+0.20,176,dropout_robust,0.7973,0.4854,0.4942,1.3617,0.7496,0.8077,0.8554,0.6965,0.7338,0.7496,0.0962[0.0815,0.1096],0.1754[0.1596,0.1900],0.1100[0.0965,0.1235]
+0.40,132,fixed,0.7581,0.2154,0.2131,3.6539,0.3877,0.4612,0.5338,0.3665,0.4350,0.5027,,,
+0.40,132,dropout_robust,0.7581,0.3765,0.3785,1.9612,0.6631,0.7388,0.8069,0.6100,0.6673,0.6938,0.1612[0.1465,0.1777],0.2731[0.2550,0.2908],0.1912[0.1746,0.2065]
+elapsed_sec=71.8

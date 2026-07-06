@@ -1,0 +1,8 @@
+GraphSAGE baseline result: 33bus
+seeds=[42, 123, 456, 789, 2024]
+accs=0.6783,0.6750,0.6942,0.6725,0.6867
+mean=0.6813
+std=0.0080
+NRE_ref=0.6820
+EnumBF_ref=0.7210
+Boundary: GraphSAGE is a point-estimate baseline; it does not provide exact-comparable posterior quality.

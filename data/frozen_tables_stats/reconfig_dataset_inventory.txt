@@ -1,0 +1,17 @@
+Reconfiguration-dataset inventory
+root=<LOCAL_WORKSPACE>\ElectricalSystemsDataForReconfiguration
+
+system,vnom_kv,slack_bus,n_bus,n_load_bus,n_branch,estimated_tie_like_branches,max_branch_id,total_pd_kw,total_qd_kvar
+SystemData_016,13.2791,1,14,13,16,3,26,28700.000,17300.000
+SystemData_033,12.66,1,33,32,37,5,37,3715.000,2300.000
+SystemData_069,12.66,1,69,48,73,5,73,3802.190,2694.600
+SystemData_083,11.4,0,84,67,96,13,96,28350.900,20700.000
+SystemData_119,11.0,0,119,117,133,15,133,22709.720,17041.068
+SystemData_136,13.8,0,136,107,156,21,156,18313.809,7932.533
+SystemData_202,13.8,1,202,125,216,15,216,27571.560,17084.540
+SystemData_417,None,None,418,311,476,59,476,27372.300,13237.000
+
+Interpretation
+- estimated_tie_like_branches = n_branch - (n_bus - 1)
+- this is a structural upper-bound proxy for reconfiguration candidates, not a full feasibility certification
+- these text assets are balanced reconfiguration benchmarks, so they support full-scale stress coverage rather than the unbalanced-three-phase main gap

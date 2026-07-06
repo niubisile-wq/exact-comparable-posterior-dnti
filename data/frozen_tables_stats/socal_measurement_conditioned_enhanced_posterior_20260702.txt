@@ -1,0 +1,39 @@
+Enhanced SoCal measurement-conditioned topology-state posterior audit
+date=2026-07-02
+role=real synchronized measurement posterior audit using online rolling/difference features
+not_claimed=utility-grade deployment; no timestamp feature; no independent field label audit
+device=cpu
+window_utc=2024-11-14T07:00:00 to 2024-11-14T07:30:42
+measurement_rows=1843
+base_feature_count=6
+enhanced_feature_count=72
+unique_states=5
+state_counts
+state_id,count,signature
+0,540,cb_121:NO cb_123:NO cb_128:NC swmp_17-2:NO
+1,665,cb_121:NC cb_123:NO cb_128:NC swmp_17-2:NO
+2,16,cb_121:NC cb_123:NC cb_128:NC swmp_17-2:NO
+3,621,cb_121:NC cb_123:NC cb_128:NO swmp_17-2:NO
+4,1,cb_121:NC cb_123:NC cb_128:NO swmp_17-2:NC
+trainable_states=0 1 2 3
+excluded_states_due_to_low_support=4
+blocked_cv_folds=5
+seeds=42 123 456
+majority_baseline_acc=0.3610
+overall_blocked_cv_acc=0.7915
+overall_macro_f1=0.7535
+overall_ece=0.1900
+overall_brier=0.3832
+fold_metrics
+fold,train_n,test_n,ensemble_acc,macro_f1,ece,brier
+0,1472,370,0.7081,0.6111,0.2839,0.5713
+1,1474,368,0.7364,0.7684,0.2326,0.4669
+2,1474,368,1.0000,1.0000,0.0022,0.0005
+3,1474,368,0.9511,0.9614,0.0511,0.0974
+4,1474,368,0.5625,0.5124,0.4028,0.7789
+per_state_metrics
+state_id,test_n,acc,mean_confidence
+0,540,0.8667,0.9736
+1,665,0.6932,0.9900
+2,16,0.9375,0.9925
+3,621,0.8277,0.9740

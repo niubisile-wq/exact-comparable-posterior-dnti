@@ -1,0 +1,25 @@
+Reconfiguration full-scale stress result
+root=<LOCAL_WORKSPACE>\ElectricalSystemsDataForReconfiguration
+systems=SystemData_119,SystemData_202,SystemData_417
+lf_grid=[0.9, 1.0, 1.1]
+max_topologies=220
+
+SystemData_119: n_bus=119 n_tree=118 n_tie=15 sampled_topologies=166
+  lf=0.9 base_ok=True conv=152/166 conv_rate=0.916 base_vmin=0.883531953928435 worst_vmin=0.48646746238035016 best_vmax=1.0 mean_loss_kw=1249.006524063031 elapsed_sec=5.7
+  lf=1.0 base_ok=True conv=150/166 conv_rate=0.904 base_vmin=0.8687559820812836 worst_vmin=0.5223634794353467 best_vmax=1.0 mean_loss_kw=1537.411099048302 elapsed_sec=6.0
+  lf=1.1 base_ok=True conv=149/166 conv_rate=0.898 base_vmin=0.8534815367038638 worst_vmin=0.5454449005359417 best_vmax=1.0 mean_loss_kw=1899.7455578977454 elapsed_sec=6.0
+
+SystemData_202: n_bus=202 n_tree=201 n_tie=15 sampled_topologies=214
+  lf=0.9 base_ok=True conv=214/214 conv_rate=1.000 base_vmin=0.9618156972739417 worst_vmin=0.8698036253589934 best_vmax=1.0 mean_loss_kw=692.8905631978474 elapsed_sec=8.8
+  lf=1.0 base_ok=True conv=214/214 conv_rate=1.000 base_vmin=0.9573684540353725 worst_vmin=0.8526387810087007 best_vmax=1.0 mean_loss_kw=868.6718224329198 elapsed_sec=9.3
+  lf=1.1 base_ok=True conv=214/214 conv_rate=1.000 base_vmin=0.9528761536942127 worst_vmin=0.8346867440066141 best_vmax=1.0 mean_loss_kw=1068.0143851837827 elapsed_sec=9.1
+
+SystemData_417: n_bus=418 n_tree=417 n_tie=59 sampled_topologies=220
+  lf=0.9 base_ok=True conv=216/220 conv_rate=0.982 base_vmin=0.9618391197030638 worst_vmin=0.5680549693063255 best_vmax=1.0 mean_loss_kw=522.2427818681149 elapsed_sec=11.2
+  lf=1.0 base_ok=True conv=215/220 conv_rate=0.977 base_vmin=0.9574314763904903 worst_vmin=0.5200774951165331 best_vmax=1.0 mean_loss_kw=638.3253507289531 elapsed_sec=11.1
+  lf=1.1 base_ok=True conv=214/220 conv_rate=0.973 base_vmin=0.9529872397704773 worst_vmin=0.4927670206540572 best_vmax=1.0 mean_loss_kw=763.514211282761 elapsed_sec=11.3
+
+Boundary
+- This is a balanced full-scale stress track based on local reconfiguration assets.
+- It strengthens scale and topology-library coverage beyond the frozen synthetic 300-bus point.
+- It does not replace the remaining unbalanced-three-phase benchmark gap.

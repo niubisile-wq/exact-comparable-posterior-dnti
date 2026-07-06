@@ -1,0 +1,11 @@
+Step 5 synthetic 300-bus build result
+n_bus=300
+n_base_edges=299
+n_tie_edges=12
+n_topologies=200
+n_lf=31
+failed_power_flows=0
+v_library_shape=(200, 31, 300)
+saved=<LOCAL_WORKSPACE>\v_library_300bus.npz
+Boundary: synthetic mid-scale radial feeder for scalability stress evidence, not a real utility feeder.
+elapsed_sec=452.1

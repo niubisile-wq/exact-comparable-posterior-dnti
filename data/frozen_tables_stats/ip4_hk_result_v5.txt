@@ -1,0 +1,97 @@
+======================================================================
+IP4 H(K) IDENTIFIABILITY CURVE RESULTS
+Three networks: IEEE 33-bus + IEEE 69-bus + IEEE 119-bus
+N_TEST=1000 trials (sequential cumulative), sigma=0.009 pu
+======================================================================
+
+IEEE 33-bus (32 topos)
+  Buses=33, Topologies=32, K_lower=2 (nodes [3, 9])
+    K     H(K)    std   N_sig   top1_acc
+  --------------------------------------
+    1    2.692  0.833     4.9      0.158
+    2    2.167  0.903     6.2      0.264
+    3    1.867  0.889     6.0      0.324
+    5    1.483  0.865     5.0      0.430
+    8    1.184  0.829     4.0      0.527
+   10    1.048  0.799     3.6      0.564
+   12    0.947  0.784     3.4      0.603
+   15    0.812  0.759     3.0      0.667
+   20    0.655  0.732     2.6      0.736
+   25    0.557  0.709     2.4      0.764
+   30    0.470  0.691     2.2      0.806
+
+IEEE 69-bus (60 topos)
+  Buses=69, Topologies=60, K_lower=2 (nodes [4, 13])
+    K     H(K)    std   N_sig   top1_acc
+  --------------------------------------
+    1    3.428  0.857     1.7      0.088
+    2    3.062  0.963     2.9      0.134
+    3    2.810  1.001     3.6      0.163
+    5    2.451  1.003     4.7      0.215
+    8    2.105  0.971     5.5      0.270
+   10    1.943  0.963     5.6      0.305
+   12    1.814  0.934     5.5      0.333
+   15    1.646  0.907     5.3      0.366
+   20    1.440  0.877     4.8      0.416
+   25    1.268  0.835     4.2      0.469
+   30    1.118  0.801     3.8      0.513
+
+IEEE 119-bus (100 topos)
+  Buses=119, Topologies=100, K_lower=4 (nodes [12, 30, 66, 101])
+    K     H(K)    std   N_sig   top1_acc
+  --------------------------------------
+    1    4.195  0.911     0.5      0.064
+    2    3.862  1.172     0.9      0.110
+    3    3.548  1.321     1.3      0.157
+    5    3.121  1.425     1.8      0.219
+    8    2.610  1.484     2.2      0.302
+   10    2.317  1.468     2.4      0.342
+   12    2.115  1.436     2.5      0.364
+   15    1.897  1.379     2.7      0.400
+   20    1.593  1.306     2.9      0.474
+   25    1.372  1.219     3.2      0.524
+   30    1.199  1.143     3.3      0.573
+
+
+Comparison at key K values:
+   K    33-bus H    69-bus H   119-bus H    33-acc    69-acc   119-acc
+-----------------------------------------------------------------
+   3       1.867       2.810       3.548     0.324     0.163     0.157
+   5       1.483       2.451       3.121     0.430     0.215     0.219
+   8       1.184       2.105       2.610     0.527     0.270     0.302
+  12       0.947       1.814       2.115     0.603     0.333     0.364
+  15       0.812       1.646       1.897     0.667     0.366     0.400
+  20       0.655       1.440       1.593     0.736     0.416     0.474
+
+K_lower comparison (exhaustive search, necessary-not-sufficient):
+  IEEE 33-bus (32 topos): K_lower=2 -> H(K_lower)=2.167 (multi-modal)
+  IEEE 69-bus (60 topos): K_lower=2 -> H(K_lower)=3.062 (multi-modal)
+  IEEE 119-bus (100 topos): K_lower=4 -> H(K_lower)=3.311 (multi-modal)
+
+Monotonicity check (sequential DPI guarantee):
+  IEEE 33-bus (32 topos): PASS (monotone)
+  IEEE 69-bus (60 topos): PASS (monotone)
+  IEEE 119-bus (100 topos): PASS (monotone)
+
+Claim boundary analysis:
+  IEEE 33-bus (32 topos):
+    H drops below 1.0 at K=11 (H=0.990)
+    top-1 reaches 80% at K=30 ()
+    => Defensible claim: 'multi-modal (H>1.0, N_sig>3) for K<=10'
+    => Point-estimate unreliable claim: top1<80% for K<=29
+  IEEE 69-bus (60 topos):
+    H drops below 1.0 at K=None (never in scan)
+    top-1 reaches 80% at K=None (never in scan)
+    => Defensible claim: 'multi-modal (H>1.0, N_sig>3) for K<=30'
+    => Point-estimate unreliable claim: top1<80% for K<=30
+  IEEE 119-bus (100 topos):
+    H drops below 1.0 at K=None (never in scan)
+    top-1 reaches 80% at K=None (never in scan)
+    => Defensible claim: 'multi-modal (H>1.0, N_sig>3) for K<=30'
+    => Point-estimate unreliable claim: top1<80% for K<=30
+
+Methodology note:
+  obs_v = V_all[true_topo][obs_nodes] + Normal(0, sigma)
+  posterior = AIS with same sigma  [NO mismatch]
+  N_TEST=1000 per K  [high enough for monotone curve]
+======================================================================

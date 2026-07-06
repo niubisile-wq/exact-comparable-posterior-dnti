@@ -1,0 +1,32 @@
+Step 7 figure freeze manifest
+Generated: 2026-07-02 07:30:36
+Status: artifacts generated; advisor review pending.
+
+Main figures, max 6
+Fig. 1: fig1_identifiability.png
+  source: ip4_hk_result_v5.txt; ip4_300bus_result.txt
+  note: H(K) identifiability across 33/69/119/300-bus.
+Fig. 2: fig2_ip1_accuracy_speed.png
+  source: main_tables_final.txt Table A
+  note: IP1 exact-vs-NRE accuracy and online speedup.
+Fig. 3: fig3_robustness.png
+  source: missing_curve_33bus_result.txt; outage_33bus_result.txt
+  note: Missing-rate and outage-induced missing robustness.
+Fig. 4: fig4_boed_sensor_placement.png
+  source: main_tables_final.txt Table D
+  note: BOED/OED sensor placement comparison.
+Fig. 5: fig5_scalability.png
+  source: main_tables_final.txt Table F; fig_scalability.py; scalability_result.txt; ip4_300bus_result.txt; ip1_300bus_result.txt; ipc_300bus_result.txt
+  note: Synthetic 300-bus scalability evidence.
+Fig. 6: fig6_posterior_quality.png
+  source: posterior_reliability_bins.csv; posterior_multimodal_case.txt
+  note: Posterior reliability and ambiguous-case posterior.
+
+Supplementary figure candidates
+  fig_noise_sensitivity.png / fig_noise_sensitivity.py: noise sensitivity at 30% missing.
+  fig_reliability_diagram.png and fig_posterior_case.png: component views supporting Fig. 6.
+
+Boundary reminders
+  300-bus is synthetic fixed-deployment mid-scale scalability only.
+  Outage plot means outage-induced missing measurements, not full fault diagnosis.
+  BOED is not claimed to universally dominate MVG.

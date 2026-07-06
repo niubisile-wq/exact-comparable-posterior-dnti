@@ -1,0 +1,56 @@
+IEEE TSG portal upload readiness checklist
+Date: 2026-07-02
+Status: NOT READY. Waiting for user-supplied single-anonymous metadata.
+
+Use this file only after venue_tsg_metadata_filled.json is completed.
+
+Step 1. Fill metadata
+  Copy:
+    venue_tsg_metadata_template.json
+  To:
+    venue_tsg_metadata_filled.json
+  Fill all required fields:
+    authors[].full_name
+    authors[].affiliation
+    authors[].email
+    corresponding_author.name
+    corresponding_author.email
+    funding.statement
+    declarations.conflict_of_interest
+    declarations.data_availability
+    declarations.code_availability
+    declarations.prior_conference_or_preprint
+    declarations.originality_and_non_concurrent_submission
+  Optional but recommended:
+    authors[].orcid
+    authors[].city_state_country
+    funding.grant_numbers
+    funding.institutional_acknowledgments
+    authors[].orcid
+
+Step 2. Generate and build non-anonymous files
+  Command:
+    powershell -NoProfile -ExecutionPolicy Bypass -File .\build_tsg_submission_package.ps1
+  Expected outputs:
+    manuscript_tsg_submission.tex
+    manuscript_tsg_submission.pdf
+    supplementary_material_tsg_submission.tex
+    supplementary_material_tsg_submission.pdf
+    venue_tsg_nonanonymous_build_audit.txt
+
+Step 3. Re-run gate checks
+  Required checks:
+    Main PDF <= 10 pages.
+    Logs have no LaTeX Warning, undefined references/citations, Overfull,
+    Error, Emergency, or Fatal error.
+    Main and supplement have real author block.
+    Acknowledgment has real funding/no-funding statement and preserves AI
+    disclosure.
+    Data/code availability and conflict/declaration statements are present.
+
+Step 4. Advisor review
+  Required:
+    Call advisor on the non-anonymous TSG package.
+  Rule:
+    If advisor is not PASS, repair and rerun.
+    Do not proceed to portal upload before PASS.

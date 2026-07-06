@@ -1,0 +1,20 @@
+119-bus IP1 raw-input exact-posterior fine-tuning pilot
+date=2026-07-02
+status=pilot_single_seed_not_multiseed_replacement
+device=cuda
+train_samples=80000
+test_samples=3000
+input=original raw voltage + mask + load feature
+initial_checkpoint=nre_119bus_ip1_seed42.pt
+loss=KL(exact posterior||NRE)+0.80*CE(true topology)
+before_exact_top1=0.5180
+before_nre_top1=0.4187
+before_kl_ref_nre=0.4000
+after_exact_top1=0.5180
+after_nre_top1=0.4187
+after_nre_exact_agree=0.5073
+after_kl_ref_nre=0.4000
+after_nre_ms=0.002974
+delta_nre_top1=0.0000
+checkpoint=nre_119bus_ip1_seed42_raw_finetune_distill_20260702.pt
+elapsed_sec=21.5

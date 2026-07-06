@@ -1,0 +1,208 @@
+================================================================================
+Step 9 pre-submission reviewer simulation
+Generated: 2026-07-02
+Status: evidence-package audit complete; advisor PASS.
+================================================================================
+
+Scope
+--------------------------------------------------------------------------------
+This is a strict pre-submission reviewer simulation for the frozen evidence and
+narrative package from Steps 0-8. It is not a claim that a complete manuscript is
+already submission-ready, because no final full paper draft is present in the
+experiment workspace.
+
+Authoritative inputs
+--------------------------------------------------------------------------------
+  master_summary_final.txt
+  main_tables_final.txt
+  stats_final.txt
+  step8_writing_narrative_freeze.txt
+  figure_freeze_manifest.txt
+  supplementary_materials_manifest.txt
+
+Main figures checked
+--------------------------------------------------------------------------------
+  Fig. 1  fig1_identifiability.png
+  Fig. 2  fig2_ip1_accuracy_speed.png
+  Fig. 3  fig3_robustness.png
+  Fig. 4  fig4_boed_sensor_placement.png
+  Fig. 5  fig5_scalability.png
+  Fig. 6  fig6_posterior_quality.png
+
+Reviewer attack Q1: Is the scale too small?
+--------------------------------------------------------------------------------
+Verdict for evidence package: PASS with boundary.
+
+Evidence:
+  33/69/119-bus main chain is present.
+  Synthetic 300-bus fixed-deployment mid-scale scalability is present.
+  Fig. 5 and Table F support the 300-bus scalability claim.
+  300-bus IP1: NRE top-1 49.38%, exact reference top-1 53.60%.
+  300-bus online inference: NRE 0.004806 ms, exact 0.184350 ms, speedup 40.2x.
+  300-bus H(K) decreases from K=40 to K=220 in Table F.
+
+Required wording:
+  synthetic 300-bus fixed-deployment mid-scale scalability.
+
+Forbidden wording:
+  real utility full-scale validation.
+
+Residual risk:
+  A reviewer may still ask for real feeder data or larger operational feeders.
+  The response is to position the contribution around exact-comparable posterior
+  validation, not utility-scale field deployment.
+
+Reviewer attack Q2: Why not compare with GNNs?
+--------------------------------------------------------------------------------
+Verdict for evidence package: PASS.
+
+Evidence:
+  GraphSAGE shared-graph point-estimate baseline is frozen in Table B.
+  33-bus: GraphSAGE 68.13% +/- 0.80%, NRE 68.58%, exact 72.10%.
+  69-bus: GraphSAGE 29.27% +/- 0.93%, NRE 36.05%, exact 40.20%.
+
+Required wording:
+  GraphSAGE is a strong point-estimate baseline. The paper's contribution is not
+  only top-1 accuracy; it is exact-comparable posterior inference, uncertainty
+  output, calibration evidence, and posterior-aware decision support.
+
+Forbidden wording:
+  NRE clearly beats GraphSAGE on every system. The 33-bus result is effectively
+  tied and must be described honestly.
+
+Reviewer attack Q3: Is the posterior reliable or just a classifier score?
+--------------------------------------------------------------------------------
+Verdict for evidence package: PASS.
+
+Evidence:
+  Fig. 6 and Table E support posterior reliability and multimodal behavior.
+  Calibrated NRE top-1: 68.37%.
+  KL(reference||NRE): 0.045329.
+  ECE: 0.0181.
+  90% credible-set coverage: 97.62%.
+  Multimodal case is supported by posterior_multimodal_case.txt.
+
+Required wording:
+  exact-comparable and conservative posterior quality.
+
+Forbidden wording:
+  perfectly calibrated posterior.
+
+Reviewer attack Q4: Is robustness only a single missing-rate point?
+--------------------------------------------------------------------------------
+Verdict for evidence package: PASS with boundary.
+
+Evidence:
+  Fig. 3 and Table C support missing-measurement robustness.
+  33-bus @10% missing: robust 65.18%, naive 40.10%, delta +25.08pp.
+  33-bus @30% missing: robust 61.01%, naive 10.10%, delta +50.91pp.
+  69-bus @10% missing: robust 33.02%, naive 20.80%, delta +12.22pp.
+  69-bus @30% missing: robust 30.56%, naive 7.30%, delta +23.26pp.
+  Outage-induced missing, 33-bus: robust 62.97%, naive 32.35%.
+  Noise sensitivity is assigned to supplementary material.
+
+Required wording:
+  missing-measurement robustness and outage-induced measurement loss.
+
+Forbidden wording:
+  outage diagnosis, fault diagnosis, or topology-change localization.
+
+Residual risk:
+  The 300-bus IP-C 30% missing result degrades to NRE 26.87% vs exact 42.60%.
+  It must remain a stress boundary, not a headline robustness claim.
+
+Reviewer attack Q5: Are the statistics defensible?
+--------------------------------------------------------------------------------
+Verdict for evidence package: PASS.
+
+Evidence:
+  Primary statistical family uses six planned one-sided Wilcoxon tests from
+  current 33/69-bus n=8 files.
+  Raw p for each primary test: 0.003906.
+  Bonferroni p for each primary test: 0.023438.
+  BH-FDR q=0.05: 6/6 PASS.
+  Holm alpha=0.05: 6/6 PASS.
+  Bonferroni alpha=0.05: 6/6 PASS.
+  119-bus IP-C n=5 is explicitly supplemental and is not mixed into the primary
+  m=6 family.
+
+Required wording:
+  planned paired tests; primary n=8 33/69-bus family; 119-bus supplemental.
+
+Forbidden wording:
+  pooled n=5/n=8 primary family or unqualified universal statistical proof.
+
+Reviewer attack Q6: Are code and data traceable?
+--------------------------------------------------------------------------------
+Verdict for evidence package: PASS.
+
+Evidence:
+  master_summary_final.txt freezes source maps.
+  main_tables_final.txt maps every table value to source result files.
+  figure_freeze_manifest.txt maps every main figure to its source files.
+  supplementary_materials_manifest.txt maps supplementary figures/tables.
+  Result scripts and key source files exist in the experiment workspace.
+
+Required wording:
+  all reported numbers in the manuscript must be copied from the frozen files.
+
+Forbidden wording:
+  unpublished or untraceable numbers in Abstract, Conclusion, captions, or tables.
+
+Reviewer attack Q7: Is the narrative overclaimed?
+--------------------------------------------------------------------------------
+Verdict for evidence package: PASS.
+
+Evidence:
+  Step 8 freezes four contributions only.
+  Limitations explicitly include simulation-based validation, synthetic 300-bus
+  boundary, 300-bus missing-measurement degradation, outage-induced missing only,
+  preliminary three-phase extension, nonuniform topology priors as future work,
+  real feeder data as future work, and no universal BOED dominance.
+
+Allowed overall claim:
+  An exact-comparable learned posterior framework for distribution-network
+  topology identification with amortized inference, calibrated posterior
+  evidence, missing-measurement robustness, and posterior-aware sensor placement.
+
+Forbidden overall claims:
+  complete real-utility full-scale solution.
+  solved outage/fault diagnosis.
+  BOED universally dominates all alternatives.
+  perfect posterior calibration.
+  AIS reference for this paper's exact posterior results.
+
+Submission-readiness decision
+--------------------------------------------------------------------------------
+Evidence and narrative package:
+  PASS for entering full manuscript assembly under the Step 8 frozen narrative.
+
+Formal paper submission:
+  HOLD. A final full manuscript is not present in the workspace, so the project
+  cannot honestly be marked as ready to submit today. After the full manuscript
+  is written, the same Q1-Q7 reviewer simulation must be rerun on the manuscript
+  text, captions, abstract, conclusion, and tables.
+
+Next action after Step 9 PASS
+--------------------------------------------------------------------------------
+  Assemble the full manuscript from the frozen Step 8 structure.
+  Write Abstract and Conclusion last.
+  Use only frozen numbers from main_tables_final.txt, stats_final.txt, and
+  master_summary_final.txt.
+  Rerun a manuscript-text overclaim audit before any submission decision.
+
+Step 9 pass criteria for advisor
+--------------------------------------------------------------------------------
+  Q1-Q7 are answered with frozen evidence.
+  The audit does not overclaim submission readiness.
+  The audit preserves all Step 8 wording boundaries.
+  Any unresolved risk is explicitly framed as a limitation or next manuscript
+  action, not hidden as a claim.
+
+Advisor result
+--------------------------------------------------------------------------------
+  PASS. Required fixes: none.
+  Boundary: this PASS only covers the Step 9 reviewer-simulation artifact and
+  frozen evidence package. It does not mean a complete manuscript is already
+  ready for formal submission. Formal submission remains HOLD until the full
+  manuscript is assembled and audited.

@@ -1,0 +1,34 @@
+Three-phase 37-bus fixed-deployment audit (2026-07-02)
+
+Source
+- Local script: <LOCAL_WORKSPACE>\dn_3ph_37bus_fixed.py
+- Local result: <LOCAL_WORKSPACE>\threephase_37bus_fixed_result.txt
+
+Summary
+- This benchmark extends the earlier 10-bus three-phase pilot to a larger synthetic unbalanced 37-bus feeder.
+- The benchmark uses 56 feasible topologies derived from a radial base network and four normally-open tie branches.
+- Meter placement is fixed rather than random, matching the fixed-deployment style used in the larger balanced exact-comparable pilots.
+
+Frozen result
+- n_bus = 37
+- K = 24 fixed observed buses
+- raw_topologies = 56
+- kept_topologies = 56
+- failed_power_flows = 0
+
+Per-seed metrics
+- seed 42: exact 0.5780, NRE 0.5140, gap 0.0640, KL 0.1690, speedup 92.0x
+- seed 123: exact 0.5780, NRE 0.5060, gap 0.0720, KL 0.1695, speedup 104.4x
+- seed 456: exact 0.5780, NRE 0.5060, gap 0.0720, KL 0.1657, speedup 60.5x
+
+Means
+- mean exact top-1 = 0.5780
+- mean NRE top-1 = 0.5087
+- mean gap = 0.0693
+- mean KL = 0.1681
+- mean speedup = 85.6x
+
+Boundary
+- This is a synthetic unbalanced three-phase benchmark rather than a utility-grade field feeder.
+- It materially strengthens the three-phase evidence beyond the earlier 10-bus extension.
+- It does not replace a true measurement-integrated real-feeder benchmark.

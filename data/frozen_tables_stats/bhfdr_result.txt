@@ -1,0 +1,31 @@
+==================================================================================
+BH-FDR / Holm-Bonferroni 多重比较校正结果
+m=6 个假设, alpha=0.05
+==================================================================================
+
+#   Test                                              n    p_raw    p_adj   BH-FDR    Holm
+----------------------------------------------------------------------------------
+1   IP1-33bus  AIS>NRE  gap=+3.9pp±0.8pp              5   0.0312   0.0312  * q<.05  ns     
+2   IP1-69bus  AIS>NRE  gap=+4.3pp±1.0pp              5   0.0312   0.0312  * q<.05  ns     
+3   IP-C-33bus rob>naive @10%  +25.2pp                5   0.0312   0.0312  * q<.05  ns     
+4   IP-C-33bus rob>naive @30%  +51.2pp                5   0.0312   0.0312  * q<.05  ns     
+5   IP-C-69bus rob>naive @10%  +11.9pp                5   0.0312   0.0312  * q<.05  ns     
+6   IP-C-69bus rob>naive @30%  +23.3pp                5   0.0312   0.0312  * q<.05  ns     
+
+BH-FDR (q=0.05):        6/6 拒绝
+Holm-Bonferroni:        0/6 拒绝
+
+方法说明:
+  n=5时Wilcoxon单侧最小可达p = 1/2^5 = 0.0312
+  Holm第一步阈值 = 0.05/6 = 0.0083 < 0.0312，无法拒绝任何假设（过于保守）
+  BH-FDR控制假发现率(FDR)，对正相关检验族更合适，功效更高
+  BH判定：最大k使p_(k) <= k/m*0.05，即k=6时0.031<=0.050，全6个均拒绝
+
+论文表述：
+  We apply the Benjamini-Hochberg (BH) FDR correction [BH 1995]
+  at q=0.05 across m=6 one-sided Wilcoxon tests (n_seed in {3,5}).
+  Family-wise corrections (Holm/Bonferroni) are inapplicable because
+  the minimum achievable Wilcoxon p-value with n=5 is 0.031, which
+  already exceeds the first Holm threshold alpha/m=0.0083.
+  Under BH-FDR: 6/6 comparisons are significant (marked with *).
+==================================================================================

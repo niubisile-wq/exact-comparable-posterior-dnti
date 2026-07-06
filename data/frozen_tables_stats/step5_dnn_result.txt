@@ -1,0 +1,3 @@
+DNN Baseline (fixed-lf) Results
+33-bus seeds=['0.219', '0.226', '0.223']  mean=0.223+/-0.003
+69-bus seeds=['0.199', '0.194', '0.192']  mean=0.195+/-0.003

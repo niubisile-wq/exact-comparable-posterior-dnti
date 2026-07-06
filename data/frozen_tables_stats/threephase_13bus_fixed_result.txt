@@ -1,0 +1,9 @@
+Device=cuda
+Benchmark=13bus_fixed n_bus=13 K=8 raw_topos=17 kept_topos=17 failed_pf=0
+seed=42 exact=0.1160 nre=0.1160 gap=0.0000 kl=0.0055 enum_ms=100.564 nre_ms=2.116 speedup=47.5x train_sec=212.2
+seed=123 exact=0.1160 nre=0.1120 gap=0.0040 kl=0.0055 enum_ms=100.564 nre_ms=2.181 speedup=46.1x train_sec=213.9
+seed=456 exact=0.1160 nre=0.1240 gap=-0.0080 kl=0.0056 enum_ms=100.564 nre_ms=2.282 speedup=44.1x train_sec=214.6
+mean_exact=0.1160 mean_nre=0.1173 mean_gap=-0.0013 mean_kl=0.0055 mean_speedup=45.9x
+Boundary
+- Synthetic unbalanced three-phase 13-bus fixed-deployment benchmark.
+- Serves as a middle-scale bridge between the earlier 10-bus extension and the new 37-bus benchmark.

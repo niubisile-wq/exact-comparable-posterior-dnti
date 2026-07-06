@@ -1,0 +1,50 @@
+========================================================================
+IP-A AIS-BOED EXPERIMENT RESULTS (Exact EIG)
+N_TEST=100, N_MC=100, K_MAX=12, time=1055s
+========================================================================
+
+Top-1 Accuracy (AIS posterior, ground truth):
+   K    BOED_AIS      Random    GreedyLoop
+------------------------------------------
+   1       0.200       0.120         0.120
+   2       0.400       0.240         0.170
+   3       0.490       0.350         0.270
+   4       0.610       0.350         0.370
+   5       0.700       0.480         0.370
+   6       0.750       0.520         0.430
+   7       0.810       0.560         0.430
+   8       0.750       0.560         0.490
+   9       0.770       0.560         0.530
+  10       0.770       0.620         0.520
+  11       0.790       0.640         0.530
+  12       0.770       0.630         0.570
+
+Posterior Entropy H(K) [lower = more informative]:
+   K    BOED_AIS      Random    GreedyLoop
+------------------------------------------
+   1       2.253       2.706         2.967
+   2       1.574       2.171         2.426
+   3       1.094       1.897         1.944
+   4       0.830       1.759         1.696
+   5       0.655       1.627         1.458
+   6       0.590       1.490         1.320
+   7       0.554       1.328         1.320
+   8       0.538       1.253         1.269
+   9       0.526       1.195         1.132
+  10       0.503       1.057         1.108
+  11       0.496       1.009         1.063
+  12       0.490       0.953         1.005
+
+BOED sensor savings (K to reach accuracy threshold):
+  60% acc: BOED@K=4  Random@K=10  Greedy@never  → saves 6 sensors vs Random
+  70% acc: BOED@K=5  Random@never  Greedy@never
+  80% acc: BOED@K=7  Random@never  Greedy@never
+
+Most frequently selected nodes at each step (BOED):
+  Step 1: node17(99), node16(1)
+  Step 2: node21(51), node27(9), node30(8)
+  Step 3: node24(18), node16(14), node4(13)
+  Step 4: node15(17), node1(12), node13(10)
+  Step 5: node14(13), node16(12), node2(12)
+  Step 6: node3(14), node14(13), node13(11)
+========================================================================

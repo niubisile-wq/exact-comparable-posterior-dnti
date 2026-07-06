@@ -1,0 +1,27 @@
+300-bus K299 MAP-teacher/posterior-distillation attack
+date=2026-07-02
+role=experiment-level attempt to repair severe-missing direct NRE by training toward exact MAP/posterior teacher
+comparison=frozen K299 redundant checkpoints vs new MAP-teacher warm-start checkpoints on identical final draw
+device=cpu
+K=299
+missing_rate=0.30
+observed_after_missing=210
+train_samples=90000
+validation_samples=4000
+test_samples=9000
+loss=0.85*CE(exact_MAP)+0.15*CE(true)+0.20*KL(exact_posterior)
+seed,best_epoch,val_exact_map_top1,val_direct_true,val_direct_map_agree,val_top20,val_rerank20,val_kl,train_sec,checkpoint
+42,7,0.5745,0.3035,0.3272,0.9920,0.5737,0.7767,77.1,nre_300bus_ipc_K299_miss30_mapteacher_seed42_20260702.pt
+123,4,0.5745,0.3025,0.3372,0.9918,0.5730,0.7702,76.6,nre_300bus_ipc_K299_miss30_mapteacher_seed123_20260702.pt
+456,7,0.5745,0.3075,0.3415,0.9925,0.5735,0.7671,66.6,nre_300bus_ipc_K299_miss30_mapteacher_seed456_20260702.pt
+test_comparison
+model,exact_map_top1,direct_true_acc,direct_map_agree,kl,truth_top5,truth_top10,truth_top20,truth_top50,map_top20,rerank5,rerank10,rerank20,rerank50
+frozen_K299,0.5626,0.3154,0.3568,0.6973,0.7937,0.9300,0.9933,1.0000,0.9954,0.5272,0.5529,0.5609,0.5626
+mapteacher_K299,0.5626,0.3212,0.3703,0.6877,0.7959,0.9291,0.9939,1.0000,0.9959,0.5314,0.5548,0.5611,0.5626
+bootstrap_gain_mapteacher_minus_frozen
+metric,mean,ci95_low,ci95_high
+direct_true_acc,0.0058,-0.0007,0.0122
+direct_map_agree,0.0136,0.0062,0.0204
+truth_top20,0.0006,-0.0008,0.0018
+rerank20,0.0002,-0.0008,0.0012
+elapsed_sec=249.5

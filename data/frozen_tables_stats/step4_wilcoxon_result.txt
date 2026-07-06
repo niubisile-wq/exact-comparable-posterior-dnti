@@ -1,0 +1,10 @@
+STEP4 WILCOXON RESULTS - all 5 seeds confirmed
+
+IP1-33bus  AIS>NRE: A=0.721 B=0.682 delta=+0.039±0.008 p=0.0312 * r=0.833 n=5
+IP1-69bus  AIS>NRE: A=0.402 B=0.359 delta=+0.043±0.010 p=0.0312 * r=0.833 n=5
+IP-C-33bus rob>nai @10%: A=0.653 B=0.401 delta=+0.252±0.006 p=0.0312 * r=0.833 n=5
+IP-C-33bus rob>nai @30%: A=0.613 B=0.101 delta=+0.512±0.005 p=0.0312 * r=0.833 n=5
+IP-C-69bus rob>nai @10%: A=0.327 B=0.208 delta=+0.119±0.009 p=0.0312 * r=0.833 n=5
+IP-C-69bus rob>nai @30%: A=0.306 B=0.073 delta=+0.233±0.006 p=0.0312 * r=0.833 n=5
+
+6/6 tests p<0.05

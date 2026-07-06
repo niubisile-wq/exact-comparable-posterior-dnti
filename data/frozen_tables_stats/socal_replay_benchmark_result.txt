@@ -1,0 +1,22 @@
+SoCal real-network replay benchmark result
+device=cuda
+status_devices=cb_123; cb_128; cb_121
+unique_joint_states=5
+transition_steps=9
+source_reachable_union_buses=85
+K=40
+load_regimes=[1.0]
+sigma=0.0015
+seed,exact_top1,nre_top1,gap,kl_ref_nre,nre_ms,exact_ms,speedup,train_sec
+42,1.0000,1.0000,0.0000,0.1791,0.002149,0.295149,137.3,10.8
+123,1.0000,1.0000,0.0000,0.1649,0.000747,0.000829,1.1,10.2
+456,1.0000,1.0000,0.0000,0.1942,0.000935,0.001243,1.3,9.9
+mean_exact_top1=1.0000
+mean_nre_top1=1.0000
+mean_gap=0.0000
+mean_kl=0.1794
+mean_speedup=46.6
+Boundary
+- This is a real-network topology-state replay benchmark built from the public SoCal actual asset graph and observed switching timelines.
+- It materially strengthens the actual-system story beyond qualitative compatibility checks by quantifying exact-comparable posterior behavior on real topology states.
+- It is a replay benchmark rather than a synchronized real-measurement posterior benchmark because the public measurement and topology windows do not overlap.

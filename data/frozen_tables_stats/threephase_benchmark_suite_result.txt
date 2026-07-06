@@ -1,0 +1,16 @@
+Device=cuda
+Benchmark=13bus n_bus=13 K=7 raw_topos=17 kept_topos=17 failed_pf=0
+seed=42 exact=0.1133 nre=0.0550 gap=0.0583 kl=0.1118 enum_ms=111.861 nre_ms=2.091 speedup=53.5x train_sec=368.7
+seed=123 exact=0.1133 nre=0.0783 gap=0.0350 kl=0.1118 enum_ms=111.861 nre_ms=2.042 speedup=54.8x train_sec=367.2
+seed=456 exact=0.1133 nre=0.0467 gap=0.0667 kl=0.1118 enum_ms=111.861 nre_ms=1.911 speedup=58.5x train_sec=369.4
+mean_exact=0.1133 mean_nre=0.0600 mean_gap=0.0533 mean_kl=0.1118 mean_speedup=55.6x
+
+Benchmark=37bus n_bus=37 K=18 raw_topos=56 kept_topos=56 failed_pf=0
+seed=42 exact=0.5117 nre=0.0767 gap=0.4350 kl=2.1501 enum_ms=130.890 nre_ms=1.342 speedup=97.5x train_sec=461.4
+seed=123 exact=0.5117 nre=0.0667 gap=0.4450 kl=2.1180 enum_ms=130.890 nre_ms=1.223 speedup=107.0x train_sec=482.3
+seed=456 exact=0.5117 nre=0.0550 gap=0.4567 kl=2.1242 enum_ms=130.890 nre_ms=1.361 speedup=96.2x train_sec=461.2
+mean_exact=0.5117 mean_nre=0.0661 mean_gap=0.4456 mean_kl=2.1308 mean_speedup=100.2x
+
+Boundary
+- These are synthetic unbalanced three-phase feeder benchmarks extending the earlier 10-bus pilot.
+- They materially strengthen reviewer-facing three-phase evidence beyond a toy example but do not replace a utility-grade field feeder benchmark.

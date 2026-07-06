@@ -1,0 +1,14 @@
+================================================================================
+GraphSAGE baseline summary
+Network   GraphSAGE mean/std   NRE ref   EnumBF ref
+--------------------------------------------------------------------------------
+33bus     0.681+/-0.008        0.682     0.721
+69bus     0.293+/-0.009        0.359     0.402
+
+Q1-standard interpretation:
+  GraphSAGE is included as a strong shared-graph GNN point-estimate baseline.
+  It uses a common feeder backbone graph under the same observation protocol,
+  not a different dynamic graph for each candidate topology.
+  NRE's claim must not be only top-1 accuracy; the differentiator is
+  exact-comparable posterior output for uncertainty-aware decisions.
+================================================================================

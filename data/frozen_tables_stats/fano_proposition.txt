@@ -1,0 +1,113 @@
+================================================================================
+T1-B: Proposition 1 — 传感器数量理论下界（基于Fano不等式）
+用途：将IP4 H(K)曲线从"实验观察"升格为"有形式化证明的命题"
+================================================================================
+
+【LaTeX命题原文，可直接放入论文Section III】
+
+\begin{proposition}[Necessary Sensor Count for Topology Identification]
+\label{prop:sensor_bound}
+Let $\mathcal{T} = \{\tau_1, \ldots, \tau_{N_T}\}$ be the set of feasible radial
+topologies of a distribution network under uniform prior $P(\tau) = 1/N_T$.
+Let $\mathbf{Y}_{1:K}$ denote noisy voltage magnitude measurements from $K$
+sensors, with $Y_k \mid \tau \sim \mathcal{N}(V_\tau[k],\, \sigma^2)$.
+Define the \emph{posterior entropy}
+\[
+  H(K) \;=\; \mathbb{E}_{\mathbf{Y}_{1:K}}\!\left[H\!\left(P(\tau \mid \mathbf{Y}_{1:K})\right)\right]
+           \;=\; -\mathbb{E}\!\left[\textstyle\sum_\tau P(\tau|\mathbf{Y}_{1:K})\ln P(\tau|\mathbf{Y}_{1:K})\right].
+\]
+Then the following hold:
+
+\textbf{(i) Monotonicity.}
+$H(K)$ is monotonically non-increasing in $K$: for any additional sensor $k{+}1$,
+$H(K{+}1) \le H(K)$.
+
+\textbf{(ii) Error Lower Bound.}
+Let $P_e(K) = P\!\left(\hat{\tau} \neq \tau\right)$ be the MAP identification
+error probability. Then
+\[
+  P_e(K) \;\ge\; \frac{H(K) - \ln 2}{\ln(N_T - 1)}.
+\]
+
+\textbf{(iii) Minimum Sensor Count.}
+The minimum number of sensors $K_\varepsilon$ achieving $P_e(K_\varepsilon) \le \varepsilon$
+satisfies
+\[
+  K_\varepsilon \;\ge\; \min\bigl\{K \;:\; H(K) \le \ln 2 + \varepsilon\cdot\ln(N_T-1)\bigr\}.
+\]
+\end{proposition}
+
+\begin{proof}
+\textbf{(i)} By the data processing inequality (DPI), conditioning on additional
+data cannot increase entropy: since $\tau \to \mathbf{Y}_{1:K} \to \mathbf{Y}_{1:K+1}$
+forms a Markov chain, $H(\tau|\mathbf{Y}_{1:K+1}) \le H(\tau|\mathbf{Y}_{1:K})$.
+Taking expectations over test scenarios yields $H(K{+}1) \le H(K)$.
+
+\textbf{(ii)} By Fano's inequality applied to the MAP estimator
+$\hat\tau = \arg\max_\tau P(\tau|\mathbf{Y}_{1:K})$:
+\[
+  H(\tau \mid \mathbf{Y}_{1:K}) \;\le\; h_b(P_e) + P_e\ln(N_T-1),
+\]
+where $h_b(p) = -p\ln p - (1-p)\ln(1-p) \le \ln 2$.
+Substituting $H(K)$ for the left-hand side and using $h_b(P_e)\le\ln 2$ gives
+\[
+  H(K) \le \ln 2 + P_e(K)\ln(N_T-1),
+\]
+which rearranges to the stated bound.
+
+\textbf{(iii)} Combining (i) and (ii): since $H(K)$ is non-increasing and
+$P_e(K)$ is lower bounded by $(H(K)-\ln 2)/\ln(N_T-1)$, the minimum $K$
+satisfying $P_e(K)\le\varepsilon$ must satisfy $H(K)\le\ln2+\varepsilon\ln(N_T-1)$.
+\end{proof}
+
+\begin{remark}
+The graph-theoretic quantity $K_{\mathrm{lower}}$---the minimum number of nodes
+covering all fundamental loops---provides a \emph{necessary} (not sufficient)
+condition: any sensor placement with $K<K_{\mathrm{lower}}$ leaves at least one
+loop unobservable, keeping $H(K)>H(0)/2$ (verified empirically in all three
+networks; see Fig.~X). Proposition~\ref{prop:sensor_bound} quantifies how far
+above $K_{\mathrm{lower}}$ one must go to achieve reliable identification.
+\end{remark}
+
+================================================================================
+【配套说明：Proposition如何接入论文结构】
+
+放置位置：Section III (Problem Formulation & Identifiability) 末尾
+  - 在引入H(K)曲线图之前，先给出Proposition 1（数学结论）
+  - 紧接H(K)曲线图，展示三个网络的实验验证
+  - 说明：图中曲线单调递减 ← 验证了claim(i); K_lower标注 ← 呼应claim(iii)
+
+关键数字对应：
+  N_T=32 (33-bus): 右侧 log(N_T-1)=log(31)≈3.43
+    → H(K=8)=1.184 > ln2=0.693 → P_e >= (1.184-0.693)/3.43 = 14.3%
+    → 实测 P_e = 100%-52.7% = 47.3% >> 14.3%  (下界松，但有意义)
+  N_T=61 (69-bus):  log(60)≈4.09
+    → H(K=8)=2.105 → P_e >= (2.105-0.693)/4.09 = 34.5%
+    → 实测 P_e = 100%-27.0% = 73.0% >> 34.5%
+  N_T=100 (119-bus): log(99)≈4.59
+    → H(K=8)=2.610 → P_e >= (2.610-0.693)/4.59 = 41.8%
+    → 实测 P_e = 100%-30.2% = 69.8% >> 41.8%
+
+论文措辞：
+  "The bound in Proposition 1 is loose (it uses the worst-case binary entropy
+   upper bound for h_b), but it establishes a fundamental result: when H(K)
+   remains substantially above zero, no MAP estimator---regardless of its
+   computational budget---can achieve reliable single-topology identification.
+   This motivates our NRE framework, which embraces the full posterior
+   distribution P(τ|Y) rather than committing to a point estimate."
+
+================================================================================
+【与电池SOH论文Proposition 1的对比】
+
+电池SOH Prop.1: 概念漂移下无标签方法存在误差下界
+  → 前提: 分布偏移+无标签
+  → 结论: 某类方法的固有局限性
+  → 应用: 证明FS-up的必要性
+
+配电网Prop.1: 传感器数量不足时任何点估计器存在误差下界
+  → 前提: 有限传感器+多峰后验
+  → 结论: 必须用全后验分布（MAP不够）
+  → 应用: 证明NRE推断全后验的必要性（而非点估计）
+
+两者同样是"信息论下界→证明新方法的必要性"的论证结构，量级相当。
+================================================================================

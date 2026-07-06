@@ -1,0 +1,34 @@
+================================================================================
+119-bus IP-C Wilcoxon supplemental statistics
+Updated: 2026-07-02
+Source: ipc_119bus_5seed_result.txt and step1_ipc_119bus_run_log.txt
+================================================================================
+
+Naive baseline:
+  miss=10%: 0.314
+  miss=30%: 0.095
+
+Per-seed robust NRE results:
+  seed=42:   rob10=0.399  delta10=+0.085   rob30=0.380  delta30=+0.285
+  seed=123:  rob10=0.400  delta10=+0.086   rob30=0.360  delta30=+0.265
+  seed=456:  rob10=0.401  delta10=+0.087   rob30=0.363  delta30=+0.268
+  seed=789:  rob10=0.392  delta10=+0.078   rob30=0.377  delta30=+0.282
+  seed=2024: rob10=0.416  delta10=+0.102   rob30=0.359  delta30=+0.264
+
+Summary:
+  miss=10% delta: +8.8pp +/- 0.8pp, min=+7.8pp
+  miss=30% delta: +27.3pp +/- 0.9pp, min=+26.4pp
+
+Wilcoxon one-sided robust > naive:
+  miss=10%: p=0.0312, n=5
+  miss=30%: p=0.0312, n=5
+
+Gate:
+  all-seed delta > 5pp at miss=10%: PASS
+  all-seed delta > 5pp at miss=30%: PASS
+
+Boundary:
+  This is supplemental 119-bus evidence. It should be used to close the
+  33/69/119-bus IP-C chain, not to replace the planned robustness-boundary
+  curves in Step 3.
+================================================================================

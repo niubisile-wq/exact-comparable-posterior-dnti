@@ -1,0 +1,29 @@
+119-bus Adaptive BOED bootstrap decision-value audit
+date=2026-07-02
+role=per-sample adaptive BOED/MVG/Fisher comparison with bootstrap CI
+N_TEST=120
+N_MC=40
+N_LF_C=11
+bootstrap_replicates=1200
+metric,method_or_delta,K,mean,ci95_low,ci95_high
+accuracy,AdaptiveMVG,4,0.300000,0.225000,0.383333
+accuracy,AdaptiveFisher,4,0.308333,0.225000,0.383333
+accuracy,AdaptiveBOED,4,0.391667,0.300000,0.483333
+entropy,AdaptiveMVG,4,2.498096,2.188354,2.807856
+entropy,AdaptiveFisher,4,2.538812,2.234482,2.861318
+entropy,AdaptiveBOED,4,1.991424,1.717907,2.268939
+accuracy_delta_BOED_minus_AdaptiveMVG,AdaptiveBOED-AdaptiveMVG,4,0.091667,-0.008333,0.183333
+entropy_reduction_BOED_vs_AdaptiveMVG,AdaptiveMVG-AdaptiveBOED,4,0.506672,0.242001,0.784620
+accuracy_delta_BOED_minus_AdaptiveFisher,AdaptiveBOED-AdaptiveFisher,4,0.083333,-0.008333,0.175000
+entropy_reduction_BOED_vs_AdaptiveFisher,AdaptiveFisher-AdaptiveBOED,4,0.547388,0.278944,0.842671
+accuracy,AdaptiveMVG,7,0.566667,0.475000,0.650000
+accuracy,AdaptiveFisher,7,0.583333,0.491667,0.666667
+accuracy,AdaptiveBOED,7,0.700000,0.616667,0.775000
+entropy,AdaptiveMVG,7,1.333120,1.076505,1.611321
+entropy,AdaptiveFisher,7,1.526793,1.244194,1.839419
+entropy,AdaptiveBOED,7,0.966806,0.743531,1.215004
+accuracy_delta_BOED_minus_AdaptiveMVG,AdaptiveBOED-AdaptiveMVG,7,0.133333,0.041667,0.216667
+entropy_reduction_BOED_vs_AdaptiveMVG,AdaptiveMVG-AdaptiveBOED,7,0.366315,0.111788,0.626174
+accuracy_delta_BOED_minus_AdaptiveFisher,AdaptiveBOED-AdaptiveFisher,7,0.116667,0.033333,0.200000
+entropy_reduction_BOED_vs_AdaptiveFisher,AdaptiveFisher-AdaptiveBOED,7,0.559987,0.311072,0.801178
+elapsed_sec=215.5

@@ -1,0 +1,34 @@
+Three-phase 13-bus fixed-deployment audit (2026-07-02)
+
+Source
+- Local script: <LOCAL_WORKSPACE>\dn_3ph_13bus_fixed.py
+- Local result: <LOCAL_WORKSPACE>\threephase_13bus_fixed_result.txt
+
+Summary
+- This benchmark extends the three-phase evidence to an intermediate 13-bus synthetic unbalanced feeder.
+- The benchmark uses 17 feasible topologies and a fixed deployment of 8 observed buses.
+- The library is strongly ambiguous in top-1 terms, but NRE tracks the exact posterior essentially exactly.
+
+Frozen result
+- n_bus = 13
+- K = 8 fixed observed buses
+- raw_topologies = 17
+- kept_topologies = 17
+- failed_power_flows = 0
+
+Per-seed metrics
+- seed 42: exact 0.1160, NRE 0.1160, gap 0.0000, KL 0.0055, speedup 47.5x
+- seed 123: exact 0.1160, NRE 0.1120, gap 0.0040, KL 0.0055, speedup 46.1x
+- seed 456: exact 0.1160, NRE 0.1240, gap -0.0080, KL 0.0056, speedup 44.1x
+
+Means
+- mean exact top-1 = 0.1160
+- mean NRE top-1 = 0.1173
+- mean gap = -0.0013
+- mean KL = 0.0055
+- mean speedup = 45.9x
+
+Boundary
+- This is a synthetic unbalanced three-phase benchmark rather than a utility-grade field feeder.
+- The low absolute top-1 accuracy indicates a high-ambiguity topology library under the selected deployment, not an obvious posterior-approximation failure.
+- It serves as a bridge between the earlier 10-bus extension and the larger 37-bus fixed-deployment benchmark.

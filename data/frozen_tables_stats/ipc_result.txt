@@ -1,0 +1,23 @@
+===========================================================================
+IP-C FORMAL EXPERIMENT: Communication-Missing Robust NRE
+N_TEST=500, K=15, SIGMA=0.009, time=32s
+===========================================================================
+
+MissRate  Robust_acc   Naive_acc   AIS_acc   Top3_rob   H_robust    H_naive   Delta_H
+---------------------------------------------------------------------------
+      0%       0.796       0.796     0.872      0.934      0.907      0.907    +0.000
+      5%       0.788       0.408     0.872      0.934      0.932      0.548    +0.385
+     10%       0.780       0.196     0.856      0.918      0.966      0.278    +0.688
+     20%       0.764       0.072     0.828      0.924      1.046      0.092    +0.954
+     30%       0.708       0.052     0.834      0.902      1.109      0.038    +1.071
+
+Key findings:
+  At 10% missing: Robust=0.780  Naive=0.196  Delta=+0.584
+  At 30% missing: Robust=0.708  Naive=0.052  Delta=+0.656
+
+Entropy analysis (H increases = posterior widens = correct UQ):
+  miss=0%: H_robust=0.907  H_naive=0.907  (robust narrower)
+  miss=10%: H_robust=0.966  H_naive=0.278  (robust wider=correct)
+  miss=20%: H_robust=1.046  H_naive=0.092  (robust wider=correct)
+  miss=30%: H_robust=1.109  H_naive=0.038  (robust wider=correct)
+===========================================================================

@@ -1,0 +1,272 @@
+Experimental Counterattack Dashboard (2026-07-02)
+
+Purpose
+This dashboard consolidates the actual new experiment results added during the Q1 counterattack. It is a numeric experiment index, not manuscript polishing.
+
+1. Large-system sensing sufficiency: 119-bus
+Metric: exact MAP top-1 / direct NRE ensemble top-1 / top-20 truth coverage / exact rerank@20.
+K25 searched policy: exact 59.60%, NRE 53.45%, top-20 truth 98.82%, rerank@20 59.47%.
+K40 sensor-budget policy: exact 64.58%, NRE 57.20%, top-20 truth 99.34%, rerank@20 64.61%.
+K60 lin policy: exact 74.50%, NRE 62.96%, top-20 truth 99.74%, rerank@20 74.43%.
+Counterattack value: converts 119-bus from a degradation case into a sensing-sufficiency curve. The best K60 rerank essentially matches exact MAP.
+
+2. Large-system severe-missing recovery: 300-bus
+Metric: exact MAP top-1 / direct NRE ensemble top-1 / top-20 truth coverage / exact rerank@20.
+K280, 30% missing: exact 55.45%, NRE 30.50%, top-20 truth 98.90%, rerank@20 55.21%.
+K299, 30% missing: exact 57.15%, NRE 33.12%, top-20 truth 99.28%, rerank@20 56.97%.
+Selective low-confidence rerank at K299: direct-only 31.77%; 75% low-confidence rerank 51.30%; full rerank 57.14%.
+Confidence-stratified policy at K299: highest-confidence 10% direct NRE subset reaches 82.00% top-1; combined high-confidence direct plus low-confidence rerank reaches 55.88%, close to full rerank 56.93%.
+Counterattack value: direct top-1 is still weak under severe missingness, but the posterior is high-recall and supports confidence-gated online fallback.
+
+3. Three-phase unbalanced recovery: IEEE 123 controlled benchmark
+Metric: exact top-1 / direct NRE top-1 / candidate coverage / rerank.
+K45: exact 78.75%, NRE 74.61%, top-5/top-10/top-20 truth coverage 100%, rerank@5 79.06%.
+K60: exact 86.50%, NRE 84.58%, top-3/top-5/top-10/top-20 truth coverage 100%.
+K75: exact 89.67%, NRE 85.40%, top-3/top-5/top-10/top-20 truth coverage 100%, rerank@3 89.11%.
+Counterattack value: changes three-phase evidence from a small extension into a strong controlled unbalanced recovery curve. It still does not beat Xu-style 1282-bus unbalanced scale, but it is strong on exact-comparable posterior recovery.
+
+4. Synchronized real measurement evidence: SoCal
+Real synchronized window: 2024-11-14T07:00:00 to 2024-11-14T07:30:42 UTC.
+Real switching events: cb_121 at 07:09:00, cb_123 at 07:20:05, cb_128 at 07:20:21, swmp_17-2 at 07:30:42.
+Measurement-event shift audit: 1843 merged measurement rows; max standardized shifts for first three events are 2.2848, 1.6433, and 2.1828.
+Event-conditioned posterior replay: 5 topology states, 85 reachable buses, K=40 observed buses, mean state top-1 100% under controlled replay.
+Measurement-conditioned posterior audit, base features: 1843 rows, 5 states, 4 trainable states, majority baseline 36.10%, blocked-CV accuracy 74.76%, macro-F1 71.96%, Brier 0.4512.
+Enhanced measurement-conditioned posterior audit: 72 online rolling/difference features, blocked-CV accuracy 79.15%, macro-F1 75.35%, Brier 0.3832.
+Counterattack value: changes real-data evidence from synchronized compatibility/replay into a real-measurement-conditioned topology-state posterior audit. It still does not claim private utility-grade field validation.
+
+5. Topology-conditioned residual consistency
+119-bus K60: direct top-1 63.37%, rerank@20 74.73%, exact MAP 74.73%. Mean residual RMSE: direct 0.0092307, rerank 0.00892791, exact MAP 0.00892735.
+300-bus K299: direct top-1 31.02%, rerank@20 57.08%, exact MAP 57.26%. Mean residual RMSE: direct 0.00151096, rerank 0.00149555, exact MAP 0.00149547.
+Counterattack value: supports downstream state-estimation-style consistency checking. NRE candidates plus residual rerank nearly match exact-MAP residuals.
+
+6. BOED decision-value evidence already in package
+69-bus BOED: at K=7, BOED reaches 71.5% while Random and Greedy are around 24%; posterior entropy 0.782 vs 2.409/2.350.
+119-bus AdaptiveBOED: at K=7, AdaptiveBOED reaches 70.0%, exceeding AdaptiveMVG by 13.3 percentage points and AdaptiveFisher by 11.7 percentage points.
+Counterattack value: BOED should be claimed as posterior-driven sensing decision value, not universal heuristic dominance.
+
+Current win map against Q1 benchmarks
+Wins or strong advantages:
+- exact-comparable posterior framework;
+- posterior candidate generation and top-k recovery;
+- BOED sensing-decision value;
+- 119-bus sensing-sufficiency curve;
+- IEEE123 controlled unbalanced recovery curve;
+- synchronized real-measurement-conditioned topology-state audit;
+- residual-consistency reranking interface.
+
+Still bounded, not honest to overclaim:
+- private utility-grade deployment;
+- 1282-bus unbalanced scale;
+- formal phase/topology guarantee;
+- full topology-plus-parameter estimation;
+- full joint topology/state estimator.
+
+7. Posterior calibration quality for new counterattack models
+119-bus K60: post-hoc temperature calibration selects T=0.85 and eps=0.00. Test KL(ref||p) improves from 0.400845 to 0.395160; NLL improves from 0.968208 to 0.961763; Brier improves from 0.426246 to 0.425662; ECE improves from 0.027087 to 0.024436. Top-1 remains 63.19% because temperature scaling does not change ranking.
+300-bus K299: post-hoc temperature calibration selects T=0.95 and eps=0.00. Test KL(ref||p) improves from 0.673850 to 0.671079; NLL improves from 1.81443 to 1.81184; Brier improves from 0.751595 to 0.751180; ECE improves from 0.021674 to 0.017878. Top-1 remains 32.14%.
+Counterattack value: supports the posterior-inference claim beyond top-k ranking by showing exact-reference posterior calibration metrics and simple post-hoc probability improvement.
+
+8. Bootstrap confidence intervals for key counterattack results
+119-bus K60: direct top-1 64.21% with 95% CI [63.26%, 65.13%]; exact MAP 75.37% [74.47%, 76.23%]; truth-in-top20 99.83% [99.74%, 99.91%]; rerank@20 75.33% [74.41%, 76.27%]. Direct K60 improvement over the old K25 NRE reference is +10.76 percentage points with 95% CI [9.75, 11.76] pp.
+300-bus K299: direct top-1 31.41% [30.56%, 32.41%]; exact MAP 56.68% [55.70%, 57.67%]; truth-in-top20 99.17% [98.98%, 99.32%]; rerank@20 56.44% [55.49%, 57.40%]. The top 10% high-confidence direct subset reaches 79.10% [76.40%, 81.60%], while the high-confidence-direct/low-confidence-rerank policy reaches 55.24% [54.30%, 56.32%].
+IEEE123 K75: direct top-1 85.53% [83.80%, 87.27%]; exact top-1 89.20% [87.67%, 90.80%]; truth-in-top3 100.00% [100.00%, 100.00%]; rerank@3 89.33% [87.80%, 90.80%].
+SoCal enhanced real-measurement posterior: blocked-CV top-1 79.15% [77.31%, 81.05%]; majority baseline 29.32% [27.25%, 31.43%] under the recomputed trainable-row sample; gain over majority +49.84 percentage points [47.34, 52.33] pp.
+Counterattack value: adds statistical stability evidence to the main experimental attacks, especially the 119 sensing-sufficiency improvement, 300 high-confidence operating policy, IEEE123 K75 three-phase candidate coverage, and SoCal real-measurement posterior audit.
+
+9. BOED bootstrap decision-value stability
+119-bus adaptive BOED: K=7 AdaptiveBOED accuracy is 70.00% [61.67%, 77.50%], AdaptiveMVG is 56.67% [47.50%, 65.00%], and AdaptiveFisher is 58.33% [49.17%, 66.67%]. BOED-MVG accuracy gain is +13.33 percentage points [4.17, 21.67] pp; BOED-Fisher gain is +11.67 pp [3.33, 20.00] pp. Entropy reduction is also positive: 0.366 [0.112, 0.626] versus AdaptiveMVG and 0.560 [0.311, 0.801] versus AdaptiveFisher.
+69-bus BOED sensor-efficiency audit: K=7 AdaptiveBOED accuracy is 68.00% [58.00%, 77.00%], Random is 24.00% [16.00%, 33.00%], and AdaptiveMVG is 66.00% [56.00%, 75.00%]. BOED-Random gain is +44.00 pp [32.98, 55.00] pp and entropy reduction is 1.522 [1.318, 1.724]. BOED-MVG difference is small (+2.00 pp [-6.00, 10.00] pp), so this result should be framed as strong sensor-efficiency versus random and competitive/adaptive decision value versus MVG, not universal dominance.
+Counterattack value: BOED is now supported by per-sample bootstrap stability, especially the 119 adaptive decision-value advantage and the 69-bus sensor-efficiency advantage.
+
+10. Full-scale balanced reconfiguration enhancement
+202-bus K160: exact top-1 91.89%, ensemble NRE top-1 90.94%, truth-in-top20 99.94%, rerank@20 91.72%, KL(ref||NRE) 0.0758. Bootstrap CI: direct [89.67%, 92.22%], exact [90.67%, 93.11%], truth-in-top20 [99.83%, 100.00%], rerank@20 [90.44%, 92.94%].
+417/418-bus K220: exact top-1 82.17%, ensemble NRE top-1 79.33%, truth-in-top20 97.33%, rerank@20 82.00%, KL(ref||NRE) 0.1869. Bootstrap CI: direct [77.28%, 81.22%], exact [80.33%, 84.06%], truth-in-top20 [96.61%, 98.11%], rerank@20 [80.22%, 83.83%].
+Counterattack value: strengthens the full-scale balanced stress story beyond the original 202/417 pilot. The 417 direct NRE improves from the old K150 pilot value of 68.33% to 79.33% at K220, and top-20 reranking recovers to 82.00%, nearly matching exact MAP. This still does not replace unbalanced 1282-bus field-scale evidence, but it materially improves scale evidence.
+
+11. No-retraining noise-multiplier robustness
+119-bus K60: under 1x/1.5x/2x/3x noise, direct NRE is 64.28%/54.90%/47.88%/36.38%; exact rerank@20 is 74.75%/67.43%/62.00%/50.48%. This shows graceful degradation and preserves the fallback story, but 3x noise is a clear operating boundary.
+300-bus K299: under 1x/1.5x/2x/3x noise, direct NRE is 32.02%/24.70%/20.48%/12.56%; rerank@20 is 57.64%/44.24%/34.72%/20.44%. Severe missing plus high noise is a hard boundary, but rerank remains close to the exact reference in each regime.
+IEEE123 K75: under 1x/1.5x/2x/3x noise, direct NRE is 85.92%/85.58%/83.83%/74.42%; truth-in-top20 remains 100.00%/100.00%/100.00%/99.92%; rerank@20 is 89.58%/88.42%/86.83%/80.50%. This is a strong three-phase robustness result.
+202-bus K160: under 1x/1.5x/2x/3x noise, direct NRE is 90.00%/90.19%/87.56%/82.94%; rerank@20 is 91.63%/90.81%/88.00%/85.00%. This is a strong full-scale balanced robustness result.
+417/418-bus K220: under 1x/1.5x/2x/3x noise, direct NRE is 80.81%/76.12%/69.63%/64.50%; rerank@20 is 83.25%/79.87%/74.06%/69.31%. This materially strengthens the larger-feeder stress evidence under noise.
+Counterattack value: adds no-retraining robustness evidence across the new experimental attack lines. The strongest robustness wins are IEEE123 K75, 202 K160, and 417 K220; 119/300 show explicit high-noise operating boundaries with exact-rerank fallback.
+
+12. No-retraining sensor-dropout robustness
+119-bus K60: 0/10/20/40% random sensor dropout leaves retained K=60/54/48/36. Direct NRE is 65.17%/51.71%/36.37%/14.63%; rerank@20 is 75.23%/72.37%/67.17%/44.66%. This shows useful rerank fallback through 20% dropout, but direct NRE is not robust to untrained random sensor removal.
+IEEE123 K75: 0/10/20/40% dropout leaves retained K=75/68/60/45. Direct NRE is 87.70%/36.40%/18.90%/9.60%; rerank@20 is 90.70%/82.80%/77.10%/63.80%. Direct NRE is deployment-specific, while candidate/rerank remains informative under moderate dropout.
+202-bus K160: 0/10/20/40% dropout leaves retained K=160/144/128/96. Direct NRE is 92.23%/59.77%/38.31%/16.85%; rerank@20 is 93.38%/86.00%/75.77%/55.46%.
+417/418-bus K220: 0/10/20/40% dropout leaves retained K=220/198/176/132. Direct NRE is 80.38%/50.38%/37.46%/21.38%; rerank@20 is 83.62%/73.08%/64.15%/51.46%.
+Counterattack value: this audit prevents overclaiming. High-budget NRE models are strong for their trained deployment masks, but random sensor dropout should be handled by explicit dropout-robust training or by top-k exact/rerank fallback. The useful positive result is that exact/rerank remains viable at moderate dropout on 119, IEEE123, 202, and 417, while direct NRE needs a dedicated dropout-trained variant for universal missing-sensor claims.
+
+13. Dropout-trained direct-NRE repair
+119-bus K60 dropout-robust training: fixed K60 direct NRE under 0/10/20/40% random sensor dropout is 63.86%/54.62%/35.86%/14.98%. The dropout-robust variant gives 61.98%/59.78%/54.92%/50.34%. Top-20 truth coverage at 20% dropout improves from 89.62% to 99.06%, and at 40% dropout from 59.40% to 97.48%. Rerank@20 at 40% dropout improves from 45.66% to 62.14%. Tradeoff: 0% dropout direct drops modestly from 63.86% to 61.98%, which is acceptable for robustness-oriented deployment.
+IEEE123 K75 dropout-robust training: fixed K75 direct NRE under 0/10/20/40% random sensor dropout is 86.42%/36.25%/19.83%/10.50%. The dropout-robust variant gives 84.58%/79.58%/77.00%/63.25%. Top-20 truth coverage under 10/20/40% dropout improves to 100.00%/100.00%/100.00%, and rerank@20 is 86.58%/86.08%/78.00%.
+Counterattack value: converts the sensor-dropout audit from a pure boundary into a repairable method result. Fixed deployment models are sensitive to random missing sensors, but dropout-trained NRE variants restore direct inference and preserve candidate coverage on both large 119-bus and controlled unbalanced IEEE123 benchmarks.
+
+Full-scale dropout-robust experimental repair (ST64)
+source=reconfig_fullscale_dropout_robust_20260702.txt
+role=experiment-level repair for random sensor-dropout weakness on 202/417 balanced full-scale stress benchmarks.
+SystemData_202 K160:
+  0% dropout: fixed direct 88.96%, robust direct 88.58% (tradeoff -0.38pp, CI crosses zero); rerank@20 90.42% -> 90.46%.
+  10% dropout: fixed direct 59.15%, robust direct 69.88% (+10.73pp, CI [9.12,12.31]); top20 89.35% -> 96.81%; rerank@20 85.85% -> 88.62%.
+  20% dropout: fixed direct 36.69%, robust direct 56.58% (+19.88pp, CI [18.11,21.69]); top20 75.65% -> 94.50%; rerank@20 74.46% -> 86.62%.
+  40% dropout: fixed direct 16.38%, robust direct 36.35% (+19.96pp, CI [18.19,21.62]); top20 52.85% -> 91.04%; rerank@20 51.81% -> 81.73%.
+SystemData_417 K220:
+  0% dropout: fixed direct 78.12%, robust direct 77.00% (tradeoff -1.12pp); rerank@20 81.92% -> 81.85%.
+  10% dropout: fixed direct 51.85%, robust direct 57.15% (+5.31pp, CI [4.15,6.62]); top20 77.85% -> 89.31%; rerank@20 73.27% -> 78.23%.
+  20% dropout: fixed direct 38.92%, robust direct 48.54% (+9.62pp, CI [8.15,10.96]); top20 68.00% -> 85.54%; rerank@20 63.96% -> 74.96%.
+  40% dropout: fixed direct 21.54%, robust direct 37.65% (+16.12pp, CI [14.65,17.77]); top20 53.38% -> 80.69%; rerank@20 50.27% -> 69.38%.
+verdict=full-scale random sensor dropout is no longer only a defensive fallback story; it now has a retrained robust-NRE experimental repair with positive bootstrap CIs under dropout.
+
+300-bus K299 experiment-level attack update (ST65-ST66)
+source_1=300bus_K299_mapteacher_attack_20260702.txt
+source_2=300bus_K299_missingrate_robust_20260702.txt
+MAP-teacher result:
+  frozen K299 direct 31.54%, mapteacher direct 32.12% (+0.58pp, CI [-0.07,1.22]); map-agree improves +1.36pp with positive CI; KL improves 0.6973 -> 0.6877.
+  verdict=loss-target retuning alone does not substantially repair severe 30% missing direct top-1.
+Missing-rate robust result:
+  0% missing: fixed direct 34.62%, robust direct 43.71% (+9.09pp, CI [8.12,10.20]); top20 98.89% -> 99.89%; rerank@20 65.40% -> 66.28%.
+  10% missing: fixed direct 35.46%, robust direct 40.02% (+4.55pp, CI [3.54,5.54]); top20 99.37% -> 99.82%; rerank@20 63.02% -> 63.29%.
+  20% missing: fixed direct 35.08%, robust direct 35.55% (+0.48pp, CI crosses zero); top20 99.48% -> 99.60%; rerank@20 60.43% -> 60.60%.
+  30% missing: fixed direct 30.89%, robust direct 30.94% (+0.05pp, CI crosses zero); rerank@20 56.75% -> 56.78%.
+  40% missing: fixed direct 27.09%, robust direct 28.32% (+1.23pp, CI [0.40,2.06]); KL improves 0.7953 -> 0.7611.
+verdict=300-bus large-system evidence is experimentally strengthened as an operating curve, but 30% severe-missing direct top-1 remains information-limited; the strongest honest claim remains top-k candidate coverage plus exact/posterior reranking, not direct dominance at severe missing.
+
+SoCal synchronized real-measurement posterior attack update (ST67)
+source=socal_measurement_tree_ensemble_posterior_20260703.txt
+role=experiment-level upgrade for real synchronized measurement-conditioned topology-state posterior inference.
+setup=same public synchronized window 2024-11-14T07:00:00 to 2024-11-14T07:30:42 UTC; 1843 measurement rows; five topology states with four trainable states; no timestamp feature; blocked CV.
+previous_enhanced_mlp:
+  accuracy 79.15%, macro-F1 75.35%, ECE 0.1900, Brier 0.3832.
+tree_ensemble_upgrade:
+  accuracy 86.64% with 95% bootstrap CI [85.18,88.11], macro-F1 78.14%, ECE 0.0605, Brier 0.2026.
+  gain over previous MLP: +7.49pp accuracy, +2.79pp macro-F1, large calibration/Brier improvement.
+per_state_accuracy:
+  state0 96.30%, state1 74.59%, state2 87.50%, state3 91.14%.
+verdict=the real synchronized data line is now an experimental strength: it is no longer only topology/measurement ingest compatibility, but a quantitative synchronized measurement-conditioned posterior benchmark with clear improvement over majority baseline and previous MLP.
+remaining_boundary=public sample still has a 30m42s window and one low-support state; it is not a private utility field deployment.
+
+IEEE123 controlled three-phase composite stress attack update (ST68)
+source=ieee123_3ph_composite_stress_20260703.txt
+role=experiment-level robustness audit for simultaneous random sensor dropout and noise inflation on the raw-asset-derived controlled unbalanced IEEE123 posterior benchmark.
+setup=frozen nominal K75, frozen dropout-robust K75, and dual-average evaluated on identical composite scenarios; exact posterior uses scenario-specific noise variance.
+key_results:
+  nominal: fixed direct 85.50%, robust direct 85.78%, top20 100% for both.
+  20% dropout + 1x noise: fixed direct 19.61%, robust direct 76.56%, robust top20 100%, robust rerank@20 84.17% vs exact 84.67%.
+  40% dropout + 1x noise: fixed direct 8.94%, robust direct 66.83%, robust top20 100%, robust rerank@20 79.94% vs exact 79.61%.
+  10% dropout + 2x noise: fixed direct 34.06%, robust direct 74.22%, robust top20 100%, robust rerank@20 83.33% vs exact 83.33%.
+  20% dropout + 2x noise: fixed direct 19.56%, robust direct 70.72%, robust top20 100%, robust rerank@20 79.28% vs exact 79.22%.
+  20% dropout + 3x noise: fixed direct 17.56%, robust direct 60.94%, robust top20 99.89%, robust rerank@20 71.83% vs exact 71.72%.
+  40% dropout + 2x noise: fixed direct 9.83%, robust direct 61.00%, robust top20 100%, robust rerank@20 72.83% vs exact 73.61%.
+verdict=three-phase evidence is no longer only a clean-condition extension; it now includes a raw-asset-derived IEEE123 composite-stress posterior benchmark with high-recall candidate coverage and exact-level reranking under simultaneous missing/noisy measurements.
+remaining_boundary=still controlled IEEE123, not private utility 1282-bus unbalanced deployment.
+
+119-bus BOED multi-budget decision-value attack update (ST69)
+source=boed_119bus_budget_curve_20260703.txt
+role=experiment-level upgrade from single-point BOED evidence to a budget-curve decision-value benchmark.
+setup=119-bus adaptive sensing, Random vs AdaptiveMVG vs AdaptiveFisher vs AdaptiveBOED, K=3/4/5/6/7/8/10, N_TEST=90, N_MC=32, bootstrap CIs.
+key_per_budget_accuracy:
+  K4: BOED 38.89%, MVG 25.56%, Fisher 25.56%, Random 7.78%; BOED-MVG +13.33pp CI [3.33,23.33].
+  K5: BOED 52.22%, MVG 35.56%, Fisher 31.11%, Random 10.00%; BOED-MVG +16.67pp CI [5.56,27.78], BOED-Fisher +21.11pp CI [11.11,31.11].
+  K6: BOED 61.11%, MVG 43.33%, Fisher 37.78%, Random 11.11%; BOED-MVG +17.78pp CI [7.75,28.89].
+  K7: BOED 65.56%, MVG 46.67%, Fisher 48.89%, Random 10.00%; BOED-MVG +18.89pp CI [11.08,27.78].
+  K8: BOED 71.11%, MVG 56.67%, Fisher 53.33%, Random 16.67%; BOED-MVG +14.44pp CI [6.67,23.33].
+  K10: BOED 74.44%, MVG 65.56%, Fisher 56.67%, Random 17.78%; BOED-MVG +8.89pp CI [2.22,16.67].
+budget_curve_auc:
+  accuracy AUC: BOED 54.60%, MVG 41.75%, Fisher 38.89%, Random 11.90%.
+  BOED-MVG AUC gain +12.86pp CI [6.82,18.73].
+  BOED-Fisher AUC gain +15.71pp CI [9.21,22.54].
+  BOED-Random AUC gain +42.70pp CI [35.55,50.63].
+  entropy AUC: BOED 1.555 vs MVG 2.103, Fisher 2.296, Random 3.037.
+  entropy AUC reductions vs MVG/Fisher/Random all have positive CIs.
+verdict=BOED is no longer only a K7 single-point result; it has a statistically supported multi-budget decision-value curve on the 119-bus adaptive setting.
+remaining_boundary=69-bus BOED remains competitive but not significantly above MVG; the strongest BOED claim should anchor on 119-bus adaptive posterior decision value, not universal dominance.
+
+Final experimental counterattack synthesis (ST70-ST71)
+source_1=q1_final_experimental_counterattack_matrix_20260703.txt
+source_2=q1_submission_experiment_adoption_plan_20260703.txt
+verdict=ST64-ST69 materially strengthen the Q1 case: SoCal synchronized posterior, IEEE123 composite three-phase robustness, 202/417 full-scale dropout robustness, and 119-bus BOED budget curve are now positive experimental attack points. The remaining weak point is 300-bus 30% severe-missing direct top-1, which should be presented as an information-limited boundary with high-recall candidate/rerank deployment policy.
+
+Submission-ready evidence packaging update (ST72-ST74)
+source_1=q1_main_text_result_table_candidates_20260703.txt
+source_2=q1_reviewer_response_evidence_bank_20260703.txt
+source_3=q1_final_evidence_index_20260703.txt
+role=turn strengthened experiments into submission-ready tables, reviewer-response evidence, and final result/code index.
+verdict=the package now has a coherent Q1 counterattack evidence chain; the remaining risk is external private-utility validation, not missing controlled/public experiments.
+
+Q1 submission auxiliary materials update (ST75-ST77)
+source_1=q1_cover_letter_experiment_highlights_20260703.txt
+source_2=q1_editor_reviewer_experiment_brief_20260703.txt
+source_3=q1_final_overclaim_guardrails_20260703.txt
+role=cover-letter framing, editor/reviewer quick evidence brief, and final overclaim guardrails.
+verdict=the strengthened experiment package is now paired with submission-ready framing that emphasizes wins while preserving explicit boundaries.
+
+Pre-submission execution update (ST78-ST80)
+source_1=q1_pre_submission_consistency_checklist_20260703.txt
+source_2=q1_main_figure_table_upgrade_plan_20260703.txt
+source_3=q1_final_go_nogo_risk_judgement_20260703.txt
+role=final submission execution checklist, figure/table upgrade plan, and go/no-go judgement.
+verdict=Q1 submission is defensible if the final manuscript foregrounds exact-comparable posterior inference, synchronized real posterior evidence, IEEE123 composite stress, full-scale dropout robustness, and BOED decision value while keeping 300-bus severe direct as a boundary.
+
+Final traceability packaging update (ST81-ST83)
+source_1=q1_claim_to_evidence_traceability_map_20260703.txt
+source_2=q1_author_final_execution_roadmap_20260703.txt
+source_3=Q1_SUBMISSION_PACKAGE_README_20260703.txt
+role=claim-to-evidence map, final author execution roadmap, and root-level submission package README.
+verdict=the package now has experimental evidence, manuscript integration, reviewer-response framing, overclaim guardrails, pre-submission checks, and traceability from claims to frozen result files.
+
+SoCal stage-1 reassessment update (ST84-ST87)
+source_1=socal_posterior_ablation_leakage_audit_20260703.txt
+source_2=socal_event_posterior_trajectory_20260703.txt
+source_3=socal_event_gap_forward_audit_20260703.txt
+source_4=q1_socal_stage1_advisor_eval_round2_20260703.txt
+role=repair the weak naive forward split by separating stable-state chronological generalization from compressed transition ambiguity in the synchronized real-data line.
+verdict=the SoCal real-data stage now passes for stage advance: naive forward split is not adopted, but an event-gap-aware protocol yields 84.85% held-out stable-state forward accuracy with CI [81.31%,88.38%], while full-window trajectory and compressed-pair entropy expose transition behavior and ambiguity honestly.
+
+Three-phase ambiguity attack update (ST88-ST89)
+source_1=ieee123_3ph_phase_ambiguity_audit_20260703.txt
+source_2=q1_threephase_phase_ambiguity_advisor_eval_20260703.txt
+role=repair the "three-phase evidence lacks phase/topology ambiguity" weakness by injecting global and local phase-permutation stress into the IEEE123 posterior benchmark.
+verdict=the ambiguity substage is successful: local phase-label errors are largely survivable, local ambiguity plus 20% dropout still keeps robust rerank20 near exact, and severe global permutation raises entropy while preserving top20/rerank alignment; however, the overall three-phase stage still needs one more scale or unbalance-severity attack before stage advancement.
+
+Three-phase stage round-2 update (ST90-ST91)
+source_1=ieee123_3ph_unbalance_severity_audit_20260703.txt
+source_2=q1_threephase_stage_advisor_eval_round2_20260703.txt
+role=complete the three-phase stage by adding an unbalance-severity sweep on top of the existing composite stress and phase-ambiguity audits.
+verdict=the three-phase stage now passes for stage advance: controlled unbalanced evidence covers telemetry stress, phase ambiguity, and amplified asymmetry severity, with posterior candidate/rerank and uncertainty behavior remaining meaningful even when direct top-1 is no longer dominant.
+
+State-consistency stage round-1 update (ST92-ST93)
+source_1=posterior_weighted_residual_consistency_20260703.txt
+source_2=q1_state_consistency_advisor_eval_round1_20260703.txt
+role=upgrade topology-conditioned residual analysis into a posterior-aware operating-value audit that links uncertainty to residual-consistency gains.
+verdict=the residual-consistency substage is successful: higher-entropy cases benefit most from reranking in both 119-bus and 300-bus settings, but the full stage still needs a real-event state-consistency or anomaly indicator before stage advancement.
+
+State-consistency stage round-2 update (ST94-ST95)
+source_1=socal_event_anomaly_consistency_audit_20260703.txt
+source_2=q1_state_consistency_stage_advisor_eval_round2_20260703.txt
+role=complete the state/event consistency stage by adding a real synchronized topology-event anomaly and consistency indicator on SoCal.
+verdict=the stage now passes for stage advance: the controlled residual-consistency line is connected to a real synchronized event-salience score, and the topology-shift-centric event score attains AUC 1.0000 with all 3 trainable real events above the 99th far non-event baseline percentile.
+
+300-bus operating-policy stage update (ST96-ST97)
+source_1=300bus_credible_set_policy_20260703.txt
+source_2=q1_300bus_operating_policy_advisor_eval_round1_20260703.txt
+role=complete the severe-missing 300-bus stage by adding posterior credible-set calibration on top of existing selective rerank and confidence-stratified policies.
+verdict=the stage now passes for stage advance: K299 95% credible sets average only 9.48 candidates, cover the truth 98.42% of the time, and yield 56.73% rerank accuracy, essentially matching full rerank20 at 56.93% with less than half the candidate count.
+
+BOED stage update (ST98-ST99)
+source_1=boed_119bus_dropout_stress_20260703.txt
+source_2=q1_boed_stage_advisor_eval_round1_20260703.txt
+role=complete the BOED reinforcement stage by showing that posterior decision-value survives post-selection sensor dropout, not just clean-budget settings.
+verdict=the stage now passes for stage advance: BOED remains the strongest policy by accuracy AUC under both 20% and 40% dropout stress, which elevates BOED from an isolated budget-curve win to a robust second contribution line.
+
+Global benchmark reassessment update (ST100-ST101)
+source_1=q1_global_benchmark_reassessment_20260703.txt
+source_2=q1_global_advisor_reassessment_20260703.txt
+role=compare the fully strengthened package against representative Q1 benchmark lines and decide whether the overall paper is globally passed.
+verdict=the paper is now Q1-competitive and no longer limited by missing experimental thickness; the only major remaining risk is broad field-scale external validity, so the next best move is one final long-preview SoCal breadth attack rather than more synthetic benchmark stacking.
+
+Global breadth-attack update (ST102-ST103)
+source_1=socal_long_preview_breadth_audit_20260703.txt
+source_2=socal_long_preview_event_rank_sweep_20260703.txt
+role=attack the remaining external-validity gap using the longer 24-hour SoCal public preview instead of adding more synthetic benchmarks.
+verdict=the breadth attack is only partially successful: the 07:20 labeled event pair is strongly surfaced in short-window local-peak ranking, but the full 24-hour background still contains unlabeled regime shifts that prevent a clean overall global pass on the external-validity axis.

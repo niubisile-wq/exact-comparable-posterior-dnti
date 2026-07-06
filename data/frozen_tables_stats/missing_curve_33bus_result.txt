@@ -1,0 +1,13 @@
+Step 3 missing-rate curve: 33-bus IP-C
+seeds=[42, 123, 456, 789, 2024, 500, 1000, 1500]
+n_eval=2000 per rate, K=20, sigma=0.009
+miss_rate,rob_mean,rob_std,naive,delta_mean,delta_min,all_delta_positive
+0.00,0.6901,0.0068,0.7005,-0.0104,-0.0215,False
+0.10,0.6575,0.0065,0.4120,0.2455,0.2355,True
+0.20,0.6421,0.0060,0.2000,0.4421,0.4320,True
+0.30,0.5993,0.0052,0.1010,0.4983,0.4885,True
+0.40,0.5574,0.0048,0.0675,0.4899,0.4825,True
+0.50,0.5312,0.0079,0.0560,0.4752,0.4590,True
+gate_all_seed_positive_delta_10_to_30pct=True
+Boundary: at 0% missing, the robust model may trade a small clean-data accuracy loss for missing-data robustness.
+Boundary: 40-50% missing are stress-test boundary points, not the trained operating range.

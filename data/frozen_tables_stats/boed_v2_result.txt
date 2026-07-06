@@ -1,0 +1,55 @@
+========================================================================
+IP-A AIS-BOED v2 RESULTS (Variable Load lf~U(0.8,1.2), Exact EIG)
+N_TEST=500, N_MC=100, N_LF_C=11, K_MAX=12, time=1225s
+========================================================================
+
+Top-1 Accuracy (AIS posterior marginalizing lf):
+   K    BOED_AIS      Random    GreedyLoop
+------------------------------------------
+   1       0.148       0.110         0.110
+   2       0.272       0.192         0.172
+   3       0.452       0.268         0.240
+   4       0.584       0.294         0.290
+   5       0.688       0.334         0.330
+   6       0.708       0.414         0.358
+   7       0.748       0.418         0.364
+   8       0.756       0.424         0.378
+   9       0.768       0.442         0.432
+  10       0.802       0.478         0.456
+  11       0.784       0.484         0.484
+  12       0.792       0.534         0.512
+
+Posterior Entropy H(K) [lower = more informative]:
+   K    BOED_AIS      Random    GreedyLoop
+------------------------------------------
+   1       2.635       2.915         3.094
+   2       1.907       2.522         2.689
+   3       1.336       2.221         2.291
+   4       0.998       2.015         1.908
+   5       0.790       1.852         1.755
+   6       0.719       1.691         1.613
+   7       0.668       1.565         1.613
+   8       0.630       1.475         1.566
+   9       0.595       1.404         1.437
+  10       0.562       1.326         1.297
+  11       0.543       1.269         1.248
+  12       0.531       1.202         1.192
+
+BOED sensor savings:
+  60% acc: BOED@K=5  Random@never  Greedy@never
+  70% acc: BOED@K=6  Random@never  Greedy@never
+  80% acc: BOED@K=10  Random@never  Greedy@never
+
+Gate: BOED_AIS > Random at K=4 and K=7?
+  K=4: BOED=0.584 vs Random=0.294 → PASS
+  K=7: BOED=0.748 vs Random=0.418 → PASS
+  Overall: PASS
+
+Most frequently selected nodes at each step (BOED):
+  Step 1: node17(304), node16(138), node29(16)
+  Step 2: node21(264), node27(44), node19(30)
+  Step 3: node24(173), node4(71), node7(37)
+  Step 4: node30(55), node19(42), node29(42)
+  Step 5: node2(53), node1(51), node16(30)
+  Step 6: node3(60), node15(41), node2(39)
+========================================================================

@@ -1,0 +1,63 @@
+SoCal public-sample window alignment audit
+Date: 2026-07-02
+
+Topology-side public evidence
+- network_files contains a single public circuit snapshot:
+  2023-08-01T00h00m00.000000s.json
+- parameter_timeseries/status sample yields the current local topology-event library:
+  first_snapshot=2023-08-01T00:00:00.000000
+  last_snapshot=2024-11-13T23:30:42.000000
+  unique_joint_topology_states=11
+
+Measurement-side public evidence
+1. magnitudes
+   - egauge_9-Mains_Power.csv:
+     2024-11-14T07:00:00.000000 to 2024-11-15T07:00:00.000000
+   - egauge_9-L1.csv:
+     2024-11-14T07:00:00.000000 to 2024-11-15T07:00:00.000000
+
+2. phasors
+   - t.csv:
+     2024-11-14T07:00:00.000000 to 2024-11-21T06:59:50.000000
+   - egauge_9-L2.csv:
+     2024-11-14T07:00:00.052808 to 2024-11-21T06:59:50.037144
+   - egauge_9-S3.csv:
+     2024-11-14T07:00:00.053016 to 2024-11-21T06:59:50.037351
+
+3. waveforms
+   - sampled public subfolder path begins at date folder 2024-12-03
+   - sampled public filenames include:
+     2024-12-03T00-00-10.072.parquet
+     2024-12-03T00-00-20.051.parquet
+     2024-12-03T00-01-00.041.parquet
+
+Alignment result
+- Latest public topology-state timestamp currently extracted: 2024-11-13T23:30:42
+- Earliest sampled public measurement timestamp: 2024-11-14T07:00:00
+- Naive timestamp reading: apparent gap of 7 hours 29 minutes 18 seconds
+- Corrected interpretation: topology event timestamps are interpreted as SoCal local
+  time and measurement timestamps are interpreted as UTC.
+- Corrected event-bearing topology timestamps inside the measurement preview:
+  cb_121: 2024-11-14T07:09:00Z, status=NC
+  cb_123: 2024-11-14T07:20:05Z, status=NC
+  cb_128: 2024-11-14T07:20:21Z, status=NO
+  swmp_17-2: 2024-11-14T07:30:42Z, status=NC
+- Event-bearing synchronized public subwindow: 2024-11-14T07:00:00Z to
+  2024-11-14T07:30:42Z
+- Event-bearing subwindow duration: 30 minutes 42 seconds
+- Joint topology states inside event-bearing subwindow: 5
+- Rows in event-bearing subwindow:
+  egauge_9-Mains_Power.csv = 1843
+  egauge_9-S3.csv = 153
+  t_phasor.csv = 153
+- By piecewise-constant status forward filling, the released measurement preview
+  remains topology-labeled after the final event:
+  magnitude preview = 24.000 hours, 86401 rows
+  phasor preview = 167.997 hours, 49963 rows plus 49974 timebase rows
+
+Conclusion
+- The public sample now supports three claims at once:
+  1. real network topology and switch-event compatibility,
+  2. practical local acquisition of public measurement files,
+  3. a synchronized topology-measurement preview after time-zone normalization and status forward filling.
+- Therefore, the remaining real-data limitation is no longer absence of synchronized public overlap; it is the limited spatial and temporal breadth of the public preview compared with a broad field-scale posterior benchmark.

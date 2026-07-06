@@ -1,0 +1,29 @@
+SoCal public sample benchmark index
+metadata.netfile_changes.rows=1
+metadata.netfile_changes.first=2023-08-01T00:00:00.000000
+metadata.netfile_changes.last=2023-08-01T00:00:00.000000
+metadata.parameter_changes.rows=16
+metadata.parameter_changes.first=2023-08-01T00:00:00.000000
+metadata.parameter_changes.last=2024-11-13T23:30:42.000000
+topology.status_file_count=14
+topology.status_rows=48
+topology.first_snapshot=2023-08-01T00:00:00.000000
+topology.last_snapshot=2024-11-13T23:30:42.000000
+topology.snapshot_count=16
+preview.file_count=3
+preview.egauge_9-Mains_Power.csv.rows=86401
+preview.egauge_9-Mains_Power.csv.first=2024-11-14T07:00:00.000000
+preview.egauge_9-Mains_Power.csv.last=2024-11-15T07:00:00.000000
+preview.egauge_9-S3.csv.rows=49963
+preview.egauge_9-S3.csv.first=2024-11-14T07:00:00.053016
+preview.egauge_9-S3.csv.last=2024-11-21T06:59:50.037351
+preview.t_phasor.csv.rows=49974
+preview.t_phasor.csv.first=2024-11-14T07:00:00.000000
+preview.t_phasor.csv.last=2024-11-21T06:59:50.000000
+alignment.public_gap_hours=7.49
+alignment.overlap_available=false
+benchmark_tracks
+- track_1: topology_state_graph from metadata + switch-status sample
+- track_2: preview_measurement_ingest from magnitude/phasor CSV samples
+- track_3: synchronized_posterior_benchmark blocked by public time-window gap
+boundary=Current local SoCal sample supports topology-state indexing and measurement-ingest indexing, but not synchronized posterior benchmarking.

@@ -1,0 +1,49 @@
+Step 6 main tables final freeze
+Generated: 2026-07-02 07:30:32
+Rounding: percentages use two decimals in this freeze; paper tables may round to one decimal consistently.
+
+Table A. IP1 exact-comparable posterior inference
+system,topology_count,K,exact_top1_mean,nre_top1_mean,nre_std,gap_mean,speedup,source
+33-bus,32,20,72.10%,68.58%,0.90%,+3.53pp,1176x,ip1_33bus_n8_result.txt
+69-bus,60,20,40.20%,36.05%,1.03%,+4.15pp,3302x,ip1_69bus_n8_result.txt
+119-bus,107,25,52.80%,41.90%,1.01%,+10.90pp,3762x,119bus_ip1_result.txt
+119-bus supplemental posterior gap metric: KL(reference||NRE)=0.4056+/-0.0124.
+
+Table B. GraphSAGE baseline
+system,GraphSAGE_top1,NRE_top1,exact_top1,GraphSAGE_latency_ms,source
+33-bus,68.13%+/-0.80%,68.58%,72.10%,0.0056+/-0.0010,baseline_unified_table.txt; ip1_33bus_n8_result.txt
+69-bus,29.27%+/-0.93%,36.05%,40.20%,0.0092+/-0.0025,baseline_unified_table.txt; ip1_69bus_n8_result.txt
+Boundary: GraphSAGE is a point-estimate shared-graph baseline, not posterior output.
+
+Table C. IP-C missing-measurement robustness
+system,n,miss10_robust,miss10_naive,miss10_delta,miss30_robust,miss30_naive,miss30_delta,source
+33-bus,8,65.18%+/-0.59%,40.10%,+25.08pp,61.01%+/-0.56%,10.10%,+50.91pp,ipc_33bus_n8_result.txt
+69-bus,8,33.02%+/-0.89%,20.80%,+12.22pp,30.56%+/-0.86%,7.30%,+23.26pp,ipc_69bus_n8_result.txt
+119-bus supplemental,5,40.16%+/-0.79%,31.40%,+8.76pp,36.78%+/-0.89%,9.50%,+27.28pp,ipc_119bus_5seed_result.txt
+
+Table D. IP-A / BOED sensor placement
+system,policy,K4_top1,K7_top1,source
+33-bus,Random,29.40%,41.80%,boed_33bus_nmc500_result.txt
+33-bus,MVG,64.20%,75.40%,boed_33bus_nmc500_result.txt
+33-bus,BOED,61.60%,75.20%,boed_33bus_nmc500_result.txt
+69-bus,Random,19.00%,24.00%,boed_69bus_result.txt
+69-bus,GreedyLoop,15.50%,24.00%,boed_69bus_result.txt
+69-bus,MVG,42.00%,66.50%,step5_mvg_result.txt
+69-bus,BOED,44.50%,71.50%,boed_69bus_result.txt
+119-bus,AdaptiveMVG,30.00%,56.70%,boed_119bus_minimal_result.txt
+119-bus,AdaptiveFisher,30.80%,58.30%,boed_119bus_minimal_result.txt
+119-bus,AdaptiveBOED,39.20%,70.00%,boed_119bus_minimal_result.txt
+Boundary: 33-bus BOED is comparable to MVG; 69-bus BOED is stronger than MVG at K=4/K=7; 119-bus adaptive comparison is the fair sequential-policy evidence. 119-bus AdaptiveBOED entropy drops from 1.991 at K=4 to 0.967 at K=7.
+
+Table E. Posterior quality
+method,top1,NLL,Brier,KL_ref_to_model,ECE,coverage90,avg_credset90,source
+Reference,0.6987,0.7247,0.3515,0.000000,0.0111,0.9738,2.69,posterior_calibration_result.txt
+Raw_NRE,0.6837,0.7599,0.3654,0.045357,0.0198,0.9746,2.80,posterior_calibration_result.txt
+Calibrated_NRE,0.6837,0.7598,0.3654,0.045329,0.0181,0.9762,2.84,posterior_calibration_result.txt
+Boundary: calibrated NRE is exact-comparable and conservative, not perfectly calibrated.
+
+Table F. Synthetic 300-bus scalability
+system,n_bus,n_topologies,IP1_NRE_top1,IP1_exact_top1_500,IP-C_NRE_top1_30missing,IP-C_exact_top1_30missing_500,NRE_ms,Exact_ms,Speedup,source
+synthetic_300bus,300,200,49.38%,53.60%,26.87%,42.60%,0.004806,0.184350,40.2x,scalability_result.txt; ip1_300bus_result.txt; ipc_300bus_result.txt
+H(K) 300-bus: K=40: 2.4881+/-0.8466; K=80: 1.7232+/-0.8698; K=120: 1.4424+/-0.8620; K=150: 1.2634+/-0.8684; K=180: 1.1965+/-0.8746; K=220: 1.0645+/-0.8538
+Boundary: 300-bus is synthetic fixed-deployment mid-scale scalability evidence only; IP-C 30% missing is a stress boundary.

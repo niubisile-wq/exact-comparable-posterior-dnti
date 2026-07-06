@@ -1,0 +1,28 @@
+Large-system method-upgrade audit
+date=2026-07-02
+device=cuda
+No retraining. Validation and test draws are separate from each other.
+Methods: validation-selected seed, probability/logit ensemble, validation-weighted ensemble, uniform-prior correction, stacked logit calibration, and validation-selected confidence-gated exact rerank@20.
+
+system,method,top1,exact_full,truth_in_top20,exact_winner_in_top20,rerank20,rerank_vs_exact,nll,extra
+119bus_IP1,individual_seed_mean,0.4380,nan,nan,nan,nan,nan,nan,std=0.0066
+119bus_IP1,validation_selected,0.4445,0.5310,0.9315,0.9620,0.5280,0.9055,1.7147,val_acc=0.4390
+119bus_IP1,probability_ensemble,0.4555,0.5310,0.9355,0.9685,0.5260,0.9120,1.6951,all frozen seeds
+119bus_IP1,logit_ensemble,0.4560,0.5310,0.9355,0.9670,0.5260,0.9105,1.6846,all frozen seeds
+119bus_IP1,validation_weighted_probability_ensemble,0.4525,0.5310,0.9345,0.9710,0.5265,0.9145,1.6956,val_nll=1.7032;weights=0.23/0.43/0.13/0.09/0.12
+119bus_IP1,uniform_prior_corrected_probability_ensemble,0.4465,0.5310,0.9365,0.9695,0.5255,0.9230,1.6961,label_free_validation_prior_correction
+119bus_IP1,stacked_logit_calibrator,0.3835,0.5310,0.9015,0.9235,0.5275,0.8670,2.0029,offline_meta_train_n=8000;internal_val_acc=0.3944
+119bus_IP1,confidence_gated_prob_ensemble_rerank20,0.5245,0.5310,nan,nan,nan,0.9095,nan,tau=0.71;call_rate=0.7795;val_rule=max_validation_accuracy;val_acc=0.5170;val_call=0.7770
+300bus_IPC_miss30,individual_seed_mean,0.2592,nan,nan,nan,nan,nan,nan,std=0.0056
+300bus_IPC_miss30,validation_selected,0.2670,0.4315,0.9765,0.9800,0.4290,0.9800,2.1428,val_acc=0.2530
+300bus_IPC_miss30,probability_ensemble,0.2935,0.4315,0.9845,0.9915,0.4305,0.9915,2.0076,all frozen seeds
+300bus_IPC_miss30,logit_ensemble,0.2950,0.4315,0.9885,0.9910,0.4305,0.9910,1.9862,all frozen seeds
+300bus_IPC_miss30,validation_weighted_probability_ensemble,0.2955,0.4315,0.9850,0.9905,0.4305,0.9905,2.0086,val_nll=2.0039;weights=0.34/0.39/0.28
+300bus_IPC_miss30,uniform_prior_corrected_probability_ensemble,0.2975,0.4315,0.9835,0.9895,0.4295,0.9895,2.0138,label_free_validation_prior_correction
+300bus_IPC_miss30,stacked_logit_calibrator,0.2215,0.4315,0.9660,0.9715,0.4280,0.9715,2.6389,offline_meta_train_n=8000;internal_val_acc=0.2506
+300bus_IPC_miss30,confidence_gated_prob_ensemble_rerank20,0.4260,0.4315,nan,nan,nan,0.9795,nan,tau=0.63;call_rate=0.9335;val_rule=min_call_rate_within_0.5pp_of_full_exact;val_acc=0.4280;val_call=0.9300
+
+Interpretation
+If ensemble top-1 improves direct NRE, report it as a stronger frozen inference procedure.
+If confidence-gated reranking recovers exact-level accuracy at a partial call rate, report it as a deployable high-fidelity fallback rather than a post-hoc excuse.
+elapsed_sec=22.8

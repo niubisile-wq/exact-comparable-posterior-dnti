@@ -1,0 +1,150 @@
+Q1 final closure audit (2026-07-02)
+
+Objective
+- Audit whether the current workspace and submission package already satisfy the scientific requirements for a Q1-caliber evidence package.
+- Separate what is fully closed from what remains blocked only by external data or user-supplied metadata.
+
+A. Exact-comparable core methodology
+Status: CLOSED.
+Evidence:
+- main_tables_final.txt
+- master_summary_final.txt
+- manuscript_draft_v1.tex
+- supplementary_material.tex
+Result:
+- Exact enumeration / EnumBF remains the explicit posterior reference.
+- NRE remains framed as learned posterior approximation rather than a plain classifier.
+
+B. Main benchmark chain (33/69/119-bus)
+Status: CLOSED.
+Evidence:
+- main_tables_final.txt
+- stats_final.txt
+- figure_freeze_manifest.txt
+Result:
+- 33/69/119-bus main chain is frozen and traceable.
+- IP1 / IP-C / BOED / posterior-quality narrative is anchored to frozen tables and figures.
+
+C. Statistical defensibility
+Status: CLOSED.
+Evidence:
+- stats_final.txt
+- manuscript statistical-test paragraph
+Result:
+- six primary Wilcoxon tests remain closed under BH-FDR / Holm / Bonferroni.
+- 119-bus IP-C remains outside the primary m=6 family and is correctly bounded as supplemental.
+
+D. Modern baseline coverage
+Status: CLOSED.
+Evidence:
+- baseline_extension_table_20260702.txt
+- baseline_extension_audit_20260702.txt
+- GraphSAGE entries in main tables / manuscript
+Result:
+- GraphSAGE, DNN, classical enumerable reference, and unified baseline wording are present.
+- Reviewer attack "why not a modern GNN / why not a plain classifier" is addressed within current claim scope.
+
+E. Robustness boundary
+Status: CLOSED within stated scope.
+Evidence:
+- missing_curve_33bus_result.txt
+- outage_33bus_result.txt
+- noise_sensitivity_33bus_result.txt
+- manuscript robustness sections and figures
+Result:
+- Missing-rate, outage-induced missing, and noise sensitivity are all frozen.
+- Boundaries on outage diagnosis and clean-data tradeoff are explicitly preserved.
+
+F. Posterior reliability and decision value
+Status: CLOSED.
+Evidence:
+- posterior_calibration_result.txt
+- posterior_multimodal_case.txt
+- Fig. 6 / Table E / BOED results
+Result:
+- Calibration, ECE/KL/coverage, and multimodal posterior-case evidence are present.
+- BOED remains decision-aware evidence rather than universal dominance claim.
+
+G. Full-scale / scale-defense chain
+Status: CLOSED for current manuscript scope.
+Evidence:
+- reconfig_dataset_inventory.txt
+- reconfig_fullscale_stress_result.txt
+- reconfig_exactpilot_result.txt
+- ieee123_native_pilot_result.txt
+Result:
+- The package now contains synthetic 300-bus scalability, larger 202/417 balanced stress assets, exact-comparable balanced pilots, and a native IEEE123 asset-derived pilot.
+- The scale story is materially stronger than the original 33/69/119-only chain.
+- Boundary retained: these are not utility-grade real-feeder validations.
+
+H. Three-phase evidence chain
+Status: CLOSED for reviewer-facing extension evidence, but not for a full utility-grade unbalanced benchmark.
+Evidence:
+- step6_3ph_result.txt
+- threephase_13bus_fixed_result.txt
+- threephase_37bus_fixed_result.txt
+- threephase_suite_summary_20260702.txt
+Result:
+- The package no longer relies on a single toy three-phase check.
+- It now contains a 10-bus directional extension, a 13-bus high-ambiguity exact-tracking bridge benchmark, and a 37-bus stronger fixed-deployment benchmark.
+- Boundary retained: still synthetic, not a utility-grade field feeder benchmark.
+
+I. Real-network topology/event evidence
+Status: CLOSED for the claim "real-network topology-state compatibility".
+Evidence:
+- socal28_qualitative_validation.txt
+- socal28_topology_event_library.txt
+- socal_topology_state_addendum_20260702.txt
+Result:
+- Real network asset counts, topology events, dwell times, transition structure, and device-flip frequencies are frozen.
+- The public SoCal sample now supports a compact real-network topology-state graph narrative.
+
+J. Real measurement ingest evidence
+Status: CLOSED for the claim "public measurement-ingest compatibility".
+Evidence:
+- socal_measurement_ingest_summary.txt
+- socal_measurement_regime_library.txt
+- socal_benchmark_index.txt
+- socal_measurement_ingest_addendum_20260702.txt
+- socal_measurement_regime_addendum_20260702.txt
+Result:
+- Public preview measurements are locally acquired, structurally summarized, and organized into ingest and regime-library tracks.
+- The measurement side now supports cadence, duration, value-range, harmonic-feature, and regime-segmentation claims.
+
+K. Synchronized real-data posterior benchmark
+Status: OPEN ONLY DUE TO EXTERNAL DATA LIMITATION.
+Evidence of block:
+- socal_public_window_alignment_20260702.txt
+- socal_benchmark_index.txt
+Result:
+- The released public topology timeline ends 7.49 hours before the earliest acquired public measurement sample.
+- Therefore no synchronized public topology-measurement overlap is currently available for a real-data posterior benchmark.
+- This is now a precisely diagnosed external-data blocker, not a local unfinished-analysis blocker.
+
+L. Traceability / reproducibility / package integrity
+Status: CLOSED.
+Evidence:
+- master_summary_final.txt
+- figure_freeze_manifest.txt
+- supplementary_materials_manifest.txt
+- manuscript_draft_v1.tex / pdf
+- supplementary_material.tex / pdf
+Result:
+- Current evidence package is traceable, frozen, and organized enough for reviewer simulation and manuscript defense.
+
+M. Venue / submission metadata readiness
+Status: OPEN ONLY DUE TO USER-SUPPLIED METADATA.
+Evidence of block:
+- venue_tsg_metadata_portal_checklist.txt
+- venue_tsg_metadata_template.json
+- venue_tsg_metadata_filled.json
+Result:
+- Single-anonymous TSG submission cannot be completed without real authors, affiliations, corresponding-author details, funding/declarations, and originality/prior-version metadata.
+- These values cannot be inferred locally.
+
+Final conclusion
+- All scientific/manuscript-evidence items that can be resolved from the current workspace are now either CLOSED by direct evidence or CLOSED by explicit bounded negative evidence.
+- The only remaining blockers are:
+  1. synchronized real-data topology + measurement overlap, which is an external-data blocker,
+  2. venue-specific non-anonymous metadata, which is a user-supplied submission blocker.
+- Therefore the current package is scientifically near-complete for Q1 reviewer defense within its stated boundaries, but not formally submission-ready until those two external blockers are resolved.

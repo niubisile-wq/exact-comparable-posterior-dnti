@@ -1,0 +1,35 @@
+IEEE 123 native pilot audit (2026-07-02)
+
+Source
+- Local script: <LOCAL_WORKSPACE>\dn_ieee123_native_pilot.py
+- Local result: <LOCAL_WORKSPACE>\ieee123_native_pilot_result.txt
+
+Summary
+- This pilot converts the native IEEE 123 raw-asset package into a balanced surrogate exact-comparable benchmark.
+- It preserves only the natural loop-forming tie set identified in the earlier feasibility audit: 54-94 and 151-300.
+- It does not invent additional switching states.
+
+Frozen result
+- n_bus = 125
+- raw_topologies = 38
+- kept_topologies = 38
+- failed_power_flows = 0
+- K = 45 observed buses
+- sigma = 0.0025
+- load-factor grid = {0.9, 1.0, 1.1}
+
+Per-seed metrics
+- seed 42: exact 0.7738, NRE 0.7312, gap 0.0425, KL 0.1236, speedup 18.3x
+- seed 123: exact 0.7913, NRE 0.7625, gap 0.0288, KL 0.1102, speedup 22.6x
+- seed 456: exact 0.7488, NRE 0.7000, gap 0.0488, KL 0.1188, speedup 20.5x
+
+Means
+- mean exact top-1 = 0.7712
+- mean NRE top-1 = 0.7312
+- mean gap = 0.0400
+- mean speedup = 20.5x
+
+Boundary
+- This strengthens the asset-derived IEEE 123 story.
+- It remains a balanced surrogate pilot derived from raw IEEE 123 assets.
+- It does not replace a true unbalanced three-phase benchmark with phase-resolved measurements and device models.

@@ -1,0 +1,25 @@
+Expanded baseline evidence for IP1 exact-comparable posterior inference
+Date: 2026-07-02
+
+Context
+- The main manuscript already reports the shared-graph GraphSAGE point-estimate baseline.
+- This supplementary baseline table adds the fixed-load-factor DNN baseline and
+  clarifies the relationship between the exact-enumeration reference and an
+  AIS-style Bayesian baseline on the enumerable 33-bus and 69-bus libraries.
+
+Table ST8. Expanded IP1 baseline comparison
+system,DNN_fixed_lf_top1,GraphSAGE_top1,NRE_variable_lf_top1,Exact_enumeration_top1,AIS_style_exact_reference_top1,notes,source
+33-bus,22.30%+/-0.30%,68.13%+/-0.80%,68.58%,72.10%,72.10%,AIS-style Bayesian evaluation on the enumerable discrete library collapses to the exact-enumeration reference for this setting.,step5_dnn_result.txt; baseline_unified_table.txt; ip1_33bus_n8_result.txt; dn_step4_wilcoxon.py
+69-bus,19.50%+/-0.30%,29.27%+/-0.93%,36.05%,40.20%,40.20%,AIS-style Bayesian evaluation on the enumerable discrete library collapses to the exact-enumeration reference for this setting.,step5_dnn_result.txt; baseline_unified_table.txt; ip1_69bus_n8_result.txt; dn_step4_wilcoxon.py
+
+Interpretation
+- The fixed-load-factor DNN baseline is far below the variable-load-factor NRE
+  model on both systems, which supports the value of load-aware posterior
+  modeling rather than a fixed-condition point classifier.
+- GraphSAGE is competitive on 33-bus but weaker on 69-bus; it remains a
+  point-estimate baseline rather than a posterior method.
+- For the enumerable 33-bus and 69-bus libraries, the exact-enumeration
+  posterior is the correct reference label. An AIS-style Bayesian computation
+  over the same finite library reaches the same top-1 upper bound, so the
+  manuscript keeps the exact-enumeration label to avoid overstating a Xu-style
+  AIS comparison where enumeration is already available.

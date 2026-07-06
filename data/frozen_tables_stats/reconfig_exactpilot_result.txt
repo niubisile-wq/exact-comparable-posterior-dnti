@@ -1,0 +1,10 @@
+Reconfiguration exact-comparable pilot result
+systems=SystemData_202,SystemData_417
+lf_grid=[0.8999999761581421, 1.0, 1.100000023841858]
+sigma=0.002
+system,n_bus,K,n_topologies,failed_pf,exact_top1,nre_top1,gap,kl_ref_nre,nre_ms,exact_ms,speedup,train_sec
+SystemData_202,202,90,214,0,0.8617,0.8417,0.0200,0.1676,0.002617,0.049353,18.9,3.0
+SystemData_417,418,150,220,15,0.7783,0.6833,0.0950,0.4991,0.003561,0.093052,26.1,2.0
+Boundary
+- This is a balanced exact-comparable pilot on larger local reconfiguration assets.
+- It strengthens the full-scale learned-posterior story but does not replace the missing unbalanced-three-phase benchmark.

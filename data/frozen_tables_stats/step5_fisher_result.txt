@@ -1,0 +1,8 @@
+33bus Fisher-OED: K=4=0.348 K=7=0.422
+33bus Random:     K=4=0.294 K=7=0.418
+33bus BOED(ref):  K=4=0.574 K=7=0.754
+
+69bus Fisher-OED: K=4=0.180 K=7=0.205
+69bus Random:     K=4=0.190 K=7=0.240
+69bus BOED(ref):  K=4=0.395 K=7=0.670
+
