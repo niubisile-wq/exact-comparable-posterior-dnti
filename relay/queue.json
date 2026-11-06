@@ -12,6 +12,12 @@
       "title": "Repository health check (fixed, cross-platform)",
       "path": "relay/tasks/0002/task.md",
       "status": "done"
+    },
+    {
+      "id": "0003",
+      "title": "Regenerate figures and compare with committed figures",
+      "path": "relay/tasks/0003/task.md",
+      "status": "pending"
     }
   ]
 }
