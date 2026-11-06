@@ -1,0 +1,10 @@
+plot_fig1_identifiability exit=0
+plot_fig2_ip1 exit=0
+plot_fig3_robustness exit=0
+plot_fig4_boed_sensor_placement exit=0
+plot_fig5_scalability exit=0
+plot_fig6_posterior_quality exit=0
+plot_fig7_evidence_board exit=0
+plot_fig8_experiment_landscape exit=0
+plot_fig9_ablation_controls exit=0
+plot_fig_noise_sensitivity exit=0

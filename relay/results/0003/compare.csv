@@ -1,0 +1,16 @@
+stem,has_reference,regen_shape,ref_shape,max_abs_diff,mean_abs_diff,pixels_differing,pdf_sha256_equal
+fig1_identifiability,True,1989x4329x4,1989x4329x4,0.0,0.0,0,False
+fig2_ip1_accuracy_speed,True,1749x4329x4,1749x4329x4,0.0,0.0,0,False
+fig3_robustness,True,1809x4330x4,1809x4330x4,0.0,0.0,0,False
+fig4_boed_sensor_placement,True,1599x4329x4,1599x4329x4,0.0,0.0,0,False
+fig5_scalability,True,1599x4495x4,1599x4495x4,0.0,0.0,0,False
+fig6_posterior_quality,True,1599x4329x4,1599x4329x4,0.0,0.0,0,False
+fig7_evidence_board,True,5029x8151x4,5029x8151x4,0.0,0.0,0,False
+fig8_experiment_landscape,True,2776x5049x4,2776x5049x4,0.0,0.0,0,False
+fig9_ablation_controls,True,3069x4419x4,3069x4419x4,0.0,0.0,0,False
+fig_noise_sensitivity,True,1839x4329x4,1839x4329x4,0.0,0.0,0,False
+fig_benchmark_3d,True,,,,,not_regenerated,
+fig_principle_3d,True,,,,,not_regenerated,
+fig_workflow_3d,True,,,,,not_regenerated,
+graphical_abstract_ijepes,True,,,,,not_regenerated,
+ijepes_graphical_abstract,True,,,,,not_regenerated,
