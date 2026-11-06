@@ -57,7 +57,7 @@ fields = [
     "stem", "has_reference", "regen_shape", "ref_shape",
     "max_abs_diff", "mean_abs_diff", "pixels_differing", "pdf_sha256_equal",
 ]
-with out_csv.open("w", newline="") as f:
+with out_csv.open("w", newline="", encoding="utf-8") as f:
     w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
     w.writeheader()
     for r in rows:

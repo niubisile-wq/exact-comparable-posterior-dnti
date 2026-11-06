@@ -24,6 +24,12 @@
       "title": "Regenerate submission schematics and compare",
       "path": "relay/tasks/0004/task.md",
       "status": "failed"
+    },
+    {
+      "id": "0005",
+      "title": "Rerun submission schematics comparison (fixed encoding)",
+      "path": "relay/tasks/0005/task.md",
+      "status": "pending"
     }
   ]
 }
