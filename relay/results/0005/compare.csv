@@ -1,0 +1,17 @@
+stem,has_reference,regen_shape,ref_shape,max_abs_diff,mean_abs_diff,pixels_differing,pdf_sha256_equal
+fig_benchmark_3d,True,2939x4440x4,2939x4440x4,0.0,0.0,0,False
+fig_principle_3d,True,2910x4440x4,2910x4440x4,0.0,0.0,0,False
+fig_workflow_3d,True,2789x4440x4,2789x4440x4,0.0,0.0,0,False
+graphical_abstract_ijepes,True,1085x2551x4,1085x2551x4,0.0,0.0,0,False
+ijepes_graphical_abstract,True,1085x2551x4,1085x2551x4,0.0,0.0,0,False
+涓€鍖烘帰绱graphical_abstract,False,,,,,,
+fig1_identifiability,True,,,,,not_regenerated,
+fig2_ip1_accuracy_speed,True,,,,,not_regenerated,
+fig3_robustness,True,,,,,not_regenerated,
+fig4_boed_sensor_placement,True,,,,,not_regenerated,
+fig5_scalability,True,,,,,not_regenerated,
+fig6_posterior_quality,True,,,,,not_regenerated,
+fig7_evidence_board,True,,,,,not_regenerated,
+fig8_experiment_landscape,True,,,,,not_regenerated,
+fig9_ablation_controls,True,,,,,not_regenerated,
+fig_noise_sensitivity,True,,,,,not_regenerated,
