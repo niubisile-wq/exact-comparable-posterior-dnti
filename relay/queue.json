@@ -18,6 +18,12 @@
       "title": "Regenerate figures and compare with committed figures",
       "path": "relay/tasks/0003/task.md",
       "status": "done"
+    },
+    {
+      "id": "0004",
+      "title": "Regenerate submission schematics and compare",
+      "path": "relay/tasks/0004/task.md",
+      "status": "pending"
     }
   ]
 }
