@@ -1,0 +1,5 @@
+task_id=0001
+source_commit=2c4ab4ca4277a5aad3575ca649daaaeea1e6c05d
+command=bash relay/tasks/0001/run.sh
+shell=Git Bash
+script_exit=0
