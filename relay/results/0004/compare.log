@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Documents\Codex\2026-11-07\main-8d8619a-paper-archive-readme-license\work\exact-comparable-posterior-dnti\relay\tasks\0003\compare.py", line 64, in <module>
+    w.writerow(r)
+  File "C:\Users\LENOVO\AppData\Local\Programs\Python\Python310\lib\csv.py", line 154, in writerow
+    return self.writer.writerow(self._dict_to_list(rowdict))
+UnicodeEncodeError: 'gbk' codec can't encode character '\u20ac' in position 1: illegal multibyte sequence

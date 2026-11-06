@@ -1,0 +1,6 @@
+stem,has_reference,regen_shape,ref_shape,max_abs_diff,mean_abs_diff,pixels_differing,pdf_sha256_equal
+fig_benchmark_3d,True,2939x4440x4,2939x4440x4,0.0,0.0,0,False
+fig_principle_3d,True,2910x4440x4,2910x4440x4,0.0,0.0,0,False
+fig_workflow_3d,True,2789x4440x4,2789x4440x4,0.0,0.0,0,False
+graphical_abstract_ijepes,True,1085x2551x4,1085x2551x4,0.0,0.0,0,False
+ijepes_graphical_abstract,True,1085x2551x4,1085x2551x4,0.0,0.0,0,False
