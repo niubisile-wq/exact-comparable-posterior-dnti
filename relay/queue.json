@@ -1,0 +1,11 @@
+{
+  "_comment": "Planner (Claude) writes tasks here. Executor (Codex) only updates the status field and appends results.",
+  "tasks": [
+    {
+      "id": "0001",
+      "title": "Repository health check (read-only)",
+      "path": "relay/tasks/0001/task.md",
+      "status": "pending"
+    }
+  ]
+}
